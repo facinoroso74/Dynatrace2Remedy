@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0  http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>it.reply.sytel.adr</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>frameEngineCore</artifactId>
+	<packaging>jar</packaging>
+	<name>ADR : frameEngineCore</name>
+		
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+				<archive>
+					<addMavenDescriptor>false</addMavenDescriptor>
+				</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<createChecksum>true</createChecksum>
+				</configuration>
+			</plugin>        	
+		</plugins>
+	</build>
+
+    <dependencies>
+
+		<dependency>
+			<groupId>Reply-OpenSourceVarious</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+	
+		 <dependency>
+            <groupId>Reply-Apache</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+	
+<!-- 		<dependency> -->
+<!-- 			<groupId>Reply-Exist</groupId> -->
+<!-- 			<artifactId>eai_commons</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<type>jar</type> -->
+<!-- 		</dependency> -->
+	
+<!-- 		<dependency> -->
+<!--             <groupId>Reply-Apache</groupId> -->
+<!--             <artifactId>commons-logging</artifactId> -->
+<!--             <version>1.1</version> -->
+<!--             <type>jar</type> -->
+<!--         </dependency> -->
+		
+		<dependency>
+			<groupId>it.reply.sytel.adr</groupId>
+			<artifactId>frameCommon</artifactId>
+		    <version>1.0</version>
+		</dependency>
+    </dependencies>
+    
+</project>

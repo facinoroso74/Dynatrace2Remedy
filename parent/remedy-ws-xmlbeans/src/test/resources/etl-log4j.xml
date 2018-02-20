@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log4j:configuration debug="false" threshold="all" xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender class="it.reply.sytel.flowapp.logging.EAIInMemoryDailyRollingFileAppender" name="ALL_LOGGER">
+		<param name="Append" value="false"/>
+		<param name="ImmediateFlush" value="true"/>
+		<param name="BufferedIO" value="false"/>
+		<param name="BufferSize" value="4096"/>
+        <param name="Encoding"   value="UTF-8"/>
+		<param name="DatePattern" value="yyyy-MM-dd-HH"/>
+		<param name="File" value="src/test/resources/ALL.$.log"/>
+		<layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{dd MMM yyyy HH:mm:ss,SSS}][%-5.5p][%X{TID}][%X{GSBUSINESSID}][%X{GSUID}][%X{GSMSISDN}][%X{THREADID}] %m %n"/>
+		</layout>
+	</appender>
+	
+    <logger additivity="false" name="it.reply.sytel.tictop">
+        <level value="DEBUG"/>
+        <appender-ref ref="ALL_LOGGER"/>
+    </logger>
+	
+</log4j:configuration>

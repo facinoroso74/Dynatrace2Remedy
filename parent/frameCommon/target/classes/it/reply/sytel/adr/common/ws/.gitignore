@@ -1,0 +1,12 @@
+/AuthSSLProtocolSocketFactory.class
+/AuthSSLX509TrustManager.class
+/GKConnectionKeepAliveStrategy.class
+/GKConnectionReuseStrategy.class
+/GKHttpRequestRetryHandler.class
+/HTTPClient.class
+/HttpClientProperties.class
+/HttpsClientProperties.class
+/IdleHTTPConnectionEvictor.class
+/IgnoreX509HostnameVerifier.class
+/SharedHTTPClient.class
+/SharedHTTPSClient.class

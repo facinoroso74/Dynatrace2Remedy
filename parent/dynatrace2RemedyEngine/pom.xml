@@ -1,0 +1,261 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0  http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+<!--   	<groupId>org.sonatype.mavenbook.custom</groupId> -->
+	<groupId>it.reply.sytel.adr</groupId>
+  	<artifactId>parent</artifactId>
+  	<version>1.0</version>
+  </parent>
+  
+  
+  <artifactId>dynatrace2RemedyEngine</artifactId>
+  <packaging>jar</packaging>
+  <name>ADR: dynatrace2RemedyEngine</name>
+ 
+  <properties>
+	<version.spring>3.0.5.RELEASE</version.spring>
+  </properties>
+    
+	<build>
+		 <resources>
+		 
+	      <resource>
+	        <directory>src/main/resources</directory>
+	        <excludes>
+	          <exclude>**/*.xml</exclude>
+	          <exclude>**/*.drl</exclude>
+	          <exclude>**/*.rf</exclude>
+	          <exclude>**/*.csv</exclude>
+	          <exclude>**/*.properties</exclude>
+<!-- 	          escludere le regole e i workflow -->
+	        </excludes>
+	      </resource>
+	   
+	       <resource>
+	        <directory>src/test/resources</directory>
+	        <excludes>
+	          <exclude>**/*.xml</exclude>
+	          <exclude>**/*.log</exclude>
+	        </excludes>
+	        </resource>
+	    </resources>
+	    
+<!-- utilizzare il seguente plugin aggiungendo il MAiN class nel manifes -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+				<archive>
+					<manifest>
+						  <mainClass>it.reply.sytel.rma.main.TestMain</mainClass>
+					</manifest>
+					<addMavenDescriptor>false</addMavenDescriptor>
+				</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<createChecksum>true</createChecksum>
+				</configuration>
+			</plugin>        	
+		</plugins>
+
+	</build>
+
+    <dependencies>
+
+		<dependency>
+			<groupId>it.reply.sytel.adr</groupId>
+			<artifactId>frameCommon</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.reply.sytel.adr</groupId>
+			<artifactId>frameEngineCore</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.reply.sytel.adr</groupId>
+			<artifactId>incidentDataModel</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+		</dependency>
+		
+		 <dependency>
+            <groupId>it.reply.sytel.adr</groupId>
+			<artifactId>remedy-ws-xmlbeans</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+        </dependency>	
+				
+		 <dependency>
+            <groupId>it.reply.sytel.adr</groupId>
+			<artifactId>dynatrace-ws-xmlbeans</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+        </dependency>	
+        
+		<dependency>
+            <groupId>Reply-OpenSourceVarious</groupId>
+            <artifactId>jaxen</artifactId>
+            <version>1.1.1</version>
+            <type>jar</type>
+        </dependency>
+		
+		
+        <!-- Spring -->
+		
+		<dependency>
+            <groupId>Reply-Springframework</groupId>
+            <artifactId>spring-dao</artifactId>
+            <version>2.0.8</version>
+            <type>jar</type>
+        </dependency>
+		<dependency>
+            <groupId>Reply-Springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${version.spring}</version>
+            <type>jar</type>
+        </dependency>
+         <dependency>
+            <groupId>Reply-Springframework</groupId>
+            <artifactId>spring-asm</artifactId>
+            <version>${version.spring}</version>
+            <type>jar</type>
+        </dependency>
+         <dependency>
+            <groupId>Reply-Springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${version.spring}</version>
+            <type>jar</type>
+        </dependency>
+         <dependency>
+            <groupId>Reply-Springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${version.spring}</version>
+            <type>jar</type>
+        </dependency>
+         <dependency>
+            <groupId>Reply-Springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${version.spring}</version>
+            <type>jar</type>
+        </dependency>
+         <dependency>
+            <groupId>Reply-Springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${version.spring}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>Reply-Springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>${version.spring}</version>
+            <type>jar</type>
+        </dependency>
+        
+        
+<!--         <dependency> -->
+<!--             <groupId>Reply-OpenSourceVarious</groupId> -->
+<!--             <artifactId>commons-dbcp</artifactId> -->
+<!--             <version>1.4</version> -->
+<!--         </dependency>  -->
+
+        
+        <!-- log4j -->
+       <dependency>
+            <groupId>Reply-Apache</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+            <type>jar</type>    
+        </dependency>
+               
+         <dependency>
+			<groupId>Reply-OpenSourceVarious</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+			<type>jar</type>
+		</dependency>
+		
+        <dependency>
+			<groupId>Reply-OpenSourceVarious</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+			<type>jar</type>
+		</dependency>
+		
+		 <dependency>
+            <groupId>Reply-Apache</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1</version>
+            <type>jar</type>
+        </dependency>
+	     	     
+	    <dependency>
+            <groupId>Reply-FlowApp</groupId>
+            <artifactId>flowapp-lib-foundation</artifactId>
+            <version>2.0</version>
+            <type>jar</type>
+            
+        </dependency>
+   
+		<dependency>
+            <groupId>Reply-Apache</groupId>
+            <artifactId>commons-pool</artifactId>
+            <version>1.5.4</version>
+            <type>jar</type>
+        </dependency>
+					
+		<dependency>
+            <groupId>Reply-Apache</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.0</version>
+            <type>jar</type>
+        </dependency>
+        
+        <!--  -->
+        
+        <dependency>
+            <groupId>Reply-Apache</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.1</version>
+            <type>jar</type>
+        </dependency>
+        
+        <dependency>
+            <groupId>Reply-Apache</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.1</version>
+            <type>jar</type>
+        </dependency>	
+     	        
+     	<dependency>
+            <groupId>Reply-Apache</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.14.1.0</version>
+            <type>jar</type>
+        </dependency>	
+        <dependency>
+            <groupId>Reply-Apache</groupId>
+            <artifactId>derbytools</artifactId>
+            <version>10.14.1.0</version>
+            <type>jar</type>
+        </dependency>
+         <dependency>
+            <groupId>Reply-Apache</groupId>
+            <artifactId>derbyclient</artifactId>
+            <version>10.14.1.0</version>
+            <type>jar</type>
+        </dependency>
+     </dependencies>
+   	
+</project>

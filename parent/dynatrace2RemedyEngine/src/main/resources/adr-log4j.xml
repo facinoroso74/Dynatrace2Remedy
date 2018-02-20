@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log4j:configuration debug="false" threshold="all" xmlns:log4j="http://jakarta.apache.org/log4j/">
+   
+   
+<!-- 	<appender class="it.reply.sytel.flowapp.logging.EAIInMemoryDailyRollingFileAppender" name="ALL_LOGGER"> -->
+<!-- 		<param name="Append" value="false"/> -->
+<!-- 		<param name="ImmediateFlush" value="true"/> -->
+<!-- 		<param name="BufferedIO" value="false"/> -->
+<!-- 		<param name="BufferSize" value="4096"/> -->
+<!--         <param name="Encoding"   value="UTF-8"/> -->
+<!-- 		<param name="DatePattern" value="yyyy-MM-dd-HH"/> -->
+<!-- 		<param name="File" value="src/test/resources/ALL.$.log"/> -->
+<!-- 		<layout class="org.apache.log4j.PatternLayout"> -->
+<!--             <param name="ConversionPattern" value="[%d{dd MMM yyyy HH:mm:ss,SSS}][%-5.5p][%X{TID}][%X{GSBUSINESSID}][%X{GSUID}][%X{GSMSISDN}][%X{THREADID}] %m %n"/> -->
+<!-- 		</layout> -->
+<!-- 	</appender> -->
+	
+		
+<!--     <logger additivity="false" name="it.reply.sytel.rma"> -->
+<!--         <level value="DEBUG"/> -->
+<!--         <appender-ref ref="ALL_LOGGER"/> -->
+<!--     </logger> -->
+	
+<!-- 	<appender name="console" class="org.apache.log4j.ConsoleAppender">  -->
+<!-- 	    <param name="Target" value="System.out"/>  -->
+<!-- 	    <layout class="org.apache.log4j.PatternLayout">  -->
+<!-- 	      <param name="ConversionPattern" value="%-5p %c{1} - %m%n"/>  -->
+<!-- 	    </layout>  -->
+<!--   	</appender>  -->
+
+	<appender name="console" class="org.apache.log4j.ConsoleAppender"> 
+	    <param name="Target" value="System.out"/> 
+	    <layout class="org.apache.log4j.PatternLayout"> 
+	      <param name="ConversionPattern" value="%-5p %c{1} - %m%n"/> 
+	    </layout> 
+  	</appender> 	
+  
+	<appender name="ALL_LOGGER" class="org.apache.log4j.FileAppender">
+		<param name="file" value="src/test/resources/Connector.log"/>
+	   	<param name="immediateFlush" value="true"/>
+	   	<param name="threshold" value="debug"/>
+	   	<param name="append" value="false"/>
+	   	<layout class="org.apache.log4j.PatternLayout">
+	    	<param name="conversionPattern" value="[%d{dd MMM yyyy HH:mm:ss,SSS}][%-5.5p][%X{TID}][%X{THREADID}] %m %n"/>
+	   	</layout>
+	</appender>
+
+ 	<logger additivity="false" name="it.reply.sytel.adr">
+        <level value="DEBUG"/>
+        <appender-ref ref="ALL_LOGGER"/>
+        <appender-ref ref="console"/>
+  	</logger>
+   
+ 	
+</log4j:configuration>

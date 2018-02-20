@@ -1,0 +1,15 @@
+[19 feb 2018 12:20:03,660][DEBUG][][] getting the inputStream from fileName:[ADR.properties] 
+[19 feb 2018 12:20:03,660][DEBUG][][] Configuration DONE 
+[19 feb 2018 12:20:03,754][INFO ][0AEF1C955A8AB2E30001DA79][1] Flow RemedyIncidentdBuilder Engine Called... 
+[19 feb 2018 12:20:03,754][INFO ][0AEF1C955A8AB2E30001DA79][1] service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ...  
+[19 feb 2018 12:20:03,754][DEBUG][0AEF1C955A8AB2E30001DA79][1] the URL for app:[ADBM] is [https://TEST_SERVER:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] 
+[19 feb 2018 12:20:03,754][DEBUG][0AEF1C955A8AB2E30001DA79][1] the URL for app:[TAXI] is [https://TEST_SERVER:8021/rest/management/dashboard/TAXI_TEST_REMEDY_INTEGRATION] 
+[19 feb 2018 12:20:03,754][DEBUG][0AEF1C955A8AB2E30001DA79][1] the URL for app:[BOL] is [https://TEST_SERVER:8021/rest/management/dashboard/BOL_TEST_REMEDY_INTEGRATION] 
+[19 feb 2018 12:20:07,000][DEBUG][0AEF1C955A8AB2E30001DA79][1] Updated 1 rows 
+[19 feb 2018 12:20:07,000][DEBUG][0AEF1C955A8AB2E30001DA79][1] Incident inserted 
+[19 feb 2018 12:20:07,000][INFO ][0AEF1C955A8AB2E30001DA79][1] Service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ... DONE with ServiceExecutionTime:[3246] 
+[19 feb 2018 12:20:07,000][INFO ][0AEF1C955A8AB2E30001DA79][1] service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ...  
+[19 feb 2018 12:20:07,000][INFO ][0AEF1C955A8AB2E30001DA79][1] Service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ... DONE with ServiceExecutionTime:[0] 
+[19 feb 2018 12:20:07,000][INFO ][0AEF1C955A8AB2E30001DA79][1] service:[it.reply.sytel.adr.services.impl.CloseRemedyIncident] called ...  
+[19 feb 2018 12:20:07,000][INFO ][0AEF1C955A8AB2E30001DA79][1] Service:[it.reply.sytel.adr.services.impl.CloseRemedyIncident] called ... DONE with ServiceExecutionTime:[0] 
+[19 feb 2018 12:20:07,000][INFO ][0AEF1C955A8AB2E30001DA79][1] Flow RemedyIncidentdBuilder Engine executed with ExecutionTime (3246) 

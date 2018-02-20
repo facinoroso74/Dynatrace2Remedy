@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" >
+<beans>
+
+<!-- 	<bean id="DB2DataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" > -->
+<!--         <property name="driverClassName"> -->
+<!--         	<value>com.ibm.db2.jcc.DB2Driver</value> -->
+<!--         </property> -->
+<!--         <property name="url"> -->
+<!--             <value>jdbc:db2://10.133.1.110:33009/SG01D1AC</value> -->
+<!--         </property> -->
+<!--         <property name="username"> -->
+<!--         	<value>E101157</value> -->
+<!--         </property> -->
+<!--         <property name="password"> -->
+<!--         	<value>PA66TEST</value> -->
+<!--         </property> -->
+<!--     </bean> -->
+    
+<!--     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> -->
+<!-- 		<property name="dataSource"> -->
+<!-- 			<ref bean="DB2DataSource"/> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	
+	<!-- DAO -->
+	
+<!-- 	<bean id="testCaseDAO" class="it.reply.sytel.rma.dao.impl.TestCaseDaoImpl"> -->
+<!--     	<property name="jdbcTemplate"> -->
+<!--     		<ref bean="jdbcTemplate"/> -->
+<!--     	</property> -->
+<!--     	<property name="schemaName"> -->
+<!--     		<value>TXT1</value> -->
+<!--     	</property> -->
+<!-- 	</bean> -->
+	
+	
+	<bean id="incidentDAO" class="it.reply.sytel.adr.dao.impl.IncidentDAOImpl"> 
+<!--     	<property name="jdbcTemplate"> -->
+<!--     		<ref bean="jdbcTemplate"/> -->
+<!--     	</property> -->
+<!--     	<property name="schemaName"> -->
+<!--     		<value>TXT1</value> -->
+<!--     	</property> -->
+	</bean>
+
+	<!-- Services Context -->
+	
+	<bean id="configResourceFile" class="it.reply.sytel.adr.common.resource.imp.ResourceFile">
+		<property name="fileName">
+			<value>ADR.properties</value>
+		</property>
+	</bean>
+	
+
+	<bean id="configServicesFile" class="it.reply.sytel.adr.configuration.ConfigServicesFile" init-method="init">
+		<property name="resource">
+			<ref bean="configResourceFile"/>
+		</property>
+	</bean>
+	
+	<bean id="serviceContext" class="it.reply.sytel.adr.core.services.context.impl.ServiceContextImpl">
+		<property name="daoConfig">
+			<ref bean="configServicesFile" />
+		</property>
+	</bean>
+	
+	<!-- Services-->
+			
+	<bean id="getDynatraceIncident" class="it.reply.sytel.adr.services.impl.GetDynatraceIncident" lazy-init="true">
+		<property name="context">
+			<ref bean="serviceContext" />
+		</property>
+			<property name="incidentDAO">
+				<ref bean="incidentDAO" />	
+			</property>
+	</bean>
+	
+	<bean id="createRemedyIncident" class="it.reply.sytel.adr.services.impl.CreateRemedyIncident" lazy-init="true">
+<!-- 		<property name="context"> -->
+<!-- 			<ref bean="serviceContext" /> -->
+<!-- 		</property> -->
+	</bean>
+	
+	<bean id="closeRemedyIncident" class="it.reply.sytel.adr.services.impl.CloseRemedyIncident" lazy-init="true">
+<!-- 		<property name="context"> -->
+<!-- 			<ref bean="serviceContext" /> -->
+<!-- 		</property> -->
+	</bean>
+	
+	<!-- engine -->
+	<bean id="remedyIncidetBuilderEngine" class="it.reply.sytel.adr.engine.RemedyIncidetBuilderEngine" lazy-init="true">
+		<property name="createRemedyIncident">
+			<ref bean="createRemedyIncident"/>
+		</property>
+		<property name="getDynatraceIncident">
+			<ref bean="getDynatraceIncident"/>
+		</property>
+		
+		<property name="closeRemedyIncident">
+			<ref bean="closeRemedyIncident"/>
+		</property>
+		
+	</bean>
+	
+</beans>
