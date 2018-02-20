@@ -1,15 +1,188 @@
-[19 feb 2018 12:20:03,660][DEBUG][][] getting the inputStream from fileName:[ADR.properties] 
-[19 feb 2018 12:20:03,660][DEBUG][][] Configuration DONE 
-[19 feb 2018 12:20:03,754][INFO ][0AEF1C955A8AB2E30001DA79][1] Flow RemedyIncidentdBuilder Engine Called... 
-[19 feb 2018 12:20:03,754][INFO ][0AEF1C955A8AB2E30001DA79][1] service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ...  
-[19 feb 2018 12:20:03,754][DEBUG][0AEF1C955A8AB2E30001DA79][1] the URL for app:[ADBM] is [https://TEST_SERVER:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] 
-[19 feb 2018 12:20:03,754][DEBUG][0AEF1C955A8AB2E30001DA79][1] the URL for app:[TAXI] is [https://TEST_SERVER:8021/rest/management/dashboard/TAXI_TEST_REMEDY_INTEGRATION] 
-[19 feb 2018 12:20:03,754][DEBUG][0AEF1C955A8AB2E30001DA79][1] the URL for app:[BOL] is [https://TEST_SERVER:8021/rest/management/dashboard/BOL_TEST_REMEDY_INTEGRATION] 
-[19 feb 2018 12:20:07,000][DEBUG][0AEF1C955A8AB2E30001DA79][1] Updated 1 rows 
-[19 feb 2018 12:20:07,000][DEBUG][0AEF1C955A8AB2E30001DA79][1] Incident inserted 
-[19 feb 2018 12:20:07,000][INFO ][0AEF1C955A8AB2E30001DA79][1] Service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ... DONE with ServiceExecutionTime:[3246] 
-[19 feb 2018 12:20:07,000][INFO ][0AEF1C955A8AB2E30001DA79][1] service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ...  
-[19 feb 2018 12:20:07,000][INFO ][0AEF1C955A8AB2E30001DA79][1] Service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ... DONE with ServiceExecutionTime:[0] 
-[19 feb 2018 12:20:07,000][INFO ][0AEF1C955A8AB2E30001DA79][1] service:[it.reply.sytel.adr.services.impl.CloseRemedyIncident] called ...  
-[19 feb 2018 12:20:07,000][INFO ][0AEF1C955A8AB2E30001DA79][1] Service:[it.reply.sytel.adr.services.impl.CloseRemedyIncident] called ... DONE with ServiceExecutionTime:[0] 
-[19 feb 2018 12:20:07,000][INFO ][0AEF1C955A8AB2E30001DA79][1] Flow RemedyIncidentdBuilder Engine executed with ExecutionTime (3246) 
+[20 feb 2018 18:33:49,451][DEBUG][][] calling the console:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] with user[Remedy_Integration] pwd=remedy... 
+[20 feb 2018 18:33:54,403][DEBUG][][] calling the console:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] with user[Remedy_Integration] pwd=remedy... DONE elapsed:[4952] 
+[20 feb 2018 18:33:54,403][DEBUG][][] content:[<?xml version="1.0" encoding="utf-8"?>
+<dashboardreport name="IncidentDashboard" version="7.0.10.1010" reportdate="2018-02-20T18:40:39.303+01:00" description="">
+  <source name="dynaTrace Self-Monitoring">
+    <filters summary="last 30 minutes (auto)">
+      <filter>tf:DiagnoseTimeframe?1519146639303:1519148439303</filter>
+    </filters>
+  </source>
+  <data>
+    <incidentsoverviewdashlet name="Incidents" description="" displaysource="Base">
+      <incidentoverviewrecords structuretype="tree">
+        <incidentoverviewrecord name="dynaTrace Self-Monitoring (3)">
+          <incidentoverviewrecord name="Agent capturing disabled"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Agent Instrumentation Disabled"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Ambiguous Agent Mapping"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Application Process Out-of-Memory"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Application Process Shutdown"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Application Process Unavailable (unexpected)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Application Process Unhealthy"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Collector Not Connected (unexpected)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Conflicting Agent JVM Options"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Continuous transaction recording was aborted"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Corrupted PurePath(s)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="CPU Core Number insufficient"></incidentoverviewrecord>
+          <incidentoverviewrecord name="CPU Frequency insufficient (1)">
+            <incidentoverviewrecord name="The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz." start="2018-02-06T13:27:01.616+01:00" source="-" session="-"></incidentoverviewrecord>
+          </incidentoverviewrecord>
+          <incidentoverviewrecord name="Custom Events"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Database Agent Connection Issue"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Database Version Unsupported By Database Agent"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Deployment"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Different Sizing on Backend and Frontend"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Dynatrace Frontendserver Offline"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Dynatrace Server Offline"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Dynatrace Server Offline (unexpected)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Elasticsearch Connector Errors (Backend)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Elasticsearch Connector Errors (Frontend)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Elasticsearch Connector Skipped Documents (Backend)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Elasticsearch Connector Skipped Documents (Frontend)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Energy Saving Mode active"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Failure rate too high"></incidentoverviewrecord>
+          <incidentoverviewrecord name="File Session Management"></incidentoverviewrecord>
+          <incidentoverviewrecord name="High Overall Failed Page Action Rate"></incidentoverviewrecord>
+          <incidentoverviewrecord name="High Overall Failed Transaction Rate"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Insufficient Database Agent Privileges"></incidentoverviewrecord>
+          <incidentoverviewrecord name="License"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Low Collector Disk Space"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Low Collector Memory"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Low Dynatrace Server Memory"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Low Frontendserver Memory"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Maximum count of measures reached"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Performance Warehouse"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Performance Warehouse - Switching Temp Tables Time"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Performance Warehouse - Writing Measurements Time (severe)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Performance Warehouse - Writing Measurements Time (warning)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Performance Warehouse - Writing Percentiles Time (severe)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Performance Warehouse - Writing Percentiles Time (warning)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Performance Warehouse Clean-Up"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Performance Warehouse Event Summary"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Performance Warehouse Import"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Performance Warehouse Import Ongoing"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Performance Warehouse Offline"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Physical Memory insufficient"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Port Conflict"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Potentially stuck Java VM detected"></incidentoverviewrecord>
+          <incidentoverviewrecord name="PureLytics skipped data"></incidentoverviewrecord>
+          <incidentoverviewrecord name="PureLytics skipped queue entries"></incidentoverviewrecord>
+          <incidentoverviewrecord name="PureLytics Stream skipped queue entries"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Response time degraded"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Response time degraded for slow requests"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Scheduled Task Execution Failed"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Synthetic Monitoring Integration"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Test Violation"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Timed Out PurePath(s)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Truncated PurePath(s)"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Unsupported Sizing"></incidentoverviewrecord>
+          <incidentoverviewrecord name="VMware - CPU MHz Limit too low"></incidentoverviewrecord>
+          <incidentoverviewrecord name="VMware - High CPU ready time"></incidentoverviewrecord>
+          <incidentoverviewrecord name="VMware - Hypervisor Swapping detected"></incidentoverviewrecord>
+          <incidentoverviewrecord name="VMware - Memory Ballooning detected"></incidentoverviewrecord>
+          <incidentoverviewrecord name="VMware - Memory Limit too low"></incidentoverviewrecord>
+          <incidentoverviewrecord name="VMware - No CPU MHz reserved (1)">
+            <incidentoverviewrecord name="No CPU MHz reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"></incidentoverviewrecord>
+          </incidentoverviewrecord>
+          <incidentoverviewrecord name="VMware - No Memory reserved (1)">
+            <incidentoverviewrecord name="No Memory reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"></incidentoverviewrecord>
+          </incidentoverviewrecord>
+          <incidentoverviewrecord name="VMware - Reserved CPU MHz insufficient"></incidentoverviewrecord>
+          <incidentoverviewrecord name="VMware - Reserved Memory insufficient"></incidentoverviewrecord>
+        </incidentoverviewrecord>
+      </incidentoverviewrecords>
+    </incidentsoverviewdashlet>
+  </data>
+</dashboardreport>
+] 
+[20 feb 2018 18:33:54,953][DEBUG][][] dashboardreportDocument.xmlText():[<dashboardreport name="IncidentDashboard" version="7.0.10.1010" reportdate="2018-02-20T18:40:39.303+01:00" description="">
+  <source name="dynaTrace Self-Monitoring">
+    <filters summary="last 30 minutes (auto)">
+      <filter>tf:DiagnoseTimeframe?1519146639303:1519148439303</filter>
+    </filters>
+  </source>
+  <data>
+    <incidentsoverviewdashlet name="Incidents" description="" displaysource="Base">
+      <incidentoverviewrecords structuretype="tree">
+        <incidentoverviewrecord name="dynaTrace Self-Monitoring (3)">
+          <incidentoverviewrecord name="Agent capturing disabled"/>
+          <incidentoverviewrecord name="Agent Instrumentation Disabled"/>
+          <incidentoverviewrecord name="Ambiguous Agent Mapping"/>
+          <incidentoverviewrecord name="Application Process Out-of-Memory"/>
+          <incidentoverviewrecord name="Application Process Shutdown"/>
+          <incidentoverviewrecord name="Application Process Unavailable (unexpected)"/>
+          <incidentoverviewrecord name="Application Process Unhealthy"/>
+          <incidentoverviewrecord name="Collector Not Connected (unexpected)"/>
+          <incidentoverviewrecord name="Conflicting Agent JVM Options"/>
+          <incidentoverviewrecord name="Continuous transaction recording was aborted"/>
+          <incidentoverviewrecord name="Corrupted PurePath(s)"/>
+          <incidentoverviewrecord name="CPU Core Number insufficient"/>
+          <incidentoverviewrecord name="CPU Frequency insufficient (1)">
+            <incidentoverviewrecord name="The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz." start="2018-02-06T13:27:01.616+01:00" source="-" session="-"/>
+          </incidentoverviewrecord>
+          <incidentoverviewrecord name="Custom Events"/>
+          <incidentoverviewrecord name="Database Agent Connection Issue"/>
+          <incidentoverviewrecord name="Database Version Unsupported By Database Agent"/>
+          <incidentoverviewrecord name="Deployment"/>
+          <incidentoverviewrecord name="Different Sizing on Backend and Frontend"/>
+          <incidentoverviewrecord name="Dynatrace Frontendserver Offline"/>
+          <incidentoverviewrecord name="Dynatrace Server Offline"/>
+          <incidentoverviewrecord name="Dynatrace Server Offline (unexpected)"/>
+          <incidentoverviewrecord name="Elasticsearch Connector Errors (Backend)"/>
+          <incidentoverviewrecord name="Elasticsearch Connector Errors (Frontend)"/>
+          <incidentoverviewrecord name="Elasticsearch Connector Skipped Documents (Backend)"/>
+          <incidentoverviewrecord name="Elasticsearch Connector Skipped Documents (Frontend)"/>
+          <incidentoverviewrecord name="Energy Saving Mode active"/>
+          <incidentoverviewrecord name="Failure rate too high"/>
+          <incidentoverviewrecord name="File Session Management"/>
+          <incidentoverviewrecord name="High Overall Failed Page Action Rate"/>
+          <incidentoverviewrecord name="High Overall Failed Transaction Rate"/>
+          <incidentoverviewrecord name="Insufficient Database Agent Privileges"/>
+          <incidentoverviewrecord name="License"/>
+          <incidentoverviewrecord name="Low Collector Disk Space"/>
+          <incidentoverviewrecord name="Low Collector Memory"/>
+          <incidentoverviewrecord name="Low Dynatrace Server Memory"/>
+          <incidentoverviewrecord name="Low Frontendserver Memory"/>
+          <incidentoverviewrecord name="Maximum count of measures reached"/>
+          <incidentoverviewrecord name="Performance Warehouse"/>
+          <incidentoverviewrecord name="Performance Warehouse - Switching Temp Tables Time"/>
+          <incidentoverviewrecord name="Performance Warehouse - Writing Measurements Time (severe)"/>
+          <incidentoverviewrecord name="Performance Warehouse - Writing Measurements Time (warning)"/>
+          <incidentoverviewrecord name="Performance Warehouse - Writing Percentiles Time (severe)"/>
+          <incidentoverviewrecord name="Performance Warehouse - Writing Percentiles Time (warning)"/>
+          <incidentoverviewrecord name="Performance Warehouse Clean-Up"/>
+          <incidentoverviewrecord name="Performance Warehouse Event Summary"/>
+          <incidentoverviewrecord name="Performance Warehouse Import"/>
+          <incidentoverviewrecord name="Performance Warehouse Import Ongoing"/>
+          <incidentoverviewrecord name="Performance Warehouse Offline"/>
+          <incidentoverviewrecord name="Physical Memory insufficient"/>
+          <incidentoverviewrecord name="Port Conflict"/>
+          <incidentoverviewrecord name="Potentially stuck Java VM detected"/>
+          <incidentoverviewrecord name="PureLytics skipped data"/>
+          <incidentoverviewrecord name="PureLytics skipped queue entries"/>
+          <incidentoverviewrecord name="PureLytics Stream skipped queue entries"/>
+          <incidentoverviewrecord name="Response time degraded"/>
+          <incidentoverviewrecord name="Response time degraded for slow requests"/>
+          <incidentoverviewrecord name="Scheduled Task Execution Failed"/>
+          <incidentoverviewrecord name="Synthetic Monitoring Integration"/>
+          <incidentoverviewrecord name="Test Violation"/>
+          <incidentoverviewrecord name="Timed Out PurePath(s)"/>
+          <incidentoverviewrecord name="Truncated PurePath(s)"/>
+          <incidentoverviewrecord name="Unsupported Sizing"/>
+          <incidentoverviewrecord name="VMware - CPU MHz Limit too low"/>
+          <incidentoverviewrecord name="VMware - High CPU ready time"/>
+          <incidentoverviewrecord name="VMware - Hypervisor Swapping detected"/>
+          <incidentoverviewrecord name="VMware - Memory Ballooning detected"/>
+          <incidentoverviewrecord name="VMware - Memory Limit too low"/>
+          <incidentoverviewrecord name="VMware - No CPU MHz reserved (1)">
+            <incidentoverviewrecord name="No CPU MHz reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"/>
+          </incidentoverviewrecord>
+          <incidentoverviewrecord name="VMware - No Memory reserved (1)">
+            <incidentoverviewrecord name="No Memory reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"/>
+          </incidentoverviewrecord>
+          <incidentoverviewrecord name="VMware - Reserved CPU MHz insufficient"/>
+          <incidentoverviewrecord name="VMware - Reserved Memory insufficient"/>
+        </incidentoverviewrecord>
+      </incidentoverviewrecords>
+    </incidentsoverviewdashlet>
+  </data>
+</dashboardreport>] 

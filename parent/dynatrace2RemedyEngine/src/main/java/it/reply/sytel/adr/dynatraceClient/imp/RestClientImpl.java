@@ -1,83 +1,88 @@
-package it.reply.sytel.adr.dynatraceClient;
+package it.reply.sytel.adr.dynatraceClient.imp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
-public class RestClient {
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.log4j.Logger;
+import org.apache.xmlbeans.XmlException;
+import org.jboss.security.Base64Encoder;
 
+import it.reply.sytel.adr.common.log.EtlLogger;
+import it.reply.sytel.adr.dynatraceClient.RestClient;
+import it.reply.sytel.adr.dynatraceClient.exc.RestClientException;
+import noNamespace.DashboardreportDocument;
 
+public class RestClientImpl implements RestClient{
+
+	private Logger log =EtlLogger.getLogger(getClass());
 	
-	protected void invokeHttpGet(String httpString,String user,String password){
+	public String invokeRestService(String httpString,String user,String password){
+
+		BufferedReader rd =null;
 		
-//		try{
-//			HTTPClient client = new DefaultHttpClient();
-//			String encoding = Base64Encoder.encode (user+":"+password);
-//			HttpGet httppost = new HttpGet(httpString);
-//			httppost.setHeader("Authorization", "Basic " + encoding);
-//
-//			HttpResponse response = client.execute(httppost);
-//			HttpEntity entity = response.getEntity();
-//			
-//			BufferedReader rd = new BufferedReader (new InputStreamReader(entity.getContent()));
-//			
-//			String line = "";
-//			StringBuffer content=new StringBuffer();
-//			
-//			if(log.isDebugEnabled())
-//				log.debug("print the rule. ------------------ BEGIN -------------------------");
-//			
-//			while ((line = rd.readLine()) != null) {
-//				
-//				content.append(line).append("\n");
-//			}
-//			
-//			if(content.toString().length()!=0)
-//				writeFile(ruleFile,content.toString());
-//			
-//			if(log.isDebugEnabled())
-//				log.debug("print the rule. ------------------ END -------------------------");
-//			
-//			rd.close();
-//			
-//		}catch (Exception e) {
-//			throw new RestClientException("Exception on invoking the http:["+httpString+"] for ruleName:["+ruleFile+"]",e);
-//		}
-//		
-		
-		try {
+		try{
+			long before = System.currentTimeMillis();
 			
-			//URL url = new URL("http://localhost:8080/RESTfulExample/json/product/get");
-			URL url = new URL("http://localhost:8080/RESTfulExample/json/product/get");
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			conn.setRequestMethod("GET");
-			//conn.setRequestProperty("Accept", "application/json");
-			conn.setRequestProperty("Accept", "application/xml");
+			if(log.isDebugEnabled())
+				log.debug("calling the console:["+httpString+"] with user["+user+"] pwd="+password+"...");
 			
-			if (conn.getResponseCode() != 200) {
-				throw new RuntimeException("Failed : HTTP error code : "
-						+ conn.getResponseCode());
+			HttpClient client = new DefaultHttpClient();
+			String encoding = Base64Encoder.encode (user+":"+password);
+			HttpGet httppost = new HttpGet(httpString);
+			httppost.setHeader("Authorization", "Basic " + encoding);
+			
+			HttpResponse response = client.execute(httppost);
+			HttpEntity entity = response.getEntity();
+
+			rd = new BufferedReader (new InputStreamReader(entity.getContent()));
+			
+			String line = "";
+			StringBuffer content=new StringBuffer();
+						
+			long after= System.currentTimeMillis();
+			long elapsed=after-before;
+
+			if(log.isDebugEnabled())
+				log.debug("calling the console:["+httpString+"] with user["+user+"] pwd="+password+"... DONE elapsed:["+elapsed+"]");
+			
+			while ((line = rd.readLine()) != null) {
+				content.append(line).append("\n");
 			}
 			
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-				(conn.getInputStream())));
-			
-			String output;
-			System.out.println("Output from Server .... \n");
-			while ((output = br.readLine()) != null) {
-				System.out.println(output);
+			if(content.toString().length()!=0) {
+				if(log.isDebugEnabled())
+					log.debug("content:["+content.toString()+"]");
 			}
 			
-			conn.disconnect();
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
+			return content.toString(); 
+			
+		}catch (Exception e) {
+			throw new RestClientException("Exception on invoking the http:["+httpString+"]",e);
+		}finally {
+			if(rd!=null)
+				try {
+					rd.close();
+				} catch (IOException e) {
+					throw new RestClientException("Exception on closing the buffer reader for http:["+httpString+"]",e);
+				}
 		}
+	}
+	
+	
+	
+
+
+	public static void main(String[] args) {
+		RestClientImpl restClient = new RestClientImpl();
+		//restClient.invokeHttpGet("", "", "");
+		restClient.invokeRestService("https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard", "Remedy_Integration", "remedy");
+		
 	}
 
 }

@@ -5,13 +5,12 @@
 package it.reply.sytel.adr.core.services.service;
 
 
-import it.reply.sytel.adr.common.log.EtlLogger;
-import it.reply.sytel.adr.core.services.context.ServiceContext;
-import it.reply.sytel.adr.core.services.enviromnent.Enviromnent;
-
 import java.util.Date;
 
 import org.apache.log4j.Logger;
+
+import it.reply.sytel.adr.core.services.context.ServiceContext;
+import it.reply.sytel.adr.core.services.enviromnent.Enviromnent;
 
 
 
