@@ -1,8 +1,6 @@
+/TypeSystemHolder.class
 /actorattribute.xsb
 /actorc0aaattrtypetype.xsb
-/workinfosourcetype98fatype.xsb
-/workinfotypetype2099type.xsb
-/workinfoviewaccesstypeba25type.xsb
 /adrbetype41eftype.xsb
 /authenticationinfo7388type.xsb
 /authenticationinfobd98doctype.xsb
@@ -10,7 +8,6 @@
 /body086btype.xsb
 /bodyea7bdoctype.xsb
 /bodyelement.xsb
-/TypeSystemHolder.class
 /classetype8309type.xsb
 /createinputmapab10type.xsb
 /createoutputmapf44ftype.xsb
@@ -42,3 +39,6 @@
 /statusreasontype45bbtype.xsb
 /statustype998etype.xsb
 /urgencytype4af3type.xsb
+/workinfosourcetype98fatype.xsb
+/workinfotypetype2099type.xsb
+/workinfoviewaccesstypeba25type.xsb
