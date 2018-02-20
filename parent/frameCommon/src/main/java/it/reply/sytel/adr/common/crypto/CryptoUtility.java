@@ -16,7 +16,8 @@ public class CryptoUtility {
 			char[] returnValue = (char[])privateStringMethod.invoke(new SecureIdentityLoginModule(), password);
 			    
 			return String.valueOf(returnValue);
-							
+				
+			
 		} catch (Exception e) {
 			throw new CryptoException("Exception on decrypting the password:["+password+"]",e);
 		}
