@@ -9,4 +9,6 @@ public interface DynatraceClient {
 
 	//metodo per restituire una mappa di oggetti dopo aver scansionato la risposta della chiamata REST
 	public Map<DynatraceIncidentKey, DynatraceIncident> getDynatraceIncidents(String appUrl,String user,String pwd);
+	public RestClient getRestClient();
+	public void setRestClient(RestClient restClient);
 }

@@ -10,13 +10,11 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.log4j.Logger;
-import org.apache.xmlbeans.XmlException;
 import org.jboss.security.Base64Encoder;
 
 import it.reply.sytel.adr.common.log.EtlLogger;
 import it.reply.sytel.adr.dynatraceClient.RestClient;
 import it.reply.sytel.adr.dynatraceClient.exc.RestClientException;
-import noNamespace.DashboardreportDocument;
 
 public class RestClientImpl implements RestClient{
 
@@ -81,7 +79,7 @@ public class RestClientImpl implements RestClient{
 	public static void main(String[] args) {
 		RestClientImpl restClient = new RestClientImpl();
 		//restClient.invokeHttpGet("", "", "");
-		restClient.invokeRestService("https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard", "Remedy_Integration", "remedy");
+		String content = restClient.invokeRestService("https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard", "Remedy_Integration", "remedy");
 		
 	}
 

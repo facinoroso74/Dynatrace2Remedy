@@ -26,6 +26,7 @@ import it.reply.sytel.adr.common.resource.Resource;
 import it.reply.sytel.adr.constants.ADRConstants;
 import it.reply.sytel.adr.core.dao.configuration.ConfigurationService;
 import it.reply.sytel.adr.core.dao.exception.ConfigurationException;
+import it.reply.sytel.adr.vo.AppProperty;
 
 /**
  * @author MPantaleone
@@ -40,12 +41,18 @@ public class ConfigServicesFile implements ConfigurationService {
 	private Map<String,Object> map;
     
 	
-	private Map<String,String> loadAPPWithUrl(Properties prop,String dashBoardUrls) {
-		String[] dashBoardUrlsArr = dashBoardUrls.split(ADRConstants.DELIMITER);
-		Map<String , String> coupleDashBoardWithUrlMap= new HashMap<String,String>();
+	private Map<String,AppProperty> loadAppProperty(Properties prop,String appNames) {
+		String[] appNameArray = appNames.split(ADRConstants.DELIMITER);
+		Map<String , AppProperty> coupleDashBoardWithUrlMap= new HashMap<String,AppProperty>();
 		
-		for (int i = 0; i < dashBoardUrlsArr.length; i++) {
-			coupleDashBoardWithUrlMap.put(dashBoardUrlsArr[i], prop.getProperty(dashBoardUrlsArr[i]));
+		for (int i = 0; i < appNameArray.length; i++) {
+			AppProperty appProperty  =new AppProperty();
+			appProperty.setAppName(appNameArray[i]);
+			appProperty.setAppUrl(prop.getProperty(appNameArray[i]+"_URL"));
+			appProperty.setAppUsr(prop.getProperty(appNameArray[i]+"_USER"));
+			appProperty.setAppPwd(prop.getProperty(appNameArray[i]+"_PWD"));
+			
+			coupleDashBoardWithUrlMap.put(appNameArray[i], appProperty);
 		}
 		return coupleDashBoardWithUrlMap;
 		
@@ -65,9 +72,10 @@ public class ConfigServicesFile implements ConfigurationService {
 	        Properties prop = new Properties();
 	        prop.load(is);
 	        
-	        String dashBoardUrls = prop.getProperty(ADRConstants.DASHBOARD_URLS);
-	        Map<String, String> coupleDashBoardWithUrlMap = loadAPPWithUrl(prop,dashBoardUrls);
-	        map.put(ADRConstants.DASHBOARD_URLS_MAP,coupleDashBoardWithUrlMap);
+	        String appNames = prop.getProperty(ADRConstants.DASHBOARD_NAMES);
+	      
+	        map.put(ADRConstants.DASHBOARD_NAMES,loadAppProperty(prop, appNames));
+	        
 	        
 	        if(log.isDebugEnabled())
 	        	log.debug("Configuration DONE");
