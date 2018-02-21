@@ -34,6 +34,16 @@
 <!--     	</property> -->
 <!-- 	</bean> -->
 	
+	<bean id="restClient" class="it.reply.sytel.adr.dynatraceClient.imp.RestClientImpl"> 
+    	
+	</bean>
+	
+	<bean id="dynatraceClient" class="it.reply.sytel.adr.dynatraceClient.imp.DynatraceClientImpl"> 
+    	<property name="restClient">
+    		<ref bean="restClient"/>
+    	</property>
+	</bean>
+	
 	
 	<bean id="incidentDAO" class="it.reply.sytel.adr.dao.impl.IncidentDAOImpl"> 
 <!--     	<property name="jdbcTemplate"> -->
@@ -58,7 +68,7 @@
 			<ref bean="configResourceFile"/>
 		</property>
 	</bean>
-	
+		
 	<bean id="serviceContext" class="it.reply.sytel.adr.core.services.context.impl.ServiceContextImpl">
 		<property name="daoConfig">
 			<ref bean="configServicesFile" />
@@ -71,9 +81,12 @@
 		<property name="context">
 			<ref bean="serviceContext" />
 		</property>
-			<property name="incidentDAO">
-				<ref bean="incidentDAO" />	
-			</property>
+		<property name="incidentDAO">
+			<ref bean="incidentDAO" />	
+		</property>
+		<property name="dynatraceClient">
+			<ref bean="dynatraceClient" />	
+		</property>
 	</bean>
 	
 	<bean id="createRemedyIncident" class="it.reply.sytel.adr.services.impl.CreateRemedyIncident" lazy-init="true">

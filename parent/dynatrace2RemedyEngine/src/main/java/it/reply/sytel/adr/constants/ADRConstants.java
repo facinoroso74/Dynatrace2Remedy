@@ -11,14 +11,9 @@ public interface ADRConstants {
 
 	public static final String TID = "TID";
 
-
-	public static final String DASHBOARD_URLS = "DASHBOARD_URLS";
-
-
 	public static final String DELIMITER = ";";
 
-
-	public static final String DASHBOARD_URLS_MAP = "DASHBOARD_URLS_MAP";
+	public static final String DASHBOARD_NAMES= "DASHBOARD_NAMES";
 	
 	
 }
