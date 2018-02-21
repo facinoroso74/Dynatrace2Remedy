@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -42,6 +43,32 @@ public class IncidentDAOImpl implements IncidentDAO {
 																		+ "?,?,?,?,?,"
 																		+ "?,?,?,?,?)";
 			
+	private static final String SQL_UPDATE_INCIDENT_DATE_UPDATE="UPDATE INCIDENT set dataupdate=? where name=? and startEvent=?";
+	
+
+	private static final String SQL_UPDATE_INCIDENT_WITH_REMEDY_DATA="UPDATE INCIDENT "
+			+ 	"set REMEDYTICKETID=? "
+			+	"set REMEDYTICKETIDSTATUS=? "
+			+	"set REMEDYTICKETCREATEDATE=? "
+			+ "where "
+			+ 	" name=? "
+			+ 	" and startEvent=?";
+	
+	private static final String SQL_CHECK_INCIDENT_EXIST="SELECT "
+																		+ " 	name,"
+																	    + " 	startEvent"
+																	    + " FROM "
+																	    + "     INCIDENT "
+																	    + " WHERE "
+																	    + " name=?"
+																	    + " AND startEvent=?";
+	private static final String SQL_GET_INCIDENT_WITHOUT_REMEDY_TICKET_ID="SELECT "
+			+ " 	name,"
+		    + " 	startEvent"
+		    + " FROM "
+		    + "     INCIDENT "
+		    + " WHERE "
+		    + " 	REMEDYTICKETID is null";
 	
 	public IncidentDAOImpl() {
 		
@@ -139,17 +166,7 @@ public class IncidentDAOImpl implements IncidentDAO {
 		try{
 		    
 			conn = ds.getConnection();
-			
-			String qry="SELECT "
-					+ " 	name,"
-				    + " 	startEvent"
-				    + " FROM "
-				    + "     INCIDENT "
-				    + " WHERE "
-				    + " name=?"
-				    + " AND startEvent=?";
-			
-			stmt = conn.prepareStatement(qry);
+			stmt = conn.prepareStatement(SQL_CHECK_INCIDENT_EXIST);
 			stmt.setString(1, dynatraceIncidentKey.getName());
 			stmt.setTimestamp(2, dynatraceIncidentKey.getStartEvent());
 			rslt=stmt.executeQuery();
@@ -169,7 +186,7 @@ public class IncidentDAOImpl implements IncidentDAO {
 			return false;
 					
 		}catch (Exception e) {
-			throw new DaoException("Exception alreadyExistsDynatraceIncident. dynatraceIncidentKey:["+dynatraceIncidentKey+"", e);
+			throw new DaoException("Exception alreadyExistsDynatraceIncident. dynatraceIncidentKey:["+dynatraceIncidentKey+"]", e);
 		} finally {
 			closeResource(null, stmt, rslt);
 		}
@@ -182,12 +199,6 @@ public class IncidentDAOImpl implements IncidentDAO {
 		return null;
 	}
 
-	
-	@Override
-	public void updateDynatraceIncident(DynatraceIncident dynatraceIncident) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public DynatraceIncident getDynatraceIncident(DynatraceIncidentKey dynatraceIncidentKey) {
@@ -197,11 +208,120 @@ public class IncidentDAOImpl implements IncidentDAO {
 
 
 
+
 	@Override
-	public void updateDynatraceIncidentAfterRemedyCall(DynatraceIncidentKey dynatraceIncidentKey,
-			String remedyIncidentID, Timestamp remedyIncidentIDCreateDate, String remedyIncidentStatus) {
-		// TODO Auto-generated method stub
+	public void updateDynatraceIncidentDateUpdate(DynatraceIncidentKey dynatraceIncidentKey,Timestamp now) {
+
+		PreparedStatement stmt=null;
+		Connection conn = null;
+		ResultSet rslt=null;
 		
+		try{
+		    
+			conn = ds.getConnection();
+			
+			stmt = conn.prepareStatement(SQL_UPDATE_INCIDENT_DATE_UPDATE);
+			stmt.setTimestamp(1, now);
+			stmt.setString(2,dynatraceIncidentKey.getName());
+			stmt.setTimestamp(3, dynatraceIncidentKey.getStartEvent());
+						
+			int total=stmt.executeUpdate();
+			
+			if(log.isDebugEnabled())
+				log.debug("Updated " + total + " rows");
+					
+		}catch (Exception e) {
+			throw new DaoException("Exception updateDynatraceIncidentDateUpdate. dynatraceIncidentKey:["+dynatraceIncidentKey+"] and dateupdate:["+now+"]", e);
+		} finally {
+			closeResource(null, stmt, rslt);
+		}
+	}
+
+	@Override
+	public List<DynatraceIncident> getDynatraceIncidentWithoutRemedyTicketID() {
+		
+		PreparedStatement stmt=null;
+		Connection conn = null;
+		ResultSet rslt=null;
+		
+		List<DynatraceIncident> dynatraceIncidentList = new ArrayList<DynatraceIncident>();
+		
+		try{
+		    
+			conn = ds.getConnection();
+			stmt = conn.prepareStatement(SQL_GET_INCIDENT_WITHOUT_REMEDY_TICKET_ID);
+			
+			rslt=stmt.executeQuery();
+			
+			while (rslt.next()){
+				
+				DynatraceIncident dynatraceIncident = new DynatraceIncident();
+				DynatraceIncidentKey dynatraceIncidentKey = new DynatraceIncidentKey();
+				dynatraceIncidentKey.setName(rslt.getString("name"));
+				dynatraceIncidentKey.setStartEvent(rslt.getTimestamp("startEvent"));
+				
+				dynatraceIncident.setDynatraceIncidentKey(dynatraceIncidentKey);
+				dynatraceIncident.setActions(rslt.getString("actions"));
+				dynatraceIncident.setConditions(rslt.getString("conditions"));
+				dynatraceIncident.setConfimed_by(rslt.getString("confirmed_by"));
+				dynatraceIncident.setConfirmation(rslt.getString("confirmation"));
+				dynatraceIncident.setDataIns(rslt.getTimestamp("dataIns"));
+				dynatraceIncident.setDataUpdate(rslt.getTimestamp("dataupdate"));
+				dynatraceIncident.setDuration(rslt.getString("duration"));
+				dynatraceIncident.setEndEvent(rslt.getTimestamp("endEvent"));
+				dynatraceIncident.setHeatfield(rslt.getString("heatfield"));
+				dynatraceIncident.setId(rslt.getInt("id"));
+				dynatraceIncident.setMeasures(rslt.getString("measures"));
+				dynatraceIncident.setSensitivity(rslt.getString("sensitivity"));
+				dynatraceIncident.setSession(rslt.getString("session"));
+				dynatraceIncident.setSource(rslt.getString("source"));
+				dynatraceIncident.setState(rslt.getString("state"));
+				dynatraceIncident.setThresholds(rslt.getString("thresholds"));
+				
+				dynatraceIncidentList.add(dynatraceIncident);
+				
+			}
+				
+			return dynatraceIncidentList;
+					
+		}catch (Exception e) {
+			throw new DaoException("Exception getDynatraceIncidentWithoutRemedyTicketID", e);
+		} finally {
+			closeResource(null, stmt, rslt);
+		}
+	}
+
+
+	@Override
+	public void updateDynatraceIncidentAfterRemedyCall(DynatraceIncident dynatraceIncident) {
+
+		//SQL_UPDATE_INCIDENT_WITH_REMEDY_DATA
+		PreparedStatement stmt=null;
+		Connection conn = null;
+		ResultSet rslt=null;
+		
+		try{
+		    
+			conn = ds.getConnection();
+			
+			stmt = conn.prepareStatement(SQL_UPDATE_INCIDENT_WITH_REMEDY_DATA);
+			stmt.setString(1, dynatraceIncident.getRemedyTicketID());
+			stmt.setString(2,dynatraceIncident.getRemedyTicketIDStatus());
+			stmt.setTimestamp(3, dynatraceIncident.getRemedyTicketCreateDate());
+			
+			stmt.setString(4, dynatraceIncident.getDynatraceIncidentKey().getName());
+			stmt.setTimestamp(5, dynatraceIncident.getDynatraceIncidentKey().getStartEvent());
+			
+			int total=stmt.executeUpdate();
+			
+			if(log.isDebugEnabled())
+				log.debug("Updated " + total + " rows");
+					
+		}catch (Exception e) {
+			throw new DaoException("Exception updateDynatraceIncidentAfterRemedyCall. dynatraceIncident:["+dynatraceIncident+"]", e);
+		} finally {
+			closeResource(null, stmt, rslt);
+		}
 	}
 
 }

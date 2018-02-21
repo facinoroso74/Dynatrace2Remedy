@@ -1,5 +1,6 @@
 package it.reply.sytel.adr.services.impl;
 
+import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -29,6 +30,7 @@ public class GetDynatraceIncident extends AbstractService {
 	protected Enviromnent perform(Enviromnent env) {
 
 		try {
+			Timestamp now = new Timestamp(System.currentTimeMillis());
 			
 			Map<String , Object> configMap = (Map<String , Object>)getContext().getConfigMap();
 			Map<String,Map<String,AppProperty>> dashboardAppPropertyMap= (Map<String,Map<String,AppProperty>>)configMap.get(ADRConstants.DASHBOARD_NAMES);
@@ -52,14 +54,16 @@ public class GetDynatraceIncident extends AbstractService {
 					
 					DynatraceIncidentKey dynatraceIncidentKey = (DynatraceIncidentKey) iterator2.next();
 					if( !incidentDAO.alreadyExistsDynatraceIncident(dynatraceIncidentKey) ) {
-						incidentDAO.insertDynatraceIncident(map.get(dynatraceIncidentKey));
+						DynatraceIncident dynatraceIncident = map.get(dynatraceIncidentKey);
+						dynatraceIncident.setDataIns(now);
+						dynatraceIncident.setDataUpdate(now);
+						incidentDAO.insertDynatraceIncident(dynatraceIncident);
 						log.debug("Incident inserted:["+dynatraceIncidentKey+"");
 					}else {
-						log.debug("Incident alreay Exists:["+dynatraceIncidentKey+"]");
-						//updateDataUp(dynatraceIncidentKey);
+						log.debug("Incident alreay Exists:["+dynatraceIncidentKey+"] update the DateUpdate");
+						incidentDAO.updateDynatraceIncidentDateUpdate(dynatraceIncidentKey,now);
 					}
 				}
-				
 			}
 			
 			return env;

@@ -1,18 +1,18 @@
-[21 feb 2018 17:32:57,039][DEBUG][][] getting the inputStream from fileName:[ADR.properties] 
-[21 feb 2018 17:32:57,039][DEBUG][][] Configuration DONE 
-[21 feb 2018 17:32:57,103][INFO ][C0A838015A8D9F390001569E][1] Flow RemedyIncidentdBuilder Engine Called... 
-[21 feb 2018 17:32:57,103][INFO ][C0A838015A8D9F390001569E][1] service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ...  
-[21 feb 2018 17:32:57,103][DEBUG][C0A838015A8D9F390001569E][1] the Name for app:[SVILUPPO] is [SVILUPPO] 
-[21 feb 2018 17:32:57,103][DEBUG][C0A838015A8D9F390001569E][1] the URL for app:[SVILUPPO] is [https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] 
-[21 feb 2018 17:32:57,103][DEBUG][C0A838015A8D9F390001569E][1] the USR for app:[SVILUPPO] is [Remedy_Integration] 
-[21 feb 2018 17:32:57,103][DEBUG][C0A838015A8D9F390001569E][1] the PWD for app:[SVILUPPO] is [remedy] 
-[21 feb 2018 17:32:57,103][DEBUG][C0A838015A8D9F390001569E][1] calling the console:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] with user[Remedy_Integration] pwd=remedy... 
-[21 feb 2018 17:32:58,445][DEBUG][C0A838015A8D9F390001569E][1] calling the console:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] with user[Remedy_Integration] pwd=remedy... DONE elapsed:[1342] 
-[21 feb 2018 17:32:58,445][DEBUG][C0A838015A8D9F390001569E][1] content:[<?xml version="1.0" encoding="utf-8"?>
-<dashboardreport name="IncidentDashboard" version="7.0.10.1010" reportdate="2018-02-21T17:39:45.017+01:00" description="">
+[21 feb 2018 17:49:05,486][DEBUG][][] getting the inputStream from fileName:[ADR.properties] 
+[21 feb 2018 17:49:05,501][DEBUG][][] Configuration DONE 
+[21 feb 2018 17:49:05,549][INFO ][C0A838015A8DA30100018EDE][1] Flow RemedyIncidentdBuilder Engine Called... 
+[21 feb 2018 17:49:05,549][INFO ][C0A838015A8DA30100018EDE][1] service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ...  
+[21 feb 2018 17:49:05,565][DEBUG][C0A838015A8DA30100018EDE][1] the Name for app:[SVILUPPO] is [SVILUPPO] 
+[21 feb 2018 17:49:05,565][DEBUG][C0A838015A8DA30100018EDE][1] the URL for app:[SVILUPPO] is [https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] 
+[21 feb 2018 17:49:05,565][DEBUG][C0A838015A8DA30100018EDE][1] the USR for app:[SVILUPPO] is [Remedy_Integration] 
+[21 feb 2018 17:49:05,565][DEBUG][C0A838015A8DA30100018EDE][1] the PWD for app:[SVILUPPO] is [remedy] 
+[21 feb 2018 17:49:05,565][DEBUG][C0A838015A8DA30100018EDE][1] calling the console:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] with user[Remedy_Integration] pwd=remedy... 
+[21 feb 2018 17:49:06,781][DEBUG][C0A838015A8DA30100018EDE][1] calling the console:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] with user[Remedy_Integration] pwd=remedy... DONE elapsed:[1216] 
+[21 feb 2018 17:49:06,781][DEBUG][C0A838015A8DA30100018EDE][1] content:[<?xml version="1.0" encoding="utf-8"?>
+<dashboardreport name="IncidentDashboard" version="7.0.10.1010" reportdate="2018-02-21T17:55:53.324+01:00" description="">
   <source name="dynaTrace Self-Monitoring">
     <filters summary="last 30 minutes (auto)">
-      <filter>tf:DiagnoseTimeframe?1519229385018:1519231185018</filter>
+      <filter>tf:DiagnoseTimeframe?1519230353324:1519232153324</filter>
     </filters>
   </source>
   <data>
@@ -102,18 +102,21 @@
   </data>
 </dashboardreport>
 ] 
-[21 feb 2018 17:32:58,789][DEBUG][C0A838015A8D9F390001569E][1] ------ALLARME-----:[<xml-fragment name="The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz." start="2018-02-06T13:27:01.616+01:00" source="-" session="-"/>] 
-[21 feb 2018 17:32:58,789][DEBUG][C0A838015A8D9F390001569E][1] ------ALLARME-----:[<xml-fragment name="No CPU MHz reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"/>] 
-[21 feb 2018 17:32:58,789][DEBUG][C0A838015A8D9F390001569E][1] ------ALLARME-----:[<xml-fragment name="No Memory reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"/>] 
-[21 feb 2018 17:32:58,930][DEBUG][C0A838015A8D9F390001569E][1] name:[The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz. startEvent:[2018-02-06 13:27:01.616] 
-[21 feb 2018 17:32:58,930][DEBUG][C0A838015A8D9F390001569E][1] Incident alreay Exists:[DynatraceIncidentKey [name=The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz., startEvent=2018-02-06 13:27:01.616]] 
-[21 feb 2018 17:32:58,945][DEBUG][C0A838015A8D9F390001569E][1] name:[No Memory reserved startEvent:[2018-02-06 13:27:01.619] 
-[21 feb 2018 17:32:58,945][DEBUG][C0A838015A8D9F390001569E][1] Incident alreay Exists:[DynatraceIncidentKey [name=No Memory reserved, startEvent=2018-02-06 13:27:01.619]] 
-[21 feb 2018 17:32:58,945][DEBUG][C0A838015A8D9F390001569E][1] name:[No CPU MHz reserved startEvent:[2018-02-06 13:27:01.619] 
-[21 feb 2018 17:32:58,945][DEBUG][C0A838015A8D9F390001569E][1] Incident alreay Exists:[DynatraceIncidentKey [name=No CPU MHz reserved, startEvent=2018-02-06 13:27:01.619]] 
-[21 feb 2018 17:32:58,945][INFO ][C0A838015A8D9F390001569E][1] Service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ... DONE with ServiceExecutionTime:[1842] 
-[21 feb 2018 17:32:58,945][INFO ][C0A838015A8D9F390001569E][1] service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ...  
-[21 feb 2018 17:32:58,945][INFO ][C0A838015A8D9F390001569E][1] Service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ... DONE with ServiceExecutionTime:[0] 
-[21 feb 2018 17:32:58,945][INFO ][C0A838015A8D9F390001569E][1] service:[it.reply.sytel.adr.services.impl.CloseRemedyIncident] called ...  
-[21 feb 2018 17:32:58,961][INFO ][C0A838015A8D9F390001569E][1] Service:[it.reply.sytel.adr.services.impl.CloseRemedyIncident] called ... DONE with ServiceExecutionTime:[16] 
-[21 feb 2018 17:32:58,961][INFO ][C0A838015A8D9F390001569E][1] Flow RemedyIncidentdBuilder Engine executed with ExecutionTime (1858) 
+[21 feb 2018 17:49:07,110][DEBUG][C0A838015A8DA30100018EDE][1] ------ALLARME-----:[<xml-fragment name="The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz." start="2018-02-06T13:27:01.616+01:00" source="-" session="-"/>] 
+[21 feb 2018 17:49:07,110][DEBUG][C0A838015A8DA30100018EDE][1] ------ALLARME-----:[<xml-fragment name="No CPU MHz reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"/>] 
+[21 feb 2018 17:49:07,110][DEBUG][C0A838015A8DA30100018EDE][1] ------ALLARME-----:[<xml-fragment name="No Memory reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"/>] 
+[21 feb 2018 17:49:07,250][DEBUG][C0A838015A8DA30100018EDE][1] name:[The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz. startEvent:[2018-02-06 13:27:01.616] 
+[21 feb 2018 17:49:07,250][DEBUG][C0A838015A8DA30100018EDE][1] Incident alreay Exists:[DynatraceIncidentKey [name=The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz., startEvent=2018-02-06 13:27:01.616]] update the DateUpdate 
+[21 feb 2018 17:49:07,297][DEBUG][C0A838015A8DA30100018EDE][1] Updated 1 rows 
+[21 feb 2018 17:49:07,297][DEBUG][C0A838015A8DA30100018EDE][1] name:[No Memory reserved startEvent:[2018-02-06 13:27:01.619] 
+[21 feb 2018 17:49:07,297][DEBUG][C0A838015A8DA30100018EDE][1] Incident alreay Exists:[DynatraceIncidentKey [name=No Memory reserved, startEvent=2018-02-06 13:27:01.619]] update the DateUpdate 
+[21 feb 2018 17:49:07,313][DEBUG][C0A838015A8DA30100018EDE][1] Updated 1 rows 
+[21 feb 2018 17:49:07,328][DEBUG][C0A838015A8DA30100018EDE][1] name:[No CPU MHz reserved startEvent:[2018-02-06 13:27:01.619] 
+[21 feb 2018 17:49:07,328][DEBUG][C0A838015A8DA30100018EDE][1] Incident alreay Exists:[DynatraceIncidentKey [name=No CPU MHz reserved, startEvent=2018-02-06 13:27:01.619]] update the DateUpdate 
+[21 feb 2018 17:49:07,328][DEBUG][C0A838015A8DA30100018EDE][1] Updated 1 rows 
+[21 feb 2018 17:49:07,328][INFO ][C0A838015A8DA30100018EDE][1] Service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ... DONE with ServiceExecutionTime:[1779] 
+[21 feb 2018 17:49:07,328][INFO ][C0A838015A8DA30100018EDE][1] service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ...  
+[21 feb 2018 17:49:07,328][INFO ][C0A838015A8DA30100018EDE][1] Service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ... DONE with ServiceExecutionTime:[0] 
+[21 feb 2018 17:49:07,328][INFO ][C0A838015A8DA30100018EDE][1] service:[it.reply.sytel.adr.services.impl.CloseRemedyIncident] called ...  
+[21 feb 2018 17:49:07,328][INFO ][C0A838015A8DA30100018EDE][1] Service:[it.reply.sytel.adr.services.impl.CloseRemedyIncident] called ... DONE with ServiceExecutionTime:[0] 
+[21 feb 2018 17:49:07,328][INFO ][C0A838015A8DA30100018EDE][1] Flow RemedyIncidentdBuilder Engine executed with ExecutionTime (1779) 

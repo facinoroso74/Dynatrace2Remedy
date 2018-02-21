@@ -14,9 +14,11 @@ public interface IncidentDAO {
 	
 	public List<DynatraceIncident> getDynatraceIncidentToClose(Timestamp startToCompare);
 	
+	public List<DynatraceIncident> getDynatraceIncidentWithoutRemedyTicketID();
+	
 	public boolean alreadyExistsDynatraceIncident(DynatraceIncidentKey dynatraceIncidentKey);
 	
-	public void updateDynatraceIncident(DynatraceIncident dynatraceIncident);
+	public void updateDynatraceIncidentDateUpdate(DynatraceIncidentKey dynatraceIncidentKey,Timestamp now);
 	
-	public void updateDynatraceIncidentAfterRemedyCall(DynatraceIncidentKey dynatraceIncidentKey,String remedyIncidentID,Timestamp remedyIncidentIDCreateDate,String remedyIncidentStatus);
+	public void updateDynatraceIncidentAfterRemedyCall(DynatraceIncident dynatraceIncident);
 }
