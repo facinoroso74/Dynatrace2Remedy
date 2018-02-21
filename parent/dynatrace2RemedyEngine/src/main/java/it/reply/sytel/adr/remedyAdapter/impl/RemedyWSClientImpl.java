@@ -1,4 +1,4 @@
-package it.reply.sytel.adr.remedyAdapter;
+package it.reply.sytel.adr.remedyAdapter.impl;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -12,8 +12,10 @@ import org.w3c.dom.Node;
 
 import it.reply.sytel.adr.common.log.EtlLogger;
 import it.reply.sytel.adr.common.ws.HTTPClient;
+import it.reply.sytel.adr.remedyAdapter.RemedyClient;
+import it.reply.sytel.adr.vo.DynatraceIncident;
 
-public class WsClient {
+public class RemedyWSClientImpl implements RemedyClient{
 
 	private HTTPClient sharedHTTPClient;
 	private String encoding;
@@ -464,6 +466,12 @@ public class WsClient {
 
 	public void setSoapAction(String soapAction) {
 		this.soapAction = soapAction;
+	}
+
+	@Override
+	public String createIncident(DynatraceIncident dynatraceIncident) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
