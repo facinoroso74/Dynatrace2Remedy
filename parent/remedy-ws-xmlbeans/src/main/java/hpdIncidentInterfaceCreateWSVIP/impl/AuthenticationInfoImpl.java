@@ -21,15 +21,15 @@ public class AuthenticationInfoImpl extends org.apache.xmlbeans.impl.values.XmlC
     }
     
     private static final javax.xml.namespace.QName USERNAME$0 = 
-        new javax.xml.namespace.QName("", "userName");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "userName");
     private static final javax.xml.namespace.QName PASSWORD$2 = 
-        new javax.xml.namespace.QName("", "password");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "password");
     private static final javax.xml.namespace.QName AUTHENTICATION$4 = 
-        new javax.xml.namespace.QName("", "authentication");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "authentication");
     private static final javax.xml.namespace.QName LOCALE$6 = 
-        new javax.xml.namespace.QName("", "locale");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "locale");
     private static final javax.xml.namespace.QName TIMEZONE$8 = 
-        new javax.xml.namespace.QName("", "timeZone");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "timeZone");
     
     
     /**

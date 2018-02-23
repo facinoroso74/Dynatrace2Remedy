@@ -21,7 +21,7 @@ public class CreateOutputMapImpl extends org.apache.xmlbeans.impl.values.XmlComp
     }
     
     private static final javax.xml.namespace.QName INCIDENTNUMBER$0 = 
-        new javax.xml.namespace.QName("", "Incident_Number");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Incident_Number");
     
     
     /**

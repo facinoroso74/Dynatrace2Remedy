@@ -17,7 +17,7 @@ package org.xmlsoap.schemas.soap.envelope;
 public interface EnvelopeDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(EnvelopeDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDC94DE3C1C87C3132C5C133020159CC7").resolveHandle("envelope12a9doctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(EnvelopeDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sB217844AB0D42AE46ACCA764F5D4FBB6").resolveHandle("envelope12a9doctype");
     
     /**
      * Gets the "Envelope" element

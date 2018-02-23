@@ -2,6 +2,86 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" >
 <beans>
 
+<bean id="sharedHttpsClientRemedy" class="it.reply.sytel.adr.common.ws.SharedHTTPSClient" lazy-init="true">
+		<property name="contentType" value="text/xml"/> 
+		<property name="httpsClientProperties">
+        	<bean class="it.reply.sytel.adr.common.ws.HttpsClientProperties">
+            	<property name="superMap">
+                	<map>
+                    	<entry key="communication_A1">
+                    		<map>                           
+                                    <entry key="keyPwd"            value=""/>
+                                    <entry key="keystorePwd"       value=""/>
+                                    <entry key="keystoreURLString" value=""/>
+                                    <entry key="trustPwd"          value="etletl"/>
+                                    <entry key="trustURLString"    value="file:///D:/ConvergenzaTopSviluppo/trunk/src/ettmAllineamento/src/main/resources/etlTrustStore.keystore"/>
+									<entry key="urlToConnect"      value="https://10.21.90.220:8443/exist/services/EttmPsoSecurityPortaleIntegrato_Service"/>
+									<entry key="maxTotalThread"    value="100"/>
+                                    <entry key="soTimeout"         value="50000"/>
+                                    <entry key="connTimeout"       value="120000"/>
+							</map>
+                    	</entry>
+					</map>
+				</property>
+<!--                  <property name="cryptoService"         ref="localCryptoService"/>  -->
+                <property name="managedConnLifetime"   value="305000"/>
+                <property name="idleConnEvictorPeriod" value="5000"/>
+                
+				<property name="connKAStrategy">
+                	<bean class="it.reply.sytel.tictop.common.ws.GKConnectionKeepAliveStrategy" />
+                </property>                         
+                <property name="connReuseStrategy">
+                	<bean class="it.reply.sytel.tictop.common.ws.GKConnectionReuseStrategy"/>
+                </property>
+                <property name="retryHandler">
+                	<bean class="it.reply.sytel.tictop.common.ws.GKHttpRequestRetryHandler"/>
+                </property>
+                  
+        	</bean>
+		</property> 
+	</bean>
+	
+	<bean id="sharedHttpClientRemedy" class="it.reply.sytel.adr.common.ws.SharedHTTPClient" lazy-init="true">
+		<property name="contentType" value="text/xml"/> 
+		<property name="httpClientProperties">
+        	<bean class="it.reply.sytel.adr.common.ws.HttpClientProperties">
+            	<property name="superMap">
+                	<map>
+                    	<entry key="communication_A1">
+                    		<map>                           
+                                    <entry key="keyPwd"            value=""/>
+                                    <entry key="keystorePwd"       value=""/>
+                                    <entry key="keystoreURLString" value=""/>
+                                    <entry key="trustPwd"          value=""/>
+                                    <entry key="trustURLString"    value=""/>
+									<entry key="urlToConnect"      value="http://10.21.90.220:8443/exist/services/EttmPsoSecurityPortaleIntegrato_Service"/>
+									<entry key="maxTotalThread"    value="100"/>
+                                    <entry key="soTimeout"         value="50000"/>
+                                    <entry key="connTimeout"       value="120000"/>
+							</map>
+                    	</entry>
+					</map>
+				</property>
+<!--                  <property name="cryptoService"         ref="localCryptoService"/>  -->
+                <property name="managedConnLifetime"   value="305000"/>
+                <property name="idleConnEvictorPeriod" value="5000"/>
+                
+				<property name="connKAStrategy">
+                	<bean class="it.reply.sytel.tictop.common.ws.GKConnectionKeepAliveStrategy" />
+                </property>                         
+                <property name="connReuseStrategy">
+                	<bean class="it.reply.sytel.tictop.common.ws.GKConnectionReuseStrategy"/>
+                </property>
+                <property name="retryHandler">
+                	<bean class="it.reply.sytel.tictop.common.ws.GKHttpRequestRetryHandler"/>
+                </property>
+                  
+        	</bean>
+		</property> 
+	</bean>
+	
+
+
 <!-- 	<bean id="DB2DataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" > -->
 <!--         <property name="driverClassName"> -->
 <!--         	<value>com.ibm.db2.jcc.DB2Driver</value> -->
@@ -44,6 +124,21 @@
     	</property>
 	</bean>
 	
+	<bean id="remedyClient" class="it.reply.sytel.adr.remedyAdapter.impl.RemedyWSClientImpl"> 
+		<property name="encoding">
+			<value>UTF-8</value>
+		</property>
+		<property name="soapAction">
+			<value></value>
+		</property>
+		<property name="userToken">
+			<value></value>
+		</property>
+		<property name="sharedHTTPClient">
+			<ref bean="sharedHttpClientRemedy" />
+		</property>
+	
+	</bean>
 	
 	<bean id="incidentDAO" class="it.reply.sytel.adr.dao.impl.IncidentDAOImpl"> 
 <!--     	<property name="jdbcTemplate"> -->
@@ -90,9 +185,15 @@
 	</bean>
 	
 	<bean id="createRemedyIncident" class="it.reply.sytel.adr.services.impl.CreateRemedyIncident" lazy-init="true">
-<!-- 		<property name="context"> -->
-<!-- 			<ref bean="serviceContext" /> -->
-<!-- 		</property> -->
+ 		<property name="context">
+ 			<ref bean="serviceContext" />
+ 		</property> 
+ 		<property name="incidentDAO">
+ 			<ref bean="incidentDAO" />
+ 		</property>
+ 		<property name="remedyClient">
+ 			<ref bean="remedyClient" />
+ 		</property>
 	</bean>
 	
 	<bean id="closeRemedyIncident" class="it.reply.sytel.adr.services.impl.CloseRemedyIncident" lazy-init="true">

@@ -21,139 +21,139 @@ public class CreateInputMapImpl extends org.apache.xmlbeans.impl.values.XmlCompl
     }
     
     private static final javax.xml.namespace.QName ASSIGNEDGROUP$0 = 
-        new javax.xml.namespace.QName("", "Assigned_Group");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Assigned_Group");
     private static final javax.xml.namespace.QName ASSIGNEDGROUPSHIFTNAME$2 = 
-        new javax.xml.namespace.QName("", "Assigned_Group_Shift_Name");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Assigned_Group_Shift_Name");
     private static final javax.xml.namespace.QName ASSIGNEDSUPPORTCOMPANY$4 = 
-        new javax.xml.namespace.QName("", "Assigned_Support_Company");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Assigned_Support_Company");
     private static final javax.xml.namespace.QName ASSIGNEDSUPPORTORGANIZATION$6 = 
-        new javax.xml.namespace.QName("", "Assigned_Support_Organization");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Assigned_Support_Organization");
     private static final javax.xml.namespace.QName ASSIGNEE$8 = 
-        new javax.xml.namespace.QName("", "Assignee");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Assignee");
     private static final javax.xml.namespace.QName CATEGORIZATIONTIER1$10 = 
-        new javax.xml.namespace.QName("", "Categorization_Tier_1");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Categorization_Tier_1");
     private static final javax.xml.namespace.QName CATEGORIZATIONTIER2$12 = 
-        new javax.xml.namespace.QName("", "Categorization_Tier_2");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Categorization_Tier_2");
     private static final javax.xml.namespace.QName CATEGORIZATIONTIER3$14 = 
-        new javax.xml.namespace.QName("", "Categorization_Tier_3");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Categorization_Tier_3");
     private static final javax.xml.namespace.QName CINAME$16 = 
-        new javax.xml.namespace.QName("", "CI_Name");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "CI_Name");
     private static final javax.xml.namespace.QName CLOSUREMANUFACTURER$18 = 
-        new javax.xml.namespace.QName("", "Closure_Manufacturer");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Closure_Manufacturer");
     private static final javax.xml.namespace.QName CLOSUREPRODUCTCATEGORYTIER1$20 = 
-        new javax.xml.namespace.QName("", "Closure_Product_Category_Tier1");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Closure_Product_Category_Tier1");
     private static final javax.xml.namespace.QName CLOSUREPRODUCTCATEGORYTIER2$22 = 
-        new javax.xml.namespace.QName("", "Closure_Product_Category_Tier2");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Closure_Product_Category_Tier2");
     private static final javax.xml.namespace.QName CLOSUREPRODUCTCATEGORYTIER3$24 = 
-        new javax.xml.namespace.QName("", "Closure_Product_Category_Tier3");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Closure_Product_Category_Tier3");
     private static final javax.xml.namespace.QName CLOSUREPRODUCTMODELVERSION$26 = 
-        new javax.xml.namespace.QName("", "Closure_Product_Model_Version");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Closure_Product_Model_Version");
     private static final javax.xml.namespace.QName CLOSUREPRODUCTNAME$28 = 
-        new javax.xml.namespace.QName("", "Closure_Product_Name");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Closure_Product_Name");
     private static final javax.xml.namespace.QName DEPARTMENT$30 = 
-        new javax.xml.namespace.QName("", "Department");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Department");
     private static final javax.xml.namespace.QName FIRSTNAME$32 = 
-        new javax.xml.namespace.QName("", "First_Name");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "First_Name");
     private static final javax.xml.namespace.QName IMPACT$34 = 
-        new javax.xml.namespace.QName("", "Impact");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Impact");
     private static final javax.xml.namespace.QName LASTNAME$36 = 
-        new javax.xml.namespace.QName("", "Last_Name");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Last_Name");
     private static final javax.xml.namespace.QName LOOKUPKEYWORD$38 = 
-        new javax.xml.namespace.QName("", "Lookup_Keyword");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Lookup_Keyword");
     private static final javax.xml.namespace.QName MANUFACTURER$40 = 
-        new javax.xml.namespace.QName("", "Manufacturer");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Manufacturer");
     private static final javax.xml.namespace.QName PRODUCTCATEGORIZATIONTIER1$42 = 
-        new javax.xml.namespace.QName("", "Product_Categorization_Tier_1");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Product_Categorization_Tier_1");
     private static final javax.xml.namespace.QName PRODUCTCATEGORIZATIONTIER2$44 = 
-        new javax.xml.namespace.QName("", "Product_Categorization_Tier_2");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Product_Categorization_Tier_2");
     private static final javax.xml.namespace.QName PRODUCTCATEGORIZATIONTIER3$46 = 
-        new javax.xml.namespace.QName("", "Product_Categorization_Tier_3");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Product_Categorization_Tier_3");
     private static final javax.xml.namespace.QName PRODUCTMODELVERSION$48 = 
-        new javax.xml.namespace.QName("", "Product_Model_Version");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Product_Model_Version");
     private static final javax.xml.namespace.QName PRODUCTNAME$50 = 
-        new javax.xml.namespace.QName("", "Product_Name");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Product_Name");
     private static final javax.xml.namespace.QName REPORTEDSOURCE$52 = 
-        new javax.xml.namespace.QName("", "Reported_Source");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Reported_Source");
     private static final javax.xml.namespace.QName RESOLUTION$54 = 
-        new javax.xml.namespace.QName("", "Resolution");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Resolution");
     private static final javax.xml.namespace.QName RESOLUTIONCATEGORYTIER1$56 = 
-        new javax.xml.namespace.QName("", "Resolution_Category_Tier_1");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Resolution_Category_Tier_1");
     private static final javax.xml.namespace.QName RESOLUTIONCATEGORYTIER2$58 = 
-        new javax.xml.namespace.QName("", "Resolution_Category_Tier_2");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Resolution_Category_Tier_2");
     private static final javax.xml.namespace.QName RESOLUTIONCATEGORYTIER3$60 = 
-        new javax.xml.namespace.QName("", "Resolution_Category_Tier_3");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Resolution_Category_Tier_3");
     private static final javax.xml.namespace.QName SERVICETYPE$62 = 
-        new javax.xml.namespace.QName("", "Service_Type");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Service_Type");
     private static final javax.xml.namespace.QName STATUS$64 = 
-        new javax.xml.namespace.QName("", "Status");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Status");
     private static final javax.xml.namespace.QName ACTION$66 = 
-        new javax.xml.namespace.QName("", "Action");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Action");
     private static final javax.xml.namespace.QName CREATEREQUEST$68 = 
-        new javax.xml.namespace.QName("", "Create_Request");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Create_Request");
     private static final javax.xml.namespace.QName SUMMARY$70 = 
-        new javax.xml.namespace.QName("", "Summary");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Summary");
     private static final javax.xml.namespace.QName NOTES$72 = 
-        new javax.xml.namespace.QName("", "Notes");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Notes");
     private static final javax.xml.namespace.QName URGENCY$74 = 
-        new javax.xml.namespace.QName("", "Urgency");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Urgency");
     private static final javax.xml.namespace.QName WORKINFOSUMMARY$76 = 
-        new javax.xml.namespace.QName("", "Work_Info_Summary");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Work_Info_Summary");
     private static final javax.xml.namespace.QName WORKINFONOTES$78 = 
-        new javax.xml.namespace.QName("", "Work_Info_Notes");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Work_Info_Notes");
     private static final javax.xml.namespace.QName WORKINFOTYPE$80 = 
-        new javax.xml.namespace.QName("", "Work_Info_Type");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Work_Info_Type");
     private static final javax.xml.namespace.QName WORKINFODATE$82 = 
-        new javax.xml.namespace.QName("", "Work_Info_Date");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Work_Info_Date");
     private static final javax.xml.namespace.QName WORKINFOSOURCE$84 = 
-        new javax.xml.namespace.QName("", "Work_Info_Source");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Work_Info_Source");
     private static final javax.xml.namespace.QName WORKINFOLOCKED$86 = 
-        new javax.xml.namespace.QName("", "Work_Info_Locked");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Work_Info_Locked");
     private static final javax.xml.namespace.QName WORKINFOVIEWACCESS$88 = 
-        new javax.xml.namespace.QName("", "Work_Info_View_Access");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Work_Info_View_Access");
     private static final javax.xml.namespace.QName MIDDLEINITIAL$90 = 
-        new javax.xml.namespace.QName("", "Middle_Initial");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Middle_Initial");
     private static final javax.xml.namespace.QName STATUSREASON$92 = 
-        new javax.xml.namespace.QName("", "Status_Reason");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Status_Reason");
     private static final javax.xml.namespace.QName DIRECTCONTACTFIRSTNAME$94 = 
-        new javax.xml.namespace.QName("", "Direct_Contact_First_Name");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Direct_Contact_First_Name");
     private static final javax.xml.namespace.QName DIRECTCONTACTMIDDLEINITIAL$96 = 
-        new javax.xml.namespace.QName("", "Direct_Contact_Middle_Initial");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Direct_Contact_Middle_Initial");
     private static final javax.xml.namespace.QName DIRECTCONTACTLASTNAME$98 = 
-        new javax.xml.namespace.QName("", "Direct_Contact_Last_Name");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Direct_Contact_Last_Name");
     private static final javax.xml.namespace.QName TEMPLATEID$100 = 
-        new javax.xml.namespace.QName("", "TemplateID");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "TemplateID");
     private static final javax.xml.namespace.QName SERVICECI$102 = 
-        new javax.xml.namespace.QName("", "ServiceCI");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "ServiceCI");
     private static final javax.xml.namespace.QName SERVICECIRECONID$104 = 
-        new javax.xml.namespace.QName("", "ServiceCI_ReconID");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "ServiceCI_ReconID");
     private static final javax.xml.namespace.QName HPDCI$106 = 
-        new javax.xml.namespace.QName("", "HPD_CI");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "HPD_CI");
     private static final javax.xml.namespace.QName HPDCIRECONID$108 = 
-        new javax.xml.namespace.QName("", "HPD_CI_ReconID");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "HPD_CI_ReconID");
     private static final javax.xml.namespace.QName HPDCIFORMNAME$110 = 
-        new javax.xml.namespace.QName("", "HPD_CI_FormName");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "HPD_CI_FormName");
     private static final javax.xml.namespace.QName WORKINFOATTACHMENT1NAME$112 = 
-        new javax.xml.namespace.QName("", "WorkInfoAttachment1Name");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "WorkInfoAttachment1Name");
     private static final javax.xml.namespace.QName WORKINFOATTACHMENT1DATA$114 = 
-        new javax.xml.namespace.QName("", "WorkInfoAttachment1Data");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "WorkInfoAttachment1Data");
     private static final javax.xml.namespace.QName WORKINFOATTACHMENT1ORIGSIZE$116 = 
-        new javax.xml.namespace.QName("", "WorkInfoAttachment1OrigSize");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "WorkInfoAttachment1OrigSize");
     private static final javax.xml.namespace.QName SEDEINT$118 = 
-        new javax.xml.namespace.QName("", "Sede_Int");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Sede_Int");
     private static final javax.xml.namespace.QName CLASSIFICAZIONE$120 = 
-        new javax.xml.namespace.QName("", "Classificazione");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Classificazione");
     private static final javax.xml.namespace.QName ADRBE$122 = 
-        new javax.xml.namespace.QName("", "ADR_BE");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "ADR_BE");
     private static final javax.xml.namespace.QName CLASSE$124 = 
-        new javax.xml.namespace.QName("", "Classe");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Classe");
     private static final javax.xml.namespace.QName PIN$126 = 
-        new javax.xml.namespace.QName("", "PIN");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "PIN");
     private static final javax.xml.namespace.QName NUMEROCHIAMANTE$128 = 
-        new javax.xml.namespace.QName("", "Numero_Chiamante");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Numero_Chiamante");
     private static final javax.xml.namespace.QName TIPOASSISTENZA$130 = 
-        new javax.xml.namespace.QName("", "TipoAssistenza");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "TipoAssistenza");
     private static final javax.xml.namespace.QName SISTEMASORGENTE$132 = 
-        new javax.xml.namespace.QName("", "Sistema_sorgente");
+        new javax.xml.namespace.QName("urn:HPD_IncidentInterface_Create_WS_VIP", "Sistema_sorgente");
     
     
     /**

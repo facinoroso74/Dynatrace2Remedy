@@ -17,7 +17,7 @@ package org.xmlsoap.schemas.soap.envelope;
 public interface MustUnderstandAttribute extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(MustUnderstandAttribute.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDC94DE3C1C87C3132C5C133020159CC7").resolveHandle("mustunderstandedd2attrtypetype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(MustUnderstandAttribute.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sB217844AB0D42AE46ACCA764F5D4FBB6").resolveHandle("mustunderstandedd2attrtypetype");
     
     /**
      * Gets the "mustUnderstand" attribute
@@ -57,7 +57,7 @@ public interface MustUnderstandAttribute extends org.apache.xmlbeans.XmlObject
     public interface MustUnderstand extends org.apache.xmlbeans.XmlBoolean
     {
         public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(MustUnderstand.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDC94DE3C1C87C3132C5C133020159CC7").resolveHandle("mustunderstand437battrtype");
+            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(MustUnderstand.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sB217844AB0D42AE46ACCA764F5D4FBB6").resolveHandle("mustunderstand437battrtype");
         
         /**
          * A factory class with static methods for creating instances

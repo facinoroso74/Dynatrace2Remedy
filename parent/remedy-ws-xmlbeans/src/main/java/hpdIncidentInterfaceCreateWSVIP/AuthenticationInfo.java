@@ -16,7 +16,7 @@ package hpdIncidentInterfaceCreateWSVIP;
 public interface AuthenticationInfo extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(AuthenticationInfo.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDC94DE3C1C87C3132C5C133020159CC7").resolveHandle("authenticationinfo7388type");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(AuthenticationInfo.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sB217844AB0D42AE46ACCA764F5D4FBB6").resolveHandle("authenticationinfo7388type");
     
     /**
      * Gets the "userName" element

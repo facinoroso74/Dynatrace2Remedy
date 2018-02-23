@@ -1,18 +1,25 @@
-[21 feb 2018 17:49:05,486][DEBUG][][] getting the inputStream from fileName:[ADR.properties] 
-[21 feb 2018 17:49:05,501][DEBUG][][] Configuration DONE 
-[21 feb 2018 17:49:05,549][INFO ][C0A838015A8DA30100018EDE][1] Flow RemedyIncidentdBuilder Engine Called... 
-[21 feb 2018 17:49:05,549][INFO ][C0A838015A8DA30100018EDE][1] service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ...  
-[21 feb 2018 17:49:05,565][DEBUG][C0A838015A8DA30100018EDE][1] the Name for app:[SVILUPPO] is [SVILUPPO] 
-[21 feb 2018 17:49:05,565][DEBUG][C0A838015A8DA30100018EDE][1] the URL for app:[SVILUPPO] is [https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] 
-[21 feb 2018 17:49:05,565][DEBUG][C0A838015A8DA30100018EDE][1] the USR for app:[SVILUPPO] is [Remedy_Integration] 
-[21 feb 2018 17:49:05,565][DEBUG][C0A838015A8DA30100018EDE][1] the PWD for app:[SVILUPPO] is [remedy] 
-[21 feb 2018 17:49:05,565][DEBUG][C0A838015A8DA30100018EDE][1] calling the console:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] with user[Remedy_Integration] pwd=remedy... 
-[21 feb 2018 17:49:06,781][DEBUG][C0A838015A8DA30100018EDE][1] calling the console:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] with user[Remedy_Integration] pwd=remedy... DONE elapsed:[1216] 
-[21 feb 2018 17:49:06,781][DEBUG][C0A838015A8DA30100018EDE][1] content:[<?xml version="1.0" encoding="utf-8"?>
-<dashboardreport name="IncidentDashboard" version="7.0.10.1010" reportdate="2018-02-21T17:55:53.324+01:00" description="">
+[22 feb 2018 17:51:54,624][DEBUG][][] getting the inputStream from fileName:[ADR.properties] 
+[22 feb 2018 17:51:54,629][DEBUG][][] propertyValue:[SVILUPPO] for propertyName:[DASHBOARD_NAMES] 
+[22 feb 2018 17:51:54,630][DEBUG][][] propertyValue:[RemedyUsr] for propertyName:[REMEDY_AUTH_INFO_USER] 
+[22 feb 2018 17:51:54,631][DEBUG][][] propertyValue:[RemedyPwd] for propertyName:[REMEDY_AUTH_INFO_PWD] 
+[22 feb 2018 17:51:54,631][DEBUG][][] appNames:[SVILUPPO] 
+[22 feb 2018 17:51:54,633][DEBUG][][] propertyValue:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] for propertyName:[SVILUPPO_URL] 
+[22 feb 2018 17:51:54,633][DEBUG][][] propertyValue:[Remedy_Integration] for propertyName:[SVILUPPO_USER] 
+[22 feb 2018 17:51:54,633][DEBUG][][] propertyValue:[remedy] for propertyName:[SVILUPPO_PWD] 
+[22 feb 2018 17:51:54,633][DEBUG][][] Configuration DONE 
+[22 feb 2018 17:51:54,841][INFO ][C0A838015A8EF52A0001A844][1] Flow RemedyIncidentdBuilder Engine Called... 
+[22 feb 2018 17:51:54,841][INFO ][C0A838015A8EF52A0001A844][1] service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ...  
+[22 feb 2018 17:51:54,842][DEBUG][C0A838015A8EF52A0001A844][1] the Name for app:[SVILUPPO] is [SVILUPPO] 
+[22 feb 2018 17:51:54,842][DEBUG][C0A838015A8EF52A0001A844][1] the URL for app:[SVILUPPO] is [https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] 
+[22 feb 2018 17:51:54,842][DEBUG][C0A838015A8EF52A0001A844][1] the USR for app:[SVILUPPO] is [Remedy_Integration] 
+[22 feb 2018 17:51:54,842][DEBUG][C0A838015A8EF52A0001A844][1] the PWD for app:[SVILUPPO] is [remedy] 
+[22 feb 2018 17:51:54,843][DEBUG][C0A838015A8EF52A0001A844][1] calling the console:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] with user[Remedy_Integration] pwd=remedy... 
+[22 feb 2018 17:51:56,218][DEBUG][C0A838015A8EF52A0001A844][1] calling the console:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] with user[Remedy_Integration] pwd=remedy... DONE elapsed:[1375] 
+[22 feb 2018 17:51:56,219][DEBUG][C0A838015A8EF52A0001A844][1] content:[<?xml version="1.0" encoding="utf-8"?>
+<dashboardreport name="IncidentDashboard" version="7.0.10.1010" reportdate="2018-02-22T17:58:44.226+01:00" description="">
   <source name="dynaTrace Self-Monitoring">
     <filters summary="last 30 minutes (auto)">
-      <filter>tf:DiagnoseTimeframe?1519230353324:1519232153324</filter>
+      <filter>tf:DiagnoseTimeframe?1519316924227:1519318724227</filter>
     </filters>
   </source>
   <data>
@@ -102,21 +109,52 @@
   </data>
 </dashboardreport>
 ] 
-[21 feb 2018 17:49:07,110][DEBUG][C0A838015A8DA30100018EDE][1] ------ALLARME-----:[<xml-fragment name="The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz." start="2018-02-06T13:27:01.616+01:00" source="-" session="-"/>] 
-[21 feb 2018 17:49:07,110][DEBUG][C0A838015A8DA30100018EDE][1] ------ALLARME-----:[<xml-fragment name="No CPU MHz reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"/>] 
-[21 feb 2018 17:49:07,110][DEBUG][C0A838015A8DA30100018EDE][1] ------ALLARME-----:[<xml-fragment name="No Memory reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"/>] 
-[21 feb 2018 17:49:07,250][DEBUG][C0A838015A8DA30100018EDE][1] name:[The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz. startEvent:[2018-02-06 13:27:01.616] 
-[21 feb 2018 17:49:07,250][DEBUG][C0A838015A8DA30100018EDE][1] Incident alreay Exists:[DynatraceIncidentKey [name=The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz., startEvent=2018-02-06 13:27:01.616]] update the DateUpdate 
-[21 feb 2018 17:49:07,297][DEBUG][C0A838015A8DA30100018EDE][1] Updated 1 rows 
-[21 feb 2018 17:49:07,297][DEBUG][C0A838015A8DA30100018EDE][1] name:[No Memory reserved startEvent:[2018-02-06 13:27:01.619] 
-[21 feb 2018 17:49:07,297][DEBUG][C0A838015A8DA30100018EDE][1] Incident alreay Exists:[DynatraceIncidentKey [name=No Memory reserved, startEvent=2018-02-06 13:27:01.619]] update the DateUpdate 
-[21 feb 2018 17:49:07,313][DEBUG][C0A838015A8DA30100018EDE][1] Updated 1 rows 
-[21 feb 2018 17:49:07,328][DEBUG][C0A838015A8DA30100018EDE][1] name:[No CPU MHz reserved startEvent:[2018-02-06 13:27:01.619] 
-[21 feb 2018 17:49:07,328][DEBUG][C0A838015A8DA30100018EDE][1] Incident alreay Exists:[DynatraceIncidentKey [name=No CPU MHz reserved, startEvent=2018-02-06 13:27:01.619]] update the DateUpdate 
-[21 feb 2018 17:49:07,328][DEBUG][C0A838015A8DA30100018EDE][1] Updated 1 rows 
-[21 feb 2018 17:49:07,328][INFO ][C0A838015A8DA30100018EDE][1] Service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ... DONE with ServiceExecutionTime:[1779] 
-[21 feb 2018 17:49:07,328][INFO ][C0A838015A8DA30100018EDE][1] service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ...  
-[21 feb 2018 17:49:07,328][INFO ][C0A838015A8DA30100018EDE][1] Service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ... DONE with ServiceExecutionTime:[0] 
-[21 feb 2018 17:49:07,328][INFO ][C0A838015A8DA30100018EDE][1] service:[it.reply.sytel.adr.services.impl.CloseRemedyIncident] called ...  
-[21 feb 2018 17:49:07,328][INFO ][C0A838015A8DA30100018EDE][1] Service:[it.reply.sytel.adr.services.impl.CloseRemedyIncident] called ... DONE with ServiceExecutionTime:[0] 
-[21 feb 2018 17:49:07,328][INFO ][C0A838015A8DA30100018EDE][1] Flow RemedyIncidentdBuilder Engine executed with ExecutionTime (1779) 
+[22 feb 2018 17:51:56,561][DEBUG][C0A838015A8EF52A0001A844][1] ------ALLARME-----:[<xml-fragment name="The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz." start="2018-02-06T13:27:01.616+01:00" source="-" session="-"/>] 
+[22 feb 2018 17:51:56,565][DEBUG][C0A838015A8EF52A0001A844][1] ------ALLARME-----:[<xml-fragment name="No CPU MHz reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"/>] 
+[22 feb 2018 17:51:56,566][DEBUG][C0A838015A8EF52A0001A844][1] ------ALLARME-----:[<xml-fragment name="No Memory reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"/>] 
+[22 feb 2018 17:51:56,712][DEBUG][C0A838015A8EF52A0001A844][1] name:[The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz. startEvent:[2018-02-06 13:27:01.616] 
+[22 feb 2018 17:51:56,714][DEBUG][C0A838015A8EF52A0001A844][1] Incident alreay Exists:[DynatraceIncidentKey [name=The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz., startEvent=2018-02-06 13:27:01.616]] update the DateUpdate 
+[22 feb 2018 17:51:56,723][DEBUG][C0A838015A8EF52A0001A844][1] Updated 1 rows 
+[22 feb 2018 17:51:56,729][DEBUG][C0A838015A8EF52A0001A844][1] name:[No Memory reserved startEvent:[2018-02-06 13:27:01.619] 
+[22 feb 2018 17:51:56,730][DEBUG][C0A838015A8EF52A0001A844][1] Incident alreay Exists:[DynatraceIncidentKey [name=No Memory reserved, startEvent=2018-02-06 13:27:01.619]] update the DateUpdate 
+[22 feb 2018 17:51:56,737][DEBUG][C0A838015A8EF52A0001A844][1] Updated 1 rows 
+[22 feb 2018 17:51:56,744][DEBUG][C0A838015A8EF52A0001A844][1] name:[No CPU MHz reserved startEvent:[2018-02-06 13:27:01.619] 
+[22 feb 2018 17:51:56,744][DEBUG][C0A838015A8EF52A0001A844][1] Incident alreay Exists:[DynatraceIncidentKey [name=No CPU MHz reserved, startEvent=2018-02-06 13:27:01.619]] update the DateUpdate 
+[22 feb 2018 17:51:56,752][DEBUG][C0A838015A8EF52A0001A844][1] Updated 1 rows 
+[22 feb 2018 17:51:56,752][INFO ][C0A838015A8EF52A0001A844][1] Service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ... DONE with ServiceExecutionTime:[1911] 
+[22 feb 2018 17:51:56,754][INFO ][C0A838015A8EF52A0001A844][1] service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ...  
+[22 feb 2018 17:51:56,762][INFO ][C0A838015A8EF52A0001A844][1] Number of incident to create on Remedy:[3] 
+[22 feb 2018 17:51:56,957][DEBUG][C0A838015A8EF52A0001A844][1] Exception on helpDeskSubmitServiceDocument:[<urn:HelpDesk_Submit_Service xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP"><urn:First_Name>firstName</urn:First_Name><urn:Impact>1-Extensive/Widespread</urn:Impact><urn:Last_Name>lastName</urn:Last_Name><urn:Reported_Source>Systems Management</urn:Reported_Source><urn:Service_Type>Infrastructure Event</urn:Service_Type><urn:Summary>.........SUMNMARY..........</urn:Summary><urn:Urgency>1-Critical</urn:Urgency></urn:HelpDesk_Submit_Service>] 
+[22 feb 2018 17:51:56,988][INFO ][C0A838015A8EF52A0001A844][1] EnvelopeToSend sent to Remedy:[<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">
+  <Header>
+    <urn:AuthenticationInfo>
+      <urn:userName>RemedyUsr</urn:userName>
+      <urn:password>RemedyPwd</urn:password>
+    </urn:AuthenticationInfo>
+  </Header>
+  <Body>
+    <urn:HelpDesk_Submit_Service>
+      <urn:First_Name>firstName</urn:First_Name>
+      <urn:Impact>1-Extensive/Widespread</urn:Impact>
+      <urn:Last_Name>lastName</urn:Last_Name>
+      <urn:Reported_Source>Systems Management</urn:Reported_Source>
+      <urn:Service_Type>Infrastructure Event</urn:Service_Type>
+      <urn:Summary>.........SUMNMARY..........</urn:Summary>
+      <urn:Urgency>1-Critical</urn:Urgency>
+    </urn:HelpDesk_Submit_Service>
+  </Body>
+</Envelope>] 
+[22 feb 2018 17:51:56,992][ERROR][C0A838015A8EF52A0001A844][1] Exception on Flow Flow TestBuilder Engine 
+it.reply.sytel.adr.services.exc.CreateRemedyIncidentException: Exception on CreateRemedyIncident; nested exception is: 
+	it.reply.sytel.adr.remedyAdapter.exc.RemedyWSClientException: Exception on calling Remedy WS. CreateInputMap:[<xml-fragment><urn:First_Name xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">firstName</urn:First_Name><urn:Impact xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">1-Extensive/Widespread</urn:Impact><urn:Last_Name xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">lastName</urn:Last_Name><urn:Reported_Source xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">Systems Management</urn:Reported_Source><urn:Service_Type xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">Infrastructure Event</urn:Service_Type><urn:Summary xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">.........SUMNMARY..........</urn:Summary><urn:Urgency xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">1-Critical</urn:Urgency></xml-fragment>]; nested exception is: 
+	java.lang.NullPointerException
+it.reply.sytel.adr.remedyAdapter.exc.RemedyWSClientException: Exception on calling Remedy WS. CreateInputMap:[<xml-fragment><urn:First_Name xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">firstName</urn:First_Name><urn:Impact xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">1-Extensive/Widespread</urn:Impact><urn:Last_Name xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">lastName</urn:Last_Name><urn:Reported_Source xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">Systems Management</urn:Reported_Source><urn:Service_Type xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">Infrastructure Event</urn:Service_Type><urn:Summary xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">.........SUMNMARY..........</urn:Summary><urn:Urgency xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">1-Critical</urn:Urgency></xml-fragment>]; nested exception is: 
+	java.lang.NullPointerException
+java.lang.NullPointerException
+	at java.lang.String.getBytes(String.java:905)
+	at it.reply.sytel.adr.remedyAdapter.impl.RemedyWSClientImpl.callRemedy(RemedyWSClientImpl.java:98)
+	at it.reply.sytel.adr.remedyAdapter.impl.RemedyWSClientImpl.createIncident(RemedyWSClientImpl.java:85)
+	at it.reply.sytel.adr.services.impl.CreateRemedyIncident.perform(CreateRemedyIncident.java:60)
+	at it.reply.sytel.adr.core.services.service.AbstractService.execute(AbstractService.java:67)
+	at it.reply.sytel.adr.engine.RemedyIncidetBuilderEngine.executeFlow(RemedyIncidetBuilderEngine.java:60)
+	at it.reply.sytel.adr.main.TestMain.main(TestMain.java:30)

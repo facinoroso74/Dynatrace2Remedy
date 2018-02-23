@@ -27,6 +27,7 @@ import it.reply.sytel.adr.constants.ADRConstants;
 import it.reply.sytel.adr.core.dao.configuration.ConfigurationService;
 import it.reply.sytel.adr.core.dao.exception.ConfigurationException;
 import it.reply.sytel.adr.vo.AppProperty;
+import it.reply.sytel.adr.vo.RemedyAutenticationInfo;
 
 /**
  * @author MPantaleone
@@ -48,14 +49,25 @@ public class ConfigServicesFile implements ConfigurationService {
 		for (int i = 0; i < appNameArray.length; i++) {
 			AppProperty appProperty  =new AppProperty();
 			appProperty.setAppName(appNameArray[i]);
-			appProperty.setAppUrl(prop.getProperty(appNameArray[i]+"_URL"));
-			appProperty.setAppUsr(prop.getProperty(appNameArray[i]+"_USER"));
-			appProperty.setAppPwd(prop.getProperty(appNameArray[i]+"_PWD"));
+			appProperty.setAppUrl(getPropertyFromFile(appNameArray[i]+"_URL", prop));
+			appProperty.setAppUsr(getPropertyFromFile(appNameArray[i]+"_USER", prop));
+			appProperty.setAppPwd(getPropertyFromFile(appNameArray[i]+"_PWD", prop));
 			
 			coupleDashBoardWithUrlMap.put(appNameArray[i], appProperty);
 		}
 		return coupleDashBoardWithUrlMap;
 		
+	}
+	
+	private String getPropertyFromFile(String propertyName,Properties prop) {
+		String propertyValue = prop.getProperty(propertyName);
+		
+		if(log.isDebugEnabled())
+			log.debug("propertyValue:["+propertyValue+"] for propertyName:["+propertyName+"]");
+		
+		if(propertyValue!=null)
+			return propertyValue;
+		throw new ConfigurationException("the property:["+propertyName+"] is null. Please check the configuration file");
 	}
 	
     public void init() {
@@ -72,11 +84,15 @@ public class ConfigServicesFile implements ConfigurationService {
 	        Properties prop = new Properties();
 	        prop.load(is);
 	        
-	        String appNames = prop.getProperty(ADRConstants.DASHBOARD_NAMES);
-	      
+	        String appNames = getPropertyFromFile(ADRConstants.DASHBOARD_NAMES, prop);
+	        
+	        RemedyAutenticationInfo remedyAutenticationInfo = new RemedyAutenticationInfo();
+	        remedyAutenticationInfo.setUser(getPropertyFromFile(ADRConstants.REMEDY_AUTH_INFO_USER, prop));
+	        remedyAutenticationInfo.setPwd(getPropertyFromFile(ADRConstants.REMEDY_AUTH_INFO_PWD, prop));
+	        
+	        map.put(ADRConstants.REMEDY_AUTHENTICATION_INFO, remedyAutenticationInfo);
 	        map.put(ADRConstants.DASHBOARD_NAMES,loadAppProperty(prop, appNames));
-	        
-	        
+	        	        
 	        if(log.isDebugEnabled())
 	        	log.debug("Configuration DONE");
 	    
@@ -88,8 +104,7 @@ public class ConfigServicesFile implements ConfigurationService {
 				if(is!=null)
 					is.close();
 			} catch (IOException e) {
-				log.error("Exception into closing the inputStream for configuration file",e);
-				throw new ConfigurationException("Exception into closing the inputStream for configuration file",e);
+				throw new ConfigurationException("Exception on closing the inputStream for configuration file",e);
 			}
 		}
     }

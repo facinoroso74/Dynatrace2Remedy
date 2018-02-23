@@ -63,8 +63,7 @@ public class IncidentDAOImpl implements IncidentDAO {
 																	    + " name=?"
 																	    + " AND startEvent=?";
 	private static final String SQL_GET_INCIDENT_WITHOUT_REMEDY_TICKET_ID="SELECT "
-			+ " 	name,"
-		    + " 	startEvent"
+			+ " * "
 		    + " FROM "
 		    + "     INCIDENT "
 		    + " WHERE "

@@ -3,10 +3,12 @@ package it.reply.sytel.adr.services.impl;
 import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.xmlbeans.impl.common.SystemCache;
 
 import it.reply.sytel.adr.common.log.EtlLogger;
+import it.reply.sytel.adr.constants.ADRConstants;
 import it.reply.sytel.adr.core.services.enviromnent.Enviromnent;
 import it.reply.sytel.adr.core.services.service.AbstractService;
 import it.reply.sytel.adr.dao.IncidentDAO;
@@ -14,6 +16,7 @@ import it.reply.sytel.adr.remedyAdapter.RemedyClient;
 import it.reply.sytel.adr.remedyAdapter.impl.RemedyWSClientImpl;
 import it.reply.sytel.adr.services.exc.CreateRemedyIncidentException;
 import it.reply.sytel.adr.vo.DynatraceIncident;
+import it.reply.sytel.adr.vo.RemedyAutenticationInfo;
 
 public class CreateRemedyIncident extends AbstractService {
 
@@ -30,7 +33,11 @@ public class CreateRemedyIncident extends AbstractService {
 	protected Enviromnent perform(Enviromnent env) {
 
 		try {
-
+			
+			Map<String, Object> map = (Map<String , Object>)getContext().getConfigMap();
+			
+			RemedyAutenticationInfo remedyAutenticationInfo = (RemedyAutenticationInfo)map.get(ADRConstants.REMEDY_AUTHENTICATION_INFO);
+			
 			//probabilmente vanno presi da condigurazione in base all'APP
 			String firstName;       //andrebbe preso da DynatraceIncident o da configurazione
 			String impact;          //1-Extensive/Widespread,2-Significant/Large,3-Moderate/Limited,4-Minor/Localized
@@ -45,16 +52,18 @@ public class CreateRemedyIncident extends AbstractService {
 			//creare incident su Remedy ed aggiornare la tabella chiamando il WS
 			List<DynatraceIncident> dynatraceIncidentList = incidentDAO.getDynatraceIncidentWithoutRemedyTicketID();
 			
+			log.info("Number of incident to create on Remedy:["+dynatraceIncidentList.size()+"]");
+			
 			for (Iterator<DynatraceIncident> iterator = dynatraceIncidentList.iterator(); iterator.hasNext();) {
 				DynatraceIncident dynatraceIncident = (DynatraceIncident) iterator.next();
 				//create incident
-				String remedyIncidentId = remedyClient.createIncident(dynatraceIncident);
+				String remedyIncidentId = remedyClient.createIncident(dynatraceIncident,remedyAutenticationInfo);
 				Timestamp now = new Timestamp(System.currentTimeMillis());
 				dynatraceIncident.setRemedyTicketCreateDate(now);
 				dynatraceIncident.setRemedyTicketID(remedyIncidentId);
 				dynatraceIncident.setRemedyTicketIDStatus(remedyStatus);
 				
-				incidentDAO.updateDynatraceIncidentAfterRemedyCall(dynatraceIncident);
+				//incidentDAO.updateDynatraceIncidentAfterRemedyCall(dynatraceIncident);
 			}
 			
 			return env;
