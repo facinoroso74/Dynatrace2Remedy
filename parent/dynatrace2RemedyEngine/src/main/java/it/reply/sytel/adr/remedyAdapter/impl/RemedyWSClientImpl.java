@@ -1,5 +1,9 @@
 package it.reply.sytel.adr.remedyAdapter.impl;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Node;
 import org.xmlsoap.schemas.soap.envelope.Body;
@@ -11,9 +15,11 @@ import hpdIncidentInterfaceCreateWSVIP.AuthenticationInfo;
 import hpdIncidentInterfaceCreateWSVIP.AuthenticationInfoDocument;
 import hpdIncidentInterfaceCreateWSVIP.CreateInputMap;
 import hpdIncidentInterfaceCreateWSVIP.HelpDeskSubmitServiceDocument;
+import hpdIncidentInterfaceCreateWSVIP.HelpDeskSubmitServiceResponseDocument;
 import hpdIncidentInterfaceCreateWSVIP.ImpactType;
 import hpdIncidentInterfaceCreateWSVIP.ReportedSourceType;
 import hpdIncidentInterfaceCreateWSVIP.ServiceTypeType;
+import hpdIncidentInterfaceCreateWSVIP.StatusType;
 import hpdIncidentInterfaceCreateWSVIP.UrgencyType;
 import it.reply.sytel.adr.common.log.EtlLogger;
 import it.reply.sytel.adr.common.ws.HTTPClient;
@@ -33,8 +39,36 @@ public class RemedyWSClientImpl implements RemedyClient{
 	
 	private Logger log = EtlLogger.getLogger(getClass());
 
+	
+	private StatusType.Enum getStatusType(String statusStr) {
+		
+		if(statusStr.equals("NEW"))
+			return StatusType.NEW;
+		if(statusStr.equals("ASSIGNED"))
+			return StatusType.ASSIGNED;
+		if(statusStr.equals("CLOSED"))
+			return StatusType.CLOSED;
+		if(statusStr.equals("RESOLVED"))
+			return StatusType.RESOLVED;
+		if(statusStr.equals("PENDING"))
+			return StatusType.PENDING;
+		if(statusStr.equals("IN_PROGRESS"))
+			return StatusType.IN_PROGRESS;
+		if(statusStr.equals("CANCELLED"))
+			return StatusType.CANCELLED;
+		throw new RemedyWSClientException("Unknown Status:["+statusStr+"]");
+	}
+	
 	@Override
-	public String createIncident(DynatraceIncident dynatraceIncident,RemedyAutenticationInfo remedyAutenticationInfo) {
+	public String createIncident(DynatraceIncident dynatraceIncident,
+			RemedyAutenticationInfo remedyAutenticationInfo,
+			String firstName,
+			String impact,
+			String lastName,
+			String reported_source,
+			String serviceType, 
+			String ticketStatus,
+			String urgency) {
 		
 		AuthenticationInfoDocument authenticationInfoDocument = AuthenticationInfoDocument.Factory.newInstance();
 		AuthenticationInfo authenticationInfo = authenticationInfoDocument.addNewAuthenticationInfo();
@@ -43,11 +77,14 @@ public class RemedyWSClientImpl implements RemedyClient{
 		
 		HelpDeskSubmitServiceDocument helpDeskSubmitServiceDocument = HelpDeskSubmitServiceDocument.Factory.newInstance();
 		CreateInputMap createInputMap = helpDeskSubmitServiceDocument.addNewHelpDeskSubmitService();
-		createInputMap.setFirstName("firstName");
-		createInputMap.setLastName("lastName");
+		createInputMap.setFirstName(firstName);
+		createInputMap.setLastName(lastName);
 		createInputMap.setImpact(ImpactType.X_1_EXTENSIVE_WIDESPREAD);
 		createInputMap.setReportedSource(ReportedSourceType.SYSTEMS_MANAGEMENT);
 		createInputMap.setServiceType(ServiceTypeType.INFRASTRUCTURE_EVENT);
+		//createInputMap.setStatus(getStatusType(ticketStatus));
+		createInputMap.setStatus(StatusType.Enum.forString("NEW"));
+		
 		createInputMap.setSummary(".........SUMNMARY..........");
 		createInputMap.setUrgency(UrgencyType.X_1_CRITICAL);
 		
@@ -77,9 +114,6 @@ public class RemedyWSClientImpl implements RemedyClient{
 //		createInputMap.setHPDCI(arg0);
 		//....
 		
-		
-		
-		
 		log.debug("Exception on helpDeskSubmitServiceDocument:["+helpDeskSubmitServiceDocument.xmlText()+"]");
 		
 		String remedyTicketID = callRemedy(createInputMap,authenticationInfo);
@@ -97,85 +131,43 @@ public class RemedyWSClientImpl implements RemedyClient{
 	
 			byte[] soapPayload = envelopeToSend.toString().getBytes(encoding);
 
-			//InputStream inputStream = sharedHTTPClient.invoke(soapPayload, userToken, soapAction);
+			InputStream inputStream = sharedHTTPClient.invoke(soapPayload, userToken, soapAction);
 		
-//			byte[] bytes = IOUtils.toByteArray(inputStream);
-//
-//			log.info("Return from Asset :["+new String(bytes)+"]");
-//
-//			EnvelopeDocument responseDoc = EnvelopeDocument.Factory.parse(new ByteArrayInputStream(bytes));
+			byte[] bytes = IOUtils.toByteArray(inputStream);
+
 			
-			return null;
+			log.info("Return from Remedy :["+new String(bytes)+"]");
+
+			return getResponse(bytes);
 		
 		} catch (Exception e) {
 			throw new RemedyWSClientException("Exception on calling Remedy WS. CreateInputMap:["+createInputMap.xmlText()+"]",e);
 		}
 	}
 	
+	public String getResponse(byte[] bytes){
+
+		try {
+			log.info("Starting gettting Remedy Response");
+			
+			EnvelopeDocument responseDoc = EnvelopeDocument.Factory.parse(new ByteArrayInputStream(bytes));
 	
-//	public PrepareListaAssetResDTO callPrepareListaAsset(PrepareListaAssetReqDTO prepareListaAssetReqDTO){
-//
-//		PrepareListaAssetReturn prepareListaAssetReturn = null;
-//		PrepareListaAssetResDTO prepareListaAssetResDTO = new PrepareListaAssetResDTO();
-//		try{
-//			
-//			PrepareListaAssetDocument prepareListaAssetDocument =  PrepareListaAssetDocument.Factory.newInstance();
-//			PrepareListaAsset prepareListaAsset = prepareListaAssetDocument.addNewPrepareListaAsset();
-//			PrepareListaAssetInType prepareListaAssetIn = prepareListaAsset.addNewPrepareListaAssetIn();
-//
-//			prepareListaAssetIn.setIdCliente(prepareListaAssetReqDTO.getIdCliente());
-//			prepareListaAssetIn.setStato(PrepareListaAssetInType.Stato.INSTALLATO);
-//
-//			EnvelopeDocument envelopeToSend =  builEnvelope(encoding,prepareListaAsset);
-//
-//			log.info("qp sent to Asset:["+envelopeToSend.toString()+"]");
-//
-//			byte[] soapPayload = envelopeToSend.toString().getBytes(encoding);
-//
-//			InputStream inputStream = sharedHTTPClient.invoke(soapPayload, userToken, soapAction);
-//
-//			byte[] bytes = IOUtils.toByteArray(inputStream);
-//
-//			log.info("Return from Asset :["+new String(bytes)+"]");
-//
-//			EnvelopeDocument responseDoc = EnvelopeDocument.Factory.parse(new ByteArrayInputStream(bytes));
-//
-//			PrepareListaAssetResponseDocument prepareListaAssetResponseDocument= PrepareListaAssetResponseDocument.Factory.parse(responseDoc.getEnvelope().getBody().xmlText());
-//
-//			log.info("prepareListaAssetResponseDocument: ["+prepareListaAssetResponseDocument.toString()+"]");
-//
-//			prepareListaAssetReturn = getResponse(prepareListaAssetResponseDocument);
-//
-//			prepareListaAssetResDTO.setRequestID(prepareListaAssetReturn.getRequestID()!=null && !"".equalsIgnoreCase(prepareListaAssetReturn.getRequestID())?new BigInteger(prepareListaAssetReturn.getRequestID()):null);
-//			prepareListaAssetResDTO.setCardinalitaItem(prepareListaAssetReturn.getCardinalitaItem()!=null && !"".equalsIgnoreCase(prepareListaAssetReturn.getCardinalitaItem())?new BigInteger(prepareListaAssetReturn.getCardinalitaItem()):null);
-//			prepareListaAssetResDTO.setNumeroItemPerPagina(prepareListaAssetReturn.getNumeroItemPerPagina()!=null && !"".equalsIgnoreCase(prepareListaAssetReturn.getNumeroItemPerPagina())?new BigInteger(prepareListaAssetReturn.getNumeroItemPerPagina()):null);
-//			prepareListaAssetResDTO.setTotalePagine(prepareListaAssetReturn.getTotalePagine()!=null && !"".equalsIgnoreCase(prepareListaAssetReturn.getTotalePagine())? new BigInteger(prepareListaAssetReturn.getTotalePagine()):null);
-//
-//		}catch(Exception e){
-//			log.error("Exception on callPrepareListaAsset",e);
-//		}
-//		return prepareListaAssetResDTO;
-//
-//
-//	} 
-//
-//
-//	public PrepareListaAssetReturn getResponse(PrepareListaAssetResponseDocument prepareListaAssetResponseDocument) throws JAXBException{
-//
-//		log.info("Starting getResponse");
-//
-////		PrepareListaAssetResponse richiestaCliCodOutput = prepareListaAssetResponseDocument.getPrepareListaAssetResponse();
-////
-////		log.info("PrepareListaAssetResponse: ["+prepareListaAssetResponseDocument.getPrepareListaAssetResponse().toString()+"]");
-//
-//		PrepareListaAssetReturn prepareListaAssetReturnType =  prepareListaAssetResponseDocument.getPrepareListaAssetResponse().getPrepareListaAssetReturn();
-//
-//		log.info("PrepareListaAssetReturn: ["+prepareListaAssetReturnType.toString()+"]");
-//
-//		return prepareListaAssetReturnType;
-//
-//	}
-//
+			HelpDeskSubmitServiceResponseDocument helpDeskSubmitServiceResponseDocument = HelpDeskSubmitServiceResponseDocument.Factory.parse(responseDoc.getEnvelope().getBody().xmlText());
+	
+			String incidentNumber = helpDeskSubmitServiceResponseDocument.getHelpDeskSubmitServiceResponse().getIncidentNumber();
+			
+			log.info("incidentNumber: ["+incidentNumber+"]");
+	
+			if(incidentNumber==null || incidentNumber.equals(""))
+				throw new RemedyWSClientException("The Remedy Incident Number is NULL");
+			
+			return incidentNumber;
+			
+		}catch (Exception e) {
+			throw new RemedyWSClientException("Exception on getting the RemedyResponse",e);
+		}
+	}
+
 
 	private EnvelopeDocument buildEnvelope(String encoding2, CreateInputMap createInputMap,AuthenticationInfo authenticationInfo) {
 		
@@ -185,7 +177,6 @@ public class RemedyWSClientImpl implements RemedyClient{
 		addHeader(envelope, authenticationInfo);
 		addBody(envelope,createInputMap);
 
-		// Set output encoding according to configuration
 		envDoc.documentProperties().setEncoding(encoding);
 		return envDoc;
 	}

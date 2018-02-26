@@ -47,9 +47,9 @@ public class IncidentDAOImpl implements IncidentDAO {
 	
 
 	private static final String SQL_UPDATE_INCIDENT_WITH_REMEDY_DATA="UPDATE INCIDENT "
-			+ 	"set REMEDYTICKETID=? "
-			+	"set REMEDYTICKETIDSTATUS=? "
-			+	"set REMEDYTICKETCREATEDATE=? "
+			+ 	"set REMEDYTICKETID=?, "
+			+	" REMEDYTICKETIDSTATUS=?, "
+			+	" REMEDYTICKETCREATEDATE=? "
 			+ "where "
 			+ 	" name=? "
 			+ 	" and startEvent=?";

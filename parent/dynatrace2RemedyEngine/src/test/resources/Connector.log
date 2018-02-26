@@ -1,131 +1,208 @@
-[22 feb 2018 17:51:54,624][DEBUG][][] getting the inputStream from fileName:[ADR.properties] 
-[22 feb 2018 17:51:54,629][DEBUG][][] propertyValue:[SVILUPPO] for propertyName:[DASHBOARD_NAMES] 
-[22 feb 2018 17:51:54,630][DEBUG][][] propertyValue:[RemedyUsr] for propertyName:[REMEDY_AUTH_INFO_USER] 
-[22 feb 2018 17:51:54,631][DEBUG][][] propertyValue:[RemedyPwd] for propertyName:[REMEDY_AUTH_INFO_PWD] 
-[22 feb 2018 17:51:54,631][DEBUG][][] appNames:[SVILUPPO] 
-[22 feb 2018 17:51:54,633][DEBUG][][] propertyValue:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] for propertyName:[SVILUPPO_URL] 
-[22 feb 2018 17:51:54,633][DEBUG][][] propertyValue:[Remedy_Integration] for propertyName:[SVILUPPO_USER] 
-[22 feb 2018 17:51:54,633][DEBUG][][] propertyValue:[remedy] for propertyName:[SVILUPPO_PWD] 
-[22 feb 2018 17:51:54,633][DEBUG][][] Configuration DONE 
-[22 feb 2018 17:51:54,841][INFO ][C0A838015A8EF52A0001A844][1] Flow RemedyIncidentdBuilder Engine Called... 
-[22 feb 2018 17:51:54,841][INFO ][C0A838015A8EF52A0001A844][1] service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ...  
-[22 feb 2018 17:51:54,842][DEBUG][C0A838015A8EF52A0001A844][1] the Name for app:[SVILUPPO] is [SVILUPPO] 
-[22 feb 2018 17:51:54,842][DEBUG][C0A838015A8EF52A0001A844][1] the URL for app:[SVILUPPO] is [https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] 
-[22 feb 2018 17:51:54,842][DEBUG][C0A838015A8EF52A0001A844][1] the USR for app:[SVILUPPO] is [Remedy_Integration] 
-[22 feb 2018 17:51:54,842][DEBUG][C0A838015A8EF52A0001A844][1] the PWD for app:[SVILUPPO] is [remedy] 
-[22 feb 2018 17:51:54,843][DEBUG][C0A838015A8EF52A0001A844][1] calling the console:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] with user[Remedy_Integration] pwd=remedy... 
-[22 feb 2018 17:51:56,218][DEBUG][C0A838015A8EF52A0001A844][1] calling the console:[https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard] with user[Remedy_Integration] pwd=remedy... DONE elapsed:[1375] 
-[22 feb 2018 17:51:56,219][DEBUG][C0A838015A8EF52A0001A844][1] content:[<?xml version="1.0" encoding="utf-8"?>
-<dashboardreport name="IncidentDashboard" version="7.0.10.1010" reportdate="2018-02-22T17:58:44.226+01:00" description="">
-  <source name="dynaTrace Self-Monitoring">
-    <filters summary="last 30 minutes (auto)">
-      <filter>tf:DiagnoseTimeframe?1519316924227:1519318724227</filter>
+[26 feb 2018 16:29:26,395][INFO ][][] Using a custom ConnectionKeepAliveStrategy with default duration = 'infinite' 
+[26 feb 2018 16:29:26,400][INFO ][][] Using a custom ConnectionReuseStrategy based on peer HTTP headers/version 
+[26 feb 2018 16:29:26,402][INFO ][][] Using a custom HttpRequestRetryHandler to delegate retry logic to JMS redelivery mechanism 
+[26 feb 2018 16:29:26,403][DEBUG][][] Creating shared HTTP client 
+[26 feb 2018 16:29:26,403][DEBUG][][] httpsClientProperties.getTrustURLString():[file:///D:/MyGitRepo/Dynatrace2RemedyLocalRepo/parent/dynatrace2RemedyEngine/src/main/resources/truststore.jks] 
+[26 feb 2018 16:29:26,449][DEBUG][][] createTrustManagers - Initializing trust manager: dynatracetest 
+[26 feb 2018 16:29:26,449][DEBUG][][] Initializing trust manager 
+[26 feb 2018 16:29:26,522][DEBUG][][] --------- protocolHandShake:[TLSv1.2]-------- 
+[26 feb 2018 16:29:27,120][DEBUG][][] Shared HTTP client created successfully! 
+[26 feb 2018 16:29:27,120][INFO ][][] Starting IdleHTTPConnectionEvictor task (evictionPeriod=5000) 
+[26 feb 2018 16:29:27,167][INFO ][][] Using a custom ConnectionKeepAliveStrategy with default duration = 'infinite' 
+[26 feb 2018 16:29:27,168][INFO ][][] Using a custom ConnectionReuseStrategy based on peer HTTP headers/version 
+[26 feb 2018 16:29:27,168][INFO ][][] Using a custom HttpRequestRetryHandler to delegate retry logic to JMS redelivery mechanism 
+[26 feb 2018 16:29:27,170][DEBUG][][] Creating shared HTTP client 
+[26 feb 2018 16:29:27,170][DEBUG][][] --------- protocolHandShake:[TLSv1.2]-------- 
+[26 feb 2018 16:29:27,204][DEBUG][][] Shared HTTP client created successfully! 
+[26 feb 2018 16:29:27,204][INFO ][][] Starting IdleHTTPConnectionEvictor task (evictionPeriod=5000) 
+[26 feb 2018 16:29:27,280][DEBUG][][] getting the inputStream from fileName:[ADR.properties] 
+[26 feb 2018 16:29:27,282][DEBUG][][] propertyValue:[ADBM;TAXI] for propertyName:[DASHBOARD_NAMES] 
+[26 feb 2018 16:29:27,283][DEBUG][][] propertyValue:[RemedyUsr] for propertyName:[REMEDY_AUTH_INFO_USER] 
+[26 feb 2018 16:29:27,284][DEBUG][][] propertyValue:[RemedyPwd         ] for propertyName:[REMEDY_AUTH_INFO_PWD] 
+[26 feb 2018 16:29:27,285][DEBUG][][] propertyValue:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] for propertyName:[ADBM_URL] 
+[26 feb 2018 16:29:27,285][DEBUG][][] propertyValue:[admin] for propertyName:[ADBM_USER] 
+[26 feb 2018 16:29:27,285][DEBUG][][] propertyValue:[adradmin01] for propertyName:[ADBM_PWD] 
+[26 feb 2018 16:29:27,286][DEBUG][][] propertyValue:[https://dynatrace-sub-ca:8021/rest/management/dashboard/TAXI_TEST_REMEDY_INTEGRATION] for propertyName:[TAXI_URL] 
+[26 feb 2018 16:29:27,286][DEBUG][][] propertyValue:[admin] for propertyName:[TAXI_USER] 
+[26 feb 2018 16:29:27,286][DEBUG][][] propertyValue:[adradmin01] for propertyName:[TAXI_PWD] 
+[26 feb 2018 16:29:27,286][DEBUG][][] Configuration DONE 
+[26 feb 2018 16:29:27,346][INFO ][AC1F07675A9427D70001B514][1] Flow RemedyIncidentdBuilder Engine Called... 
+[26 feb 2018 16:29:27,347][INFO ][AC1F07675A9427D70001B514][1] service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ...  
+[26 feb 2018 16:29:27,347][DEBUG][AC1F07675A9427D70001B514][1] the Name for app:[ADBM] is [ADBM] 
+[26 feb 2018 16:29:27,348][DEBUG][AC1F07675A9427D70001B514][1] the URL for app:[ADBM] is [https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] 
+[26 feb 2018 16:29:27,348][DEBUG][AC1F07675A9427D70001B514][1] the USR for app:[ADBM] is [admin] 
+[26 feb 2018 16:29:27,348][DEBUG][AC1F07675A9427D70001B514][1] the PWD for app:[ADBM] is [adradmin01] 
+[26 feb 2018 16:29:27,348][DEBUG][AC1F07675A9427D70001B514][1] calling the console:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] with user[admin] pwd=adradmin01... 
+[26 feb 2018 16:29:27,353][DEBUG][AC1F07675A9427D70001B514][1] Executing POST with basic authentication 
+[26 feb 2018 16:29:27,384][DEBUG][AC1F07675A9427D70001B514][1] SOAP HTTP request headers: 
+[26 feb 2018 16:29:27,389][INFO ][AC1F07675A9427D70001B514][1] 	name=Authorization, value=Basic YWRtaW46YWRyYWRtaW4wMQ== 
+[26 feb 2018 16:29:28,054][INFO ][AC1F07675A9427D70001B514][1]  Server certificate 1: 
+[26 feb 2018 16:29:28,054][INFO ][AC1F07675A9427D70001B514][1]   Subject DN: CN=Insecure AppMon Demo, OU=Development, O=Dynatrace LLC, L=Waltham, ST=MA, C=US 
+[26 feb 2018 16:29:28,054][INFO ][AC1F07675A9427D70001B514][1]   Signature Algorithm: SHA256withRSA 
+[26 feb 2018 16:29:28,054][INFO ][AC1F07675A9427D70001B514][1]   Valid from: Tue Mar 07 11:37:35 CET 2017 
+[26 feb 2018 16:29:28,055][INFO ][AC1F07675A9427D70001B514][1]   Valid until: Thu Mar 07 11:37:35 CET 2019 
+[26 feb 2018 16:29:28,055][INFO ][AC1F07675A9427D70001B514][1]   Issuer: CN=dynatrace-sub-CA, DC=dynatrace, DC=org 
+[26 feb 2018 16:29:28,055][INFO ][AC1F07675A9427D70001B514][1]  Server certificate 2: 
+[26 feb 2018 16:29:28,055][INFO ][AC1F07675A9427D70001B514][1]   Subject DN: CN=dynatrace-sub-CA, DC=dynatrace, DC=org 
+[26 feb 2018 16:29:28,055][INFO ][AC1F07675A9427D70001B514][1]   Signature Algorithm: SHA256withRSA 
+[26 feb 2018 16:29:28,056][INFO ][AC1F07675A9427D70001B514][1]   Valid from: Fri Jan 09 15:41:43 CET 2015 
+[26 feb 2018 16:29:28,056][INFO ][AC1F07675A9427D70001B514][1]   Valid until: Sat Jan 09 15:51:43 CET 2021 
+[26 feb 2018 16:29:28,056][INFO ][AC1F07675A9427D70001B514][1]   Issuer: CN=DYNATRACE-ROOT 
+[26 feb 2018 16:29:28,056][INFO ][AC1F07675A9427D70001B514][1]  Server certificate 3: 
+[26 feb 2018 16:29:28,057][INFO ][AC1F07675A9427D70001B514][1]   Subject DN: CN=DYNATRACE-ROOT 
+[26 feb 2018 16:29:28,057][INFO ][AC1F07675A9427D70001B514][1]   Signature Algorithm: SHA256withRSA 
+[26 feb 2018 16:29:28,057][INFO ][AC1F07675A9427D70001B514][1]   Valid from: Thu Jan 08 15:18:45 CET 2015 
+[26 feb 2018 16:29:28,057][INFO ][AC1F07675A9427D70001B514][1]   Valid until: Fri Jan 08 15:28:40 CET 2027 
+[26 feb 2018 16:29:28,057][INFO ][AC1F07675A9427D70001B514][1]   Issuer: CN=DYNATRACE-ROOT 
+[26 feb 2018 16:29:28,919][INFO ][AC1F07675A9427D70001B514][1] Remote peer HTTP version > 1.0 --> keep-alive=true 
+[26 feb 2018 16:29:28,920][INFO ][AC1F07675A9427D70001B514][1] Current connection will be kept alive 'indefinitely' 
+[26 feb 2018 16:29:28,923][INFO ][AC1F07675A9427D70001B514][1] SOAP HTTP response headers: 
+[26 feb 2018 16:29:28,923][INFO ][AC1F07675A9427D70001B514][1] 	name=Date, value=Mon, 26 Feb 2018 15:29:28 GMT 
+[26 feb 2018 16:29:28,923][INFO ][AC1F07675A9427D70001B514][1] 	name=Set-Cookie, value=JSESSIONID=obp49t8rahspxb04gina6qm8;Path=/;Secure;HttpOnly 
+[26 feb 2018 16:29:28,923][INFO ][AC1F07675A9427D70001B514][1] 	name=Expires, value=Thu, 01 Jan 1970 00:00:00 GMT 
+[26 feb 2018 16:29:28,923][INFO ][AC1F07675A9427D70001B514][1] 	name=Content-Disposition, value=inline; filename="ADBM_TEST_REMEDY_INTEGRATION.xml" 
+[26 feb 2018 16:29:28,923][INFO ][AC1F07675A9427D70001B514][1] 	name=Content-Type, value=text/xml 
+[26 feb 2018 16:29:28,923][INFO ][AC1F07675A9427D70001B514][1] 	name=Cache-Control, value=no-cache 
+[26 feb 2018 16:29:28,924][INFO ][AC1F07675A9427D70001B514][1] 	name=Cache-Control, value=must-revalidate 
+[26 feb 2018 16:29:28,924][INFO ][AC1F07675A9427D70001B514][1] 	name=Cache-Control, value=max-age=0 
+[26 feb 2018 16:29:28,924][INFO ][AC1F07675A9427D70001B514][1] 	name=Pragma, value=no-cache 
+[26 feb 2018 16:29:28,924][INFO ][AC1F07675A9427D70001B514][1] 	name=Vary, value=Accept-Encoding, User-Agent 
+[26 feb 2018 16:29:28,924][INFO ][AC1F07675A9427D70001B514][1] 	name=Content-Length, value=4983 
+[26 feb 2018 16:29:28,924][INFO ][AC1F07675A9427D70001B514][1] HTTP response code received: 200 
+[26 feb 2018 16:29:28,925][DEBUG][AC1F07675A9427D70001B514][1] calling the console:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] with user[admin] pwd=adradmin01... DONE elapsed:[1577] 
+[26 feb 2018 16:29:28,925][DEBUG][AC1F07675A9427D70001B514][1] content:[<?xml version="1.0" encoding="utf-8"?>
+<dashboardreport name="ADBM_TEST_REMEDY_INTEGRATION" version="7.0.10.1010" reportdate="2018-02-26T16:29:28.643+01:00" description="">
+  <source name="ADBM_TEST">
+    <filters summary="last 24 hours">
+      <filter>tf:Last24h</filter>
     </filters>
   </source>
   <data>
     <incidentsoverviewdashlet name="Incidents" description="" displaysource="Base">
+      <source>
+        <filters summary="Incident Rules, last 24 hours">
+          <filter>tf:Last24h</filter>
+          <filter>if:RULE?Agent Instrumentation Disabledif:RULE?Application Process Out-of-Memoryif:RULE?Application Process Unavailable (unexpected)if:RULE?Application Process Unhealthyif:RULE?Average response time degradedif:RULE?CURRENT_Q_DEPTHif:RULE?Database connection issueif:RULE?Failure rate too highif:RULE?Host Availabilityif:RULE?Host CPU Unhealthyif:RULE?Host Disk Unhealthyif:RULE?Host Memory Unhealthyif:RULE?Host Network Unhealthyif:RULE?JDBC Connection Pool Percent Usedif:RULE?JDBC Connection Pool Waiting Thread Countif:RULE?Potentially stuck Java VM detectedif:RULE?Response time degraded for slow requestsif:RULE?Status of the QMif:RULE?Thread Declared Hungif:RULE?Total GC Collection Time</filter>
+        </filters>
+      </source>
       <incidentoverviewrecords structuretype="tree">
-        <incidentoverviewrecord name="dynaTrace Self-Monitoring (3)">
-          <incidentoverviewrecord name="Agent capturing disabled"></incidentoverviewrecord>
+        <incidentoverviewrecord name="ADBM_TEST (6)">
           <incidentoverviewrecord name="Agent Instrumentation Disabled"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Ambiguous Agent Mapping"></incidentoverviewrecord>
           <incidentoverviewrecord name="Application Process Out-of-Memory"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Application Process Shutdown"></incidentoverviewrecord>
           <incidentoverviewrecord name="Application Process Unavailable (unexpected)"></incidentoverviewrecord>
           <incidentoverviewrecord name="Application Process Unhealthy"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Collector Not Connected (unexpected)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Conflicting Agent JVM Options"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Continuous transaction recording was aborted"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Corrupted PurePath(s)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="CPU Core Number insufficient"></incidentoverviewrecord>
-          <incidentoverviewrecord name="CPU Frequency insufficient (1)">
-            <incidentoverviewrecord name="The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz." start="2018-02-06T13:27:01.616+01:00" source="-" session="-"></incidentoverviewrecord>
+          <incidentoverviewrecord name="CURRENT_Q_DEPTH (5)">
+            <incidentoverviewrecord name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name-&gt;ADBM_QU_ANAGRAFICA] (ARAPPX02_QM_THRESHOULD_10@192.168.175.144) ARAPPX02_QM_THRESHOULD_10 upper bound exceeded" start="2018-02-12T19:44:10.000+01:00" source="ARAPPX02_QM_THRESHOULD_10@192.168.175.144"></incidentoverviewrecord>
+            <incidentoverviewrecord name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name-&gt;ADBM_QU_NAS] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T19:53:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"></incidentoverviewrecord>
+            <incidentoverviewrecord name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name-&gt;ADBM_QU_UFIS_ADR] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T17:30:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"></incidentoverviewrecord>
+            <incidentoverviewrecord name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name-&gt;ADBM_QU_UFIS_TEST] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T17:30:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"></incidentoverviewrecord>
+            <incidentoverviewrecord name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name-&gt;TELEX_QU_ADBM] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T14:08:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"></incidentoverviewrecord>
           </incidentoverviewrecord>
-          <incidentoverviewrecord name="Custom Events"></incidentoverviewrecord>
           <incidentoverviewrecord name="Database Agent Connection Issue"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Database Version Unsupported By Database Agent"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Deployment"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Different Sizing on Backend and Frontend"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Dynatrace Frontendserver Offline"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Dynatrace Server Offline"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Dynatrace Server Offline (unexpected)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Elasticsearch Connector Errors (Backend)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Elasticsearch Connector Errors (Frontend)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Elasticsearch Connector Skipped Documents (Backend)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Elasticsearch Connector Skipped Documents (Frontend)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Energy Saving Mode active"></incidentoverviewrecord>
           <incidentoverviewrecord name="Failure rate too high"></incidentoverviewrecord>
-          <incidentoverviewrecord name="File Session Management"></incidentoverviewrecord>
-          <incidentoverviewrecord name="High Overall Failed Page Action Rate"></incidentoverviewrecord>
-          <incidentoverviewrecord name="High Overall Failed Transaction Rate"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Insufficient Database Agent Privileges"></incidentoverviewrecord>
-          <incidentoverviewrecord name="License"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Low Collector Disk Space"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Low Collector Memory"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Low Dynatrace Server Memory"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Low Frontendserver Memory"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Maximum count of measures reached"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Performance Warehouse"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Performance Warehouse - Switching Temp Tables Time"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Performance Warehouse - Writing Measurements Time (severe)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Performance Warehouse - Writing Measurements Time (warning)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Performance Warehouse - Writing Percentiles Time (severe)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Performance Warehouse - Writing Percentiles Time (warning)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Performance Warehouse Clean-Up"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Performance Warehouse Event Summary"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Performance Warehouse Import"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Performance Warehouse Import Ongoing"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Performance Warehouse Offline"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Physical Memory insufficient"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Port Conflict"></incidentoverviewrecord>
+          <incidentoverviewrecord name="JDBC Connection Pool Percent Used"></incidentoverviewrecord>
+          <incidentoverviewrecord name="JDBC Connection Pool Waiting Thread Count"></incidentoverviewrecord>
           <incidentoverviewrecord name="Potentially stuck Java VM detected"></incidentoverviewrecord>
-          <incidentoverviewrecord name="PureLytics skipped data"></incidentoverviewrecord>
-          <incidentoverviewrecord name="PureLytics skipped queue entries"></incidentoverviewrecord>
-          <incidentoverviewrecord name="PureLytics Stream skipped queue entries"></incidentoverviewrecord>
           <incidentoverviewrecord name="Response time degraded"></incidentoverviewrecord>
           <incidentoverviewrecord name="Response time degraded for slow requests"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Scheduled Task Execution Failed"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Synthetic Monitoring Integration"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Test Violation"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Timed Out PurePath(s)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Truncated PurePath(s)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Unsupported Sizing"></incidentoverviewrecord>
-          <incidentoverviewrecord name="VMware - CPU MHz Limit too low"></incidentoverviewrecord>
-          <incidentoverviewrecord name="VMware - High CPU ready time"></incidentoverviewrecord>
-          <incidentoverviewrecord name="VMware - Hypervisor Swapping detected"></incidentoverviewrecord>
-          <incidentoverviewrecord name="VMware - Memory Ballooning detected"></incidentoverviewrecord>
-          <incidentoverviewrecord name="VMware - Memory Limit too low"></incidentoverviewrecord>
-          <incidentoverviewrecord name="VMware - No CPU MHz reserved (1)">
-            <incidentoverviewrecord name="No CPU MHz reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Status of the QM"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Thread Declared Hung"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Total GC Collection Time (1)">
+            <incidentoverviewrecord name="Java Virtual Machine/Total GC Collection Time: Total GC Collection Time &lt;all-applications&gt; (WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio) upper bound exceeded" start="2018-02-26T03:00:10.000+01:00" duration="10000" end="2018-02-26T03:00:20.000+01:00" source="WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio &lt;all-applications&gt;"></incidentoverviewrecord>
           </incidentoverviewrecord>
-          <incidentoverviewrecord name="VMware - No Memory reserved (1)">
-            <incidentoverviewrecord name="No Memory reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"></incidentoverviewrecord>
-          </incidentoverviewrecord>
-          <incidentoverviewrecord name="VMware - Reserved CPU MHz insufficient"></incidentoverviewrecord>
-          <incidentoverviewrecord name="VMware - Reserved Memory insufficient"></incidentoverviewrecord>
         </incidentoverviewrecord>
       </incidentoverviewrecords>
     </incidentsoverviewdashlet>
   </data>
 </dashboardreport>
 ] 
-[22 feb 2018 17:51:56,561][DEBUG][C0A838015A8EF52A0001A844][1] ------ALLARME-----:[<xml-fragment name="The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz." start="2018-02-06T13:27:01.616+01:00" source="-" session="-"/>] 
-[22 feb 2018 17:51:56,565][DEBUG][C0A838015A8EF52A0001A844][1] ------ALLARME-----:[<xml-fragment name="No CPU MHz reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"/>] 
-[22 feb 2018 17:51:56,566][DEBUG][C0A838015A8EF52A0001A844][1] ------ALLARME-----:[<xml-fragment name="No Memory reserved" start="2018-02-06T13:27:01.619+01:00" source="-" session="-"/>] 
-[22 feb 2018 17:51:56,712][DEBUG][C0A838015A8EF52A0001A844][1] name:[The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz. startEvent:[2018-02-06 13:27:01.616] 
-[22 feb 2018 17:51:56,714][DEBUG][C0A838015A8EF52A0001A844][1] Incident alreay Exists:[DynatraceIncidentKey [name=The current setup needs at least a CPU clock speed of 2000 MHz, but the system runs only with 1900 MHz., startEvent=2018-02-06 13:27:01.616]] update the DateUpdate 
-[22 feb 2018 17:51:56,723][DEBUG][C0A838015A8EF52A0001A844][1] Updated 1 rows 
-[22 feb 2018 17:51:56,729][DEBUG][C0A838015A8EF52A0001A844][1] name:[No Memory reserved startEvent:[2018-02-06 13:27:01.619] 
-[22 feb 2018 17:51:56,730][DEBUG][C0A838015A8EF52A0001A844][1] Incident alreay Exists:[DynatraceIncidentKey [name=No Memory reserved, startEvent=2018-02-06 13:27:01.619]] update the DateUpdate 
-[22 feb 2018 17:51:56,737][DEBUG][C0A838015A8EF52A0001A844][1] Updated 1 rows 
-[22 feb 2018 17:51:56,744][DEBUG][C0A838015A8EF52A0001A844][1] name:[No CPU MHz reserved startEvent:[2018-02-06 13:27:01.619] 
-[22 feb 2018 17:51:56,744][DEBUG][C0A838015A8EF52A0001A844][1] Incident alreay Exists:[DynatraceIncidentKey [name=No CPU MHz reserved, startEvent=2018-02-06 13:27:01.619]] update the DateUpdate 
-[22 feb 2018 17:51:56,752][DEBUG][C0A838015A8EF52A0001A844][1] Updated 1 rows 
-[22 feb 2018 17:51:56,752][INFO ][C0A838015A8EF52A0001A844][1] Service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ... DONE with ServiceExecutionTime:[1911] 
-[22 feb 2018 17:51:56,754][INFO ][C0A838015A8EF52A0001A844][1] service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ...  
-[22 feb 2018 17:51:56,762][INFO ][C0A838015A8EF52A0001A844][1] Number of incident to create on Remedy:[3] 
-[22 feb 2018 17:51:56,957][DEBUG][C0A838015A8EF52A0001A844][1] Exception on helpDeskSubmitServiceDocument:[<urn:HelpDesk_Submit_Service xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP"><urn:First_Name>firstName</urn:First_Name><urn:Impact>1-Extensive/Widespread</urn:Impact><urn:Last_Name>lastName</urn:Last_Name><urn:Reported_Source>Systems Management</urn:Reported_Source><urn:Service_Type>Infrastructure Event</urn:Service_Type><urn:Summary>.........SUMNMARY..........</urn:Summary><urn:Urgency>1-Critical</urn:Urgency></urn:HelpDesk_Submit_Service>] 
-[22 feb 2018 17:51:56,988][INFO ][C0A838015A8EF52A0001A844][1] EnvelopeToSend sent to Remedy:[<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">
+[26 feb 2018 16:29:29,307][DEBUG][AC1F07675A9427D70001B514][1] ------ALLARME-----:[<xml-fragment name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_ANAGRAFICA] (ARAPPX02_QM_THRESHOULD_10@192.168.175.144) ARAPPX02_QM_THRESHOULD_10 upper bound exceeded" start="2018-02-12T19:44:10.000+01:00" source="ARAPPX02_QM_THRESHOULD_10@192.168.175.144"/>] 
+[26 feb 2018 16:29:29,308][DEBUG][AC1F07675A9427D70001B514][1] ------ALLARME-----:[<xml-fragment name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_NAS] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T19:53:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"/>] 
+[26 feb 2018 16:29:29,309][DEBUG][AC1F07675A9427D70001B514][1] ------ALLARME-----:[<xml-fragment name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_UFIS_ADR] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T17:30:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"/>] 
+[26 feb 2018 16:29:29,310][DEBUG][AC1F07675A9427D70001B514][1] ------ALLARME-----:[<xml-fragment name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_UFIS_TEST] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T17:30:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"/>] 
+[26 feb 2018 16:29:29,310][DEBUG][AC1F07675A9427D70001B514][1] ------ALLARME-----:[<xml-fragment name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->TELEX_QU_ADBM] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T14:08:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"/>] 
+[26 feb 2018 16:29:29,311][DEBUG][AC1F07675A9427D70001B514][1] ------ALLARME-----:[<xml-fragment name="Java Virtual Machine/Total GC Collection Time: Total GC Collection Time &lt;all-applications> (WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio) upper bound exceeded" start="2018-02-26T03:00:10.000+01:00" duration="10000" end="2018-02-26T03:00:20.000+01:00" source="WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio &lt;all-applications>"/>] 
+[26 feb 2018 16:29:29,458][DEBUG][AC1F07675A9427D70001B514][1] name:[Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_UFIS_TEST] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded startEvent:[2018-02-23 17:30:10.0] 
+[26 feb 2018 16:29:29,461][DEBUG][AC1F07675A9427D70001B514][1] Incident alreay Exists:[DynatraceIncidentKey [name=Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_UFIS_TEST] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded, startEvent=2018-02-23 17:30:10.0]] update the DateUpdate 
+[26 feb 2018 16:29:29,475][DEBUG][AC1F07675A9427D70001B514][1] Updated 1 rows 
+[26 feb 2018 16:29:29,484][DEBUG][AC1F07675A9427D70001B514][1] name:[Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->TELEX_QU_ADBM] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded startEvent:[2018-02-23 14:08:10.0] 
+[26 feb 2018 16:29:29,485][DEBUG][AC1F07675A9427D70001B514][1] Incident alreay Exists:[DynatraceIncidentKey [name=Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->TELEX_QU_ADBM] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded, startEvent=2018-02-23 14:08:10.0]] update the DateUpdate 
+[26 feb 2018 16:29:29,496][DEBUG][AC1F07675A9427D70001B514][1] Updated 1 rows 
+[26 feb 2018 16:29:29,507][DEBUG][AC1F07675A9427D70001B514][1] name:[Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_NAS] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded startEvent:[2018-02-23 19:53:10.0] 
+[26 feb 2018 16:29:29,507][DEBUG][AC1F07675A9427D70001B514][1] Incident alreay Exists:[DynatraceIncidentKey [name=Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_NAS] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded, startEvent=2018-02-23 19:53:10.0]] update the DateUpdate 
+[26 feb 2018 16:29:29,518][DEBUG][AC1F07675A9427D70001B514][1] Updated 1 rows 
+[26 feb 2018 16:29:29,529][DEBUG][AC1F07675A9427D70001B514][1] name:[Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_ANAGRAFICA] (ARAPPX02_QM_THRESHOULD_10@192.168.175.144) ARAPPX02_QM_THRESHOULD_10 upper bound exceeded startEvent:[2018-02-12 19:44:10.0] 
+[26 feb 2018 16:29:29,530][DEBUG][AC1F07675A9427D70001B514][1] Incident alreay Exists:[DynatraceIncidentKey [name=Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_ANAGRAFICA] (ARAPPX02_QM_THRESHOULD_10@192.168.175.144) ARAPPX02_QM_THRESHOULD_10 upper bound exceeded, startEvent=2018-02-12 19:44:10.0]] update the DateUpdate 
+[26 feb 2018 16:29:29,539][DEBUG][AC1F07675A9427D70001B514][1] Updated 1 rows 
+[26 feb 2018 16:29:29,548][DEBUG][AC1F07675A9427D70001B514][1] name:[Java Virtual Machine/Total GC Collection Time: Total GC Collection Time <all-applications> (WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio) upper bound exceeded startEvent:[2018-02-26 03:00:10.0] 
+[26 feb 2018 16:29:29,549][DEBUG][AC1F07675A9427D70001B514][1] Incident alreay Exists:[DynatraceIncidentKey [name=Java Virtual Machine/Total GC Collection Time: Total GC Collection Time <all-applications> (WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio) upper bound exceeded, startEvent=2018-02-26 03:00:10.0]] update the DateUpdate 
+[26 feb 2018 16:29:29,561][DEBUG][AC1F07675A9427D70001B514][1] Updated 1 rows 
+[26 feb 2018 16:29:29,569][DEBUG][AC1F07675A9427D70001B514][1] name:[Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_UFIS_ADR] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded startEvent:[2018-02-23 17:30:10.0] 
+[26 feb 2018 16:29:29,569][DEBUG][AC1F07675A9427D70001B514][1] Incident alreay Exists:[DynatraceIncidentKey [name=Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_UFIS_ADR] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded, startEvent=2018-02-23 17:30:10.0]] update the DateUpdate 
+[26 feb 2018 16:29:29,577][DEBUG][AC1F07675A9427D70001B514][1] Updated 1 rows 
+[26 feb 2018 16:29:29,577][DEBUG][AC1F07675A9427D70001B514][1] the Name for app:[TAXI] is [TAXI] 
+[26 feb 2018 16:29:29,577][DEBUG][AC1F07675A9427D70001B514][1] the URL for app:[TAXI] is [https://dynatrace-sub-ca:8021/rest/management/dashboard/TAXI_TEST_REMEDY_INTEGRATION] 
+[26 feb 2018 16:29:29,577][DEBUG][AC1F07675A9427D70001B514][1] the USR for app:[TAXI] is [admin] 
+[26 feb 2018 16:29:29,578][DEBUG][AC1F07675A9427D70001B514][1] the PWD for app:[TAXI] is [adradmin01] 
+[26 feb 2018 16:29:29,578][DEBUG][AC1F07675A9427D70001B514][1] calling the console:[https://dynatrace-sub-ca:8021/rest/management/dashboard/TAXI_TEST_REMEDY_INTEGRATION] with user[admin] pwd=adradmin01... 
+[26 feb 2018 16:29:29,578][DEBUG][AC1F07675A9427D70001B514][1] Executing POST with basic authentication 
+[26 feb 2018 16:29:29,578][DEBUG][AC1F07675A9427D70001B514][1] SOAP HTTP request headers: 
+[26 feb 2018 16:29:29,578][INFO ][AC1F07675A9427D70001B514][1] 	name=Authorization, value=Basic YWRtaW46YWRyYWRtaW4wMQ== 
+[26 feb 2018 16:29:29,896][INFO ][AC1F07675A9427D70001B514][1] Remote peer HTTP version > 1.0 --> keep-alive=true 
+[26 feb 2018 16:29:29,897][INFO ][AC1F07675A9427D70001B514][1] Current connection will be kept alive 'indefinitely' 
+[26 feb 2018 16:29:29,897][INFO ][AC1F07675A9427D70001B514][1] SOAP HTTP response headers: 
+[26 feb 2018 16:29:29,897][INFO ][AC1F07675A9427D70001B514][1] 	name=Date, value=Mon, 26 Feb 2018 15:29:29 GMT 
+[26 feb 2018 16:29:29,898][INFO ][AC1F07675A9427D70001B514][1] 	name=Content-Disposition, value=inline; filename="TAXI_TEST_REMEDY_INTEGRATION.xml" 
+[26 feb 2018 16:29:29,898][INFO ][AC1F07675A9427D70001B514][1] 	name=Content-Type, value=text/xml 
+[26 feb 2018 16:29:29,898][INFO ][AC1F07675A9427D70001B514][1] 	name=Cache-Control, value=no-cache 
+[26 feb 2018 16:29:29,899][INFO ][AC1F07675A9427D70001B514][1] 	name=Cache-Control, value=must-revalidate 
+[26 feb 2018 16:29:29,899][INFO ][AC1F07675A9427D70001B514][1] 	name=Cache-Control, value=max-age=0 
+[26 feb 2018 16:29:29,900][INFO ][AC1F07675A9427D70001B514][1] 	name=Pragma, value=no-cache 
+[26 feb 2018 16:29:29,900][INFO ][AC1F07675A9427D70001B514][1] 	name=Vary, value=Accept-Encoding, User-Agent 
+[26 feb 2018 16:29:29,900][INFO ][AC1F07675A9427D70001B514][1] 	name=Content-Length, value=2288 
+[26 feb 2018 16:29:29,901][INFO ][AC1F07675A9427D70001B514][1] HTTP response code received: 200 
+[26 feb 2018 16:29:29,901][DEBUG][AC1F07675A9427D70001B514][1] calling the console:[https://dynatrace-sub-ca:8021/rest/management/dashboard/TAXI_TEST_REMEDY_INTEGRATION] with user[admin] pwd=adradmin01... DONE elapsed:[323] 
+[26 feb 2018 16:29:29,902][DEBUG][AC1F07675A9427D70001B514][1] content:[<?xml version="1.0" encoding="utf-8"?>
+<dashboardreport name="TAXI_TEST_REMEDY_INTEGRATION" version="7.0.10.1010" reportdate="2018-02-26T16:29:30.006+01:00" description="">
+  <source name="TAXI_TEST">
+    <filters summary="last 24 hours">
+      <filter>tf:Last24h</filter>
+    </filters>
+  </source>
+  <data>
+    <incidentsoverviewdashlet name="Incidents" description="" displaysource="Base">
+      <source>
+        <filters summary="Incident Rules, last 24 hours">
+          <filter>if:RULE?Agent Instrumentation Disabledif:RULE?Application Process Out-of-Memoryif:RULE?Application Process Unavailable (unexpected)if:RULE?Application Process Unhealthyif:RULE?Average response time degradedif:RULE?Database connection issueif:RULE?Failure rate too highif:RULE?Host Availabilityif:RULE?Host CPU Unhealthyif:RULE?Host Disk Unhealthyif:RULE?Host Memory Unhealthyif:RULE?Host Network Unhealthyif:RULE?Response time degraded for slow requests</filter>
+          <filter>tf:Last24h</filter>
+        </filters>
+      </source>
+      <incidentoverviewrecords structuretype="tree">
+        <incidentoverviewrecord name="TAXI_TEST (1)">
+          <incidentoverviewrecord name="Agent Instrumentation Disabled"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Application Process Out-of-Memory"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Application Process Unavailable (unexpected) (1)">
+            <incidentoverviewrecord name="Agent 'CIAJVM-PMS_TAXI_TEST@adrcdc05' connection lost" start="2018-02-26T01:05:43.721+01:00" duration="16106" end="2018-02-26T01:05:59.827+01:00" source="-"></incidentoverviewrecord>
+          </incidentoverviewrecord>
+          <incidentoverviewrecord name="Application Process Unhealthy"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Database Agent Connection Issue"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Failure rate too high"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Response time degraded"></incidentoverviewrecord>
+          <incidentoverviewrecord name="Response time degraded for slow requests"></incidentoverviewrecord>
+        </incidentoverviewrecord>
+      </incidentoverviewrecords>
+    </incidentsoverviewdashlet>
+  </data>
+</dashboardreport>
+] 
+[26 feb 2018 16:29:29,921][DEBUG][AC1F07675A9427D70001B514][1] ------ALLARME-----:[<xml-fragment name="Agent 'CIAJVM-PMS_TAXI_TEST@adrcdc05' connection lost" start="2018-02-26T01:05:43.721+01:00" duration="16106" end="2018-02-26T01:05:59.827+01:00" source="-"/>] 
+[26 feb 2018 16:29:29,950][DEBUG][AC1F07675A9427D70001B514][1] Updated 1 rows 
+[26 feb 2018 16:29:29,950][DEBUG][AC1F07675A9427D70001B514][1] Incident inserted:[DynatraceIncidentKey [name=Agent 'CIAJVM-PMS_TAXI_TEST@adrcdc05' connection lost, startEvent=2018-02-26 01:05:43.721] 
+[26 feb 2018 16:29:29,951][INFO ][AC1F07675A9427D70001B514][1] Service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ... DONE with ServiceExecutionTime:[2604] 
+[26 feb 2018 16:29:29,951][INFO ][AC1F07675A9427D70001B514][1] service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ...  
+[26 feb 2018 16:29:29,966][INFO ][AC1F07675A9427D70001B514][1] Number of incident to create on Remedy:[7] 
+[26 feb 2018 16:29:30,197][DEBUG][AC1F07675A9427D70001B514][1] Exception on helpDeskSubmitServiceDocument:[<urn:HelpDesk_Submit_Service xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP"><urn:First_Name xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><urn:Impact>1-Extensive/Widespread</urn:Impact><urn:Last_Name xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><urn:Reported_Source>Systems Management</urn:Reported_Source><urn:Service_Type>Infrastructure Event</urn:Service_Type><urn:Status xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><urn:Summary>.........SUMNMARY..........</urn:Summary><urn:Urgency>1-Critical</urn:Urgency></urn:HelpDesk_Submit_Service>] 
+[26 feb 2018 16:29:30,241][INFO ][AC1F07675A9427D70001B514][1] EnvelopeToSend sent to Remedy:[<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Header>
     <urn:AuthenticationInfo>
       <urn:userName>RemedyUsr</urn:userName>
@@ -134,27 +211,52 @@
   </Header>
   <Body>
     <urn:HelpDesk_Submit_Service>
-      <urn:First_Name>firstName</urn:First_Name>
+      <urn:First_Name xsi:nil="true"/>
       <urn:Impact>1-Extensive/Widespread</urn:Impact>
-      <urn:Last_Name>lastName</urn:Last_Name>
+      <urn:Last_Name xsi:nil="true"/>
       <urn:Reported_Source>Systems Management</urn:Reported_Source>
       <urn:Service_Type>Infrastructure Event</urn:Service_Type>
+      <urn:Status xsi:nil="true"/>
       <urn:Summary>.........SUMNMARY..........</urn:Summary>
       <urn:Urgency>1-Critical</urn:Urgency>
     </urn:HelpDesk_Submit_Service>
   </Body>
 </Envelope>] 
-[22 feb 2018 17:51:56,992][ERROR][C0A838015A8EF52A0001A844][1] Exception on Flow Flow TestBuilder Engine 
+[26 feb 2018 16:29:30,245][INFO ][AC1F07675A9427D70001B514][1] Executing POST request to URL: POST http://syt12303:8088/mockHPD_IncidentInterface_Create_WSPortTypeSoapBinding HTTP/1.1 
+[26 feb 2018 16:29:30,256][INFO ][AC1F07675A9427D70001B514][1] Remote peer HTTP version > 1.0 --> keep-alive=true 
+[26 feb 2018 16:29:30,256][INFO ][AC1F07675A9427D70001B514][1] Current connection will be kept alive 'indefinitely' 
+[26 feb 2018 16:29:30,256][INFO ][AC1F07675A9427D70001B514][1] SOAP HTTP response headers: 
+[26 feb 2018 16:29:30,257][INFO ][AC1F07675A9427D70001B514][1] 	name=Content-Type, value=text/html; charset=iso-8859-1 
+[26 feb 2018 16:29:30,257][INFO ][AC1F07675A9427D70001B514][1] 	name=Transfer-Encoding, value=chunked 
+[26 feb 2018 16:29:30,257][INFO ][AC1F07675A9427D70001B514][1] 	name=Server, value=Jetty(6.1.26) 
+[26 feb 2018 16:29:30,257][INFO ][AC1F07675A9427D70001B514][1] HTTP response code received: 200 
+[26 feb 2018 16:29:30,265][INFO ][AC1F07675A9427D70001B514][1] Return from Remedy :[<html><body><p>There are currently 0 running SoapUI MockServices</p><ul></ul></p></body></html>] 
+[26 feb 2018 16:29:30,265][INFO ][AC1F07675A9427D70001B514][1] Starting gettting Remedy Response 
+[26 feb 2018 16:29:30,290][ERROR][AC1F07675A9427D70001B514][1] Exception on Flow Flow TestBuilder Engine 
 it.reply.sytel.adr.services.exc.CreateRemedyIncidentException: Exception on CreateRemedyIncident; nested exception is: 
-	it.reply.sytel.adr.remedyAdapter.exc.RemedyWSClientException: Exception on calling Remedy WS. CreateInputMap:[<xml-fragment><urn:First_Name xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">firstName</urn:First_Name><urn:Impact xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">1-Extensive/Widespread</urn:Impact><urn:Last_Name xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">lastName</urn:Last_Name><urn:Reported_Source xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">Systems Management</urn:Reported_Source><urn:Service_Type xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">Infrastructure Event</urn:Service_Type><urn:Summary xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">.........SUMNMARY..........</urn:Summary><urn:Urgency xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">1-Critical</urn:Urgency></xml-fragment>]; nested exception is: 
-	java.lang.NullPointerException
-it.reply.sytel.adr.remedyAdapter.exc.RemedyWSClientException: Exception on calling Remedy WS. CreateInputMap:[<xml-fragment><urn:First_Name xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">firstName</urn:First_Name><urn:Impact xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">1-Extensive/Widespread</urn:Impact><urn:Last_Name xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">lastName</urn:Last_Name><urn:Reported_Source xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">Systems Management</urn:Reported_Source><urn:Service_Type xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">Infrastructure Event</urn:Service_Type><urn:Summary xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">.........SUMNMARY..........</urn:Summary><urn:Urgency xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">1-Critical</urn:Urgency></xml-fragment>]; nested exception is: 
-	java.lang.NullPointerException
-java.lang.NullPointerException
-	at java.lang.String.getBytes(String.java:905)
-	at it.reply.sytel.adr.remedyAdapter.impl.RemedyWSClientImpl.callRemedy(RemedyWSClientImpl.java:98)
-	at it.reply.sytel.adr.remedyAdapter.impl.RemedyWSClientImpl.createIncident(RemedyWSClientImpl.java:85)
+	it.reply.sytel.adr.remedyAdapter.exc.RemedyWSClientException: Exception on calling Remedy WS. CreateInputMap:[<xml-fragment><urn:First_Name xsi:nil="true" xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><urn:Impact xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">1-Extensive/Widespread</urn:Impact><urn:Last_Name xsi:nil="true" xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><urn:Reported_Source xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">Systems Management</urn:Reported_Source><urn:Service_Type xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">Infrastructure Event</urn:Service_Type><urn:Status xsi:nil="true" xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><urn:Summary xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">.........SUMNMARY..........</urn:Summary><urn:Urgency xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">1-Critical</urn:Urgency></xml-fragment>]; nested exception is: 
+	it.reply.sytel.adr.remedyAdapter.exc.RemedyWSClientException: Exception on getting the RemedyResponse; nested exception is: 
+	org.apache.xmlbeans.XmlException: error: </p> does not close tag <body>.
+it.reply.sytel.adr.remedyAdapter.exc.RemedyWSClientException: Exception on calling Remedy WS. CreateInputMap:[<xml-fragment><urn:First_Name xsi:nil="true" xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><urn:Impact xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">1-Extensive/Widespread</urn:Impact><urn:Last_Name xsi:nil="true" xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><urn:Reported_Source xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">Systems Management</urn:Reported_Source><urn:Service_Type xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">Infrastructure Event</urn:Service_Type><urn:Status xsi:nil="true" xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><urn:Summary xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">.........SUMNMARY..........</urn:Summary><urn:Urgency xmlns:urn="urn:HPD_IncidentInterface_Create_WS_VIP">1-Critical</urn:Urgency></xml-fragment>]; nested exception is: 
+	it.reply.sytel.adr.remedyAdapter.exc.RemedyWSClientException: Exception on getting the RemedyResponse; nested exception is: 
+	org.apache.xmlbeans.XmlException: error: </p> does not close tag <body>.
+it.reply.sytel.adr.remedyAdapter.exc.RemedyWSClientException: Exception on getting the RemedyResponse; nested exception is: 
+	org.apache.xmlbeans.XmlException: error: </p> does not close tag <body>.
+org.apache.xmlbeans.XmlException: error: </p> does not close tag <body>.
+	at org.apache.xmlbeans.impl.store.Locale$SaxLoader.load(Locale.java:3486)
+	at org.apache.xmlbeans.impl.store.Locale.parseToXmlObject(Locale.java:1276)
+	at org.apache.xmlbeans.impl.store.Locale.parseToXmlObject(Locale.java:1263)
+	at org.apache.xmlbeans.impl.schema.SchemaTypeLoaderBase.parse(SchemaTypeLoaderBase.java:345)
+	at org.xmlsoap.schemas.soap.envelope.EnvelopeDocument$Factory.parse(EnvelopeDocument.java:71)
+	at it.reply.sytel.adr.remedyAdapter.impl.RemedyWSClientImpl.getResponse(RemedyWSClientImpl.java:153)
+	at it.reply.sytel.adr.remedyAdapter.impl.RemedyWSClientImpl.callRemedy(RemedyWSClientImpl.java:141)
+	at it.reply.sytel.adr.remedyAdapter.impl.RemedyWSClientImpl.createIncident(RemedyWSClientImpl.java:119)
 	at it.reply.sytel.adr.services.impl.CreateRemedyIncident.perform(CreateRemedyIncident.java:60)
-	at it.reply.sytel.adr.core.services.service.AbstractService.execute(AbstractService.java:67)
+	at it.reply.sytel.adr.core.services.service.AbstractService.execute(AbstractService.java:66)
 	at it.reply.sytel.adr.engine.RemedyIncidetBuilderEngine.executeFlow(RemedyIncidetBuilderEngine.java:60)
 	at it.reply.sytel.adr.main.TestMain.main(TestMain.java:30)
+Caused by: org.xml.sax.SAXParseException; systemId: file:; lineNumber: 1; columnNumber: 80; </p> does not close tag <body>.
+	at org.apache.xmlbeans.impl.piccolo.xml.Piccolo.reportFatalError(Piccolo.java:1038)
+	at org.apache.xmlbeans.impl.piccolo.xml.Piccolo.parse(Piccolo.java:723)
+	at org.apache.xmlbeans.impl.store.Locale$SaxLoader.load(Locale.java:3454)
+	... 11 more

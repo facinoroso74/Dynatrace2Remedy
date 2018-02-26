@@ -71,7 +71,14 @@ public class AuthSSLProtocolSocketFactory {
                 trustmanagers = createTrustManagers(keystore);
             }
             
-            SSLContext sslcontext = SSLContext.getInstance("TLSv1");
+            
+            //String protocolHandShake="TLSv1";
+            //TLSv1,TLSv1.1,TLSv1.2,SSLv2Hello"
+            //String protocolHandShake="TLSv1.2";
+            String protocolHandShake="TLSv1.2";
+            logger.debug("--------- protocolHandShake:["+protocolHandShake+"]--------");
+            
+            SSLContext sslcontext = SSLContext.getInstance(protocolHandShake);
             
             sslcontext.init(keymanagers, trustmanagers, null);
             return sslcontext;

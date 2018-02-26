@@ -2,26 +2,29 @@ package it.reply.sytel.adr.dynatraceClient.imp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.log4j.Logger;
-import org.jboss.security.Base64Encoder;
 
 import it.reply.sytel.adr.common.log.EtlLogger;
+import it.reply.sytel.adr.common.ws.HTTPClient;
 import it.reply.sytel.adr.dynatraceClient.RestClient;
 import it.reply.sytel.adr.dynatraceClient.exc.RestClientException;
 
 public class RestClientImpl implements RestClient{
 
-	private Logger log =EtlLogger.getLogger(getClass());
+	private Logger log = EtlLogger.getLogger(getClass());
 	
+	private HTTPClient httpClient;
+	private String encoding;
+	private String userToken="";
+	private String soapAction="";
+
+    
 	public String invokeRestService(String httpString,String user,String password){
 
+				
 		BufferedReader rd =null;
 		
 		try{
@@ -30,16 +33,9 @@ public class RestClientImpl implements RestClient{
 			if(log.isDebugEnabled())
 				log.debug("calling the console:["+httpString+"] with user["+user+"] pwd="+password+"...");
 			
-			HttpClient client = new DefaultHttpClient();
-			String encoding = Base64Encoder.encode (user+":"+password);
-			HttpGet httppost = new HttpGet(httpString);
-			httppost.setHeader("Authorization", "Basic " + encoding);
-			
-			HttpResponse response = client.execute(httppost);
-			HttpEntity entity = response.getEntity();
+			InputStream is = httpClient.invokeGet(user,password,httpString);
+			rd = new BufferedReader(new InputStreamReader(is));
 
-			rd = new BufferedReader (new InputStreamReader(entity.getContent()));
-			
 			String line = "";
 			StringBuffer content=new StringBuffer();
 						
@@ -72,15 +68,37 @@ public class RestClientImpl implements RestClient{
 		}
 	}
 	
-	
-	
 
+	public HTTPClient getHttpClient() {
+		return httpClient;
+	}
 
-	public static void main(String[] args) {
-		RestClientImpl restClient = new RestClientImpl();
-		//restClient.invokeHttpGet("", "", "");
-		String content = restClient.invokeRestService("https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard", "Remedy_Integration", "remedy");
-		
+	public void setHttpClient(HTTPClient httpClient) {
+		this.httpClient = httpClient;
+	}
+
+	public String getEncoding() {
+		return encoding;
+	}
+
+	public void setEncoding(String encoding) {
+		this.encoding = encoding;
+	}
+
+	public String getUserToken() {
+		return userToken;
+	}
+
+	public void setUserToken(String userToken) {
+		this.userToken = userToken;
+	}
+
+	public String getSoapAction() {
+		return soapAction;
+	}
+
+	public void setSoapAction(String soapAction) {
+		this.soapAction = soapAction;
 	}
 
 }

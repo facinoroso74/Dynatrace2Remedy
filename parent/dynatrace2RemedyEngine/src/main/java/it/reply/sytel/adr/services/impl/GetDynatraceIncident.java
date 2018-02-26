@@ -21,6 +21,7 @@ public class GetDynatraceIncident extends AbstractService {
 	private IncidentDAO incidentDAO;
 	private DynatraceClient dynatraceClient;
 	
+	
 	public GetDynatraceIncident() {
 		super(GetDynatraceIncident.class.getName());
 		log = EtlLogger.getLogger(getClass());

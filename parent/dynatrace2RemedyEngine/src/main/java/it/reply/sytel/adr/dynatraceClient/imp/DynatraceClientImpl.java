@@ -119,11 +119,23 @@ public class DynatraceClientImpl implements DynatraceClient{
 	//scorro l'oggetto per prendere tutti gli oggetti incidentoverviewrecord che hanno come proprietà name/start/source valorizzati
 	//creare un mappa di java object di tipo DynatraceIncident
 
+//	public static void main(String[] args) {
+//		DynatraceClient dynatraceClient = new DynatraceClientImpl();
+//		RestClientImpl restClientImpl = new RestClientImpl();
+//		dynatraceClient.setRestClient(restClientImpl);
+//		Map<DynatraceIncidentKey, DynatraceIncident> map = dynatraceClient.getDynatraceIncidents("https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard", "Remedy_Integration", "remedy");
+//		Set<DynatraceIncidentKey> keys = map.keySet();
+//		for (Iterator<DynatraceIncidentKey> iterator = keys.iterator(); iterator.hasNext();) {
+//			DynatraceIncidentKey dynatraceIncidentKey = (DynatraceIncidentKey) iterator.next();
+//			System.out.println("dynatraceIncident-->"+ map.get(dynatraceIncidentKey));
+//		}
+//	}
+	
 	public static void main(String[] args) {
 		DynatraceClient dynatraceClient = new DynatraceClientImpl();
 		RestClientImpl restClientImpl = new RestClientImpl();
 		dynatraceClient.setRestClient(restClientImpl);
-		Map<DynatraceIncidentKey, DynatraceIncident> map = dynatraceClient.getDynatraceIncidents("https://dynatracereply.adr.it:8021/rest/management/dashboard/IncidentDashboard", "Remedy_Integration", "remedy");
+		Map<DynatraceIncidentKey, DynatraceIncident> map = dynatraceClient.getDynatraceIncidents("https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION", "admin", "adradmin01");
 		Set<DynatraceIncidentKey> keys = map.keySet();
 		for (Iterator<DynatraceIncidentKey> iterator = keys.iterator(); iterator.hasNext();) {
 			DynatraceIncidentKey dynatraceIncidentKey = (DynatraceIncidentKey) iterator.next();

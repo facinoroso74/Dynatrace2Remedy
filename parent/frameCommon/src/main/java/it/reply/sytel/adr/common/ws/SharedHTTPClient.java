@@ -246,5 +246,19 @@ public class SharedHTTPClient implements HTTPClient, InitializingBean, Disposabl
     private IdleHTTPConnectionEvictor connEvictor;
     private String                    contentType;
     private HttpClientProperties      httpClientProperties;
+
+	
+
+	@Override
+	public InputStream invokeGet(String user, String pwd) throws HttpClientException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public InputStream invokeGet(String user, String pwd, String urlToConnect) throws HttpClientException {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }

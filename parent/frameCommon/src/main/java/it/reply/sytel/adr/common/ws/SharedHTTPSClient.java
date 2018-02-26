@@ -27,6 +27,7 @@ import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpRequestRetryHandler;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.protocol.ClientContext;
 import org.apache.http.conn.ConnectionKeepAliveStrategy;
@@ -41,6 +42,7 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.log4j.Logger;
+import org.jboss.security.Base64Encoder;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -79,6 +81,8 @@ public class SharedHTTPSClient implements HTTPClient, InitializingBean, Disposab
         URL urlKeyStore=null;
         if(httpsClientProperties.getKeystoreURLString().length()!=0)
         	urlKeyStore   = new URL(httpsClientProperties.getKeystoreURLString());
+        
+        log.debug("httpsClientProperties.getTrustURLString():["+httpsClientProperties.getTrustURLString()+"]");
         
         URL urlTrustStore = new URL(httpsClientProperties.getTrustURLString());
 
@@ -238,6 +242,137 @@ public class SharedHTTPSClient implements HTTPClient, InitializingBean, Disposab
     private IdleHTTPConnectionEvictor connEvictor;
     private String                    contentType;
     private HttpsClientProperties      httpsClientProperties;
+	
+    
+    
+    @Override
+	public InputStream invokeGet(String user, String password)
+			throws HttpClientException {
+    	
+    	HttpGet httpPost = null;
+    	
+        try {
+            httpPost = new HttpGet(httpsClientProperties.getUrlToConnect());
+
+            log.debug("Executing POST with basic authentication");
+            if(user!=null && password!=null) {
+            	String encoding = Base64Encoder.encode (user+":"+password);
+            	httpPost.setHeader("Authorization", "Basic " + encoding);
+            }
+           
+            if(log.isDebugEnabled()) {
+	            log.debug("SOAP HTTP request headers:");
+	            Header[] headers1 = httpPost.getAllHeaders();
+	            for(Header header : headers1) {
+	                log.info("\tname=" + header.getName() + ", value=" + header.getValue());
+	            }
+            }
+            
+            // Create a new HttpContext and bind it to the passed user token
+            HttpContext localContext = null;
+          
+
+            HttpResponse response = httpClient.execute(httpPost, localContext);          
+            int statusCode = response.getStatusLine().getStatusCode();
+            
+            if(log.isInfoEnabled()) {
+                Header[] headers = response.getAllHeaders();
+                log.info("SOAP HTTP response headers:");
+                for(Header header : headers) {
+                    log.info("\tname=" + header.getName() + ", value=" + header.getValue());
+                }
+            }
+            
+            if(statusCode == HTTP_RETCODE_OK  || statusCode == HTTP_RETCODE_500) {
+                log.info("HTTP response code received: " + statusCode);
+                HttpEntity entity = response.getEntity();
+                return entity.getContent();
+                
+            } else {
+                throw new HttpClientException("Returned HTTP error code " + statusCode);
+            }
+            
+        } catch(Exception exc) {
+            log.error("Error while invoking URL:[" +
+                             httpsClientProperties.getUrlToConnect() + "]",
+                             exc);
+            
+            // If possibile, abort the POST request
+            // and mark the connection as NOT-reusable
+            if(httpPost != null) {
+                log.debug("Marking associated HTTP connection as NOT-reusable");
+                httpPost.abort();
+            }
+            
+            throw new HttpClientException("Error while invoking URL:[" +
+                                           httpsClientProperties.getUrlToConnect() + "]",
+                                           exc);
+        }
+	}
+
+
+	@Override
+	public InputStream invokeGet(String user, String pwd, String urlToConnect) throws HttpClientException {
+HttpGet httpPost = null;
+    	
+        try {
+            httpPost = new HttpGet(urlToConnect);
+
+            log.debug("Executing POST with basic authentication");
+            if(user!=null && pwd!=null) {
+            	String encoding = Base64Encoder.encode (user+":"+pwd);
+            	httpPost.setHeader("Authorization", "Basic " + encoding);
+            }
+           
+            if(log.isDebugEnabled()) {
+	            log.debug("SOAP HTTP request headers:");
+	            Header[] headers1 = httpPost.getAllHeaders();
+	            for(Header header : headers1) {
+	                log.info("\tname=" + header.getName() + ", value=" + header.getValue());
+	            }
+            }
+            
+            // Create a new HttpContext and bind it to the passed user token
+            HttpContext localContext = null;
+          
+
+            HttpResponse response = httpClient.execute(httpPost, localContext);          
+            int statusCode = response.getStatusLine().getStatusCode();
+            
+            if(log.isInfoEnabled()) {
+                Header[] headers = response.getAllHeaders();
+                log.info("SOAP HTTP response headers:");
+                for(Header header : headers) {
+                    log.info("\tname=" + header.getName() + ", value=" + header.getValue());
+                }
+            }
+            
+            if(statusCode == HTTP_RETCODE_OK  || statusCode == HTTP_RETCODE_500) {
+                log.info("HTTP response code received: " + statusCode);
+                HttpEntity entity = response.getEntity();
+                return entity.getContent();
+                
+            } else {
+                throw new HttpClientException("Returned HTTP error code " + statusCode);
+            }
+            
+        } catch(Exception exc) {
+            log.error("Error while invoking URL:[" +
+                             httpsClientProperties.getUrlToConnect() + "]",
+                             exc);
+            
+            // If possibile, abort the POST request
+            // and mark the connection as NOT-reusable
+            if(httpPost != null) {
+                log.debug("Marking associated HTTP connection as NOT-reusable");
+                httpPost.abort();
+            }
+            
+            throw new HttpClientException("Error while invoking URL:[" +
+                                           httpsClientProperties.getUrlToConnect() + "]",
+                                           exc);
+        }
+	}
 	
   
     

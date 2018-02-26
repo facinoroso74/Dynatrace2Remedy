@@ -39,14 +39,14 @@ public class CreateRemedyIncident extends AbstractService {
 			RemedyAutenticationInfo remedyAutenticationInfo = (RemedyAutenticationInfo)map.get(ADRConstants.REMEDY_AUTHENTICATION_INFO);
 			
 			//probabilmente vanno presi da condigurazione in base all'APP
-			String firstName;       //andrebbe preso da DynatraceIncident o da configurazione
-			String impact;          //1-Extensive/Widespread,2-Significant/Large,3-Moderate/Limited,4-Minor/Localized
-			String lastName;        //andrebbe preso da DynatraceIncident o da configurazione
-			String reported_source; //Direct Input,Email,External Escalation,Fax,Self Service,Systems Management,Phone,Voice Mail,Walk In,Web,Other,BMC Impact Manager Event
-			String serivceType;     //User Service Restoration,User Service Request,Infrastructure Restoration,Infrastructure Event
-			String remedyStatus=null;          //Assigned,In Progress,Pending,Resolved,Closed,Cancelled
-			String urgency;         //1-Critical,2-High,3-Medium,4-Low
-			String summary;         //andrebbe preso da DynatraceIncident 
+			String firstName=null;       //andrebbe preso da DynatraceIncident o da configurazione
+			String impact="prova";          //1-Extensive/Widespread,2-Significant/Large,3-Moderate/Limited,4-Minor/Localized
+			String lastName=null;        //andrebbe preso da DynatraceIncident o da configurazione
+			String reported_source=null; //Direct Input,Email,External Escalation,Fax,Self Service,Systems Management,Phone,Voice Mail,Walk In,Web,Other,BMC Impact Manager Event
+			String serviceType="Prova";     //User Service Restoration,User Service Request,Infrastructure Restoration,Infrastructure Event
+			String ticketStatus="NEW";          //Assigned,In Progress,Pending,Resolved,Closed,Cancelled
+			String urgency="prova";         //1-Critical,2-High,3-Medium,4-Low
+			String summary="summary prova";         //andrebbe preso da DynatraceIncident 
 			
 			//prendere dalla tabella tutti gli inc che non hanno RemedyInNcidentID
 			//creare incident su Remedy ed aggiornare la tabella chiamando il WS
@@ -57,13 +57,25 @@ public class CreateRemedyIncident extends AbstractService {
 			for (Iterator<DynatraceIncident> iterator = dynatraceIncidentList.iterator(); iterator.hasNext();) {
 				DynatraceIncident dynatraceIncident = (DynatraceIncident) iterator.next();
 				//create incident
-				String remedyIncidentId = remedyClient.createIncident(dynatraceIncident,remedyAutenticationInfo);
+				String remedyIncidentId = remedyClient.createIncident(dynatraceIncident,remedyAutenticationInfo,
+						firstName,
+						impact,
+						lastName,
+						reported_source,
+						serviceType,
+						ticketStatus,
+						urgency
+						);
+				
+
 				Timestamp now = new Timestamp(System.currentTimeMillis());
 				dynatraceIncident.setRemedyTicketCreateDate(now);
 				dynatraceIncident.setRemedyTicketID(remedyIncidentId);
-				dynatraceIncident.setRemedyTicketIDStatus(remedyStatus);
+				dynatraceIncident.setRemedyTicketIDStatus(ticketStatus);
 				
-				//incidentDAO.updateDynatraceIncidentAfterRemedyCall(dynatraceIncident);
+				log.debug("Response from Remedy ----> remedyIncidentId:["+remedyIncidentId+"]");
+				
+				incidentDAO.updateDynatraceIncidentAfterRemedyCall(dynatraceIncident);
 			}
 			
 			return env;
