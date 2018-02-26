@@ -40,8 +40,7 @@ public class ConfigServicesFile implements ConfigurationService {
     private Logger log=EtlLogger.getLogger(getClass());
     private Resource resource;
 	private Map<String,Object> map;
-    
-	
+    	
 	private Map<String,AppProperty> loadAppProperty(Properties prop,String appNames) {
 		String[] appNameArray = appNames.split(ADRConstants.DELIMITER);
 		Map<String , AppProperty> coupleDashBoardWithUrlMap= new HashMap<String,AppProperty>();
