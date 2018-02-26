@@ -36,12 +36,14 @@ public class IncidentDAOImpl implements IncidentDAO {
 	private static final String SQL_INSERT_INCIDENT="INSERT INTO INCIDENT(name,heatfield,state,startEvent,duration,"
 																	   + "endEvent,source,session,confirmed_by,confirmation,"
 																	   + "sensitivity,conditions,thresholds,actions,measures,"
-																	   + "datains,dataupdate,remedyTicketId,remedyTicketIdStatus,remedyTicketCreateDate) "
+																	   + "datains,dataupdate,remedyTicketId,remedyTicketIdStatus,remedyTicketCreateDate,"
+																	   + "dashboardName) "
 																+ "VALUES"
 																		+ "(?,?,?,?,?,"
-																		+ "?,?,?,?,?,"
-																		+ "?,?,?,?,?,"
-																		+ "?,?,?,?,?)";
+																		+  "?,?,?,?,?,"
+																		+  "?,?,?,?,?,"
+																		+  "?,?,?,?,?,"
+																		+  "?)";
 			
 	private static final String SQL_UPDATE_INCIDENT_DATE_UPDATE="UPDATE INCIDENT set dataupdate=? where name=? and startEvent=?";
 	
@@ -61,13 +63,30 @@ public class IncidentDAOImpl implements IncidentDAO {
 																	    + "     INCIDENT "
 																	    + " WHERE "
 																	    + " name=?"
-																	    + " AND startEvent=?";
+																	    + " and startEvent=? "
+																	    + " and dashboardName=?";
+	
 	private static final String SQL_GET_INCIDENT_WITHOUT_REMEDY_TICKET_ID="SELECT "
-			+ " * "
+																			+ " * "
+																		    + " FROM "
+																		    + "     INCIDENT "
+																		    + " WHERE "
+																		    + " 	REMEDYTICKETID is null";
+	
+	
+	private static final String SQL_SELECT_INCIDENT_NO_MORE_EXIST="SELECT "
+			+ " 	name,"
+		    + " 	startEvent,"
+		    + "     dashboardName"
 		    + " FROM "
 		    + "     INCIDENT "
 		    + " WHERE "
-		    + " 	REMEDYTICKETID is null";
+		    + " dataupdate<?";
+	
+	private static final String SQL_DELETE_INCIDENT_BY_KEY="DELETE from INCIDENT "
+																+ "where "
+																+ 	" name=? "
+																+ 	" and startEvent=?";
 	
 	public IncidentDAOImpl() {
 		
@@ -141,6 +160,7 @@ public class IncidentDAOImpl implements IncidentDAO {
 			stmt.setString(18, dynatraceIncident.getRemedyTicketID());
 			stmt.setString(19, dynatraceIncident.getRemedyTicketIDStatus());
 			stmt.setTimestamp(20, dynatraceIncident.getRemedyTicketCreateDate());
+			stmt.setString(21, dynatraceIncident.getDynatraceIncidentKey().getDashboarName());
 			
 			int total=stmt.executeUpdate();
 			
@@ -168,6 +188,8 @@ public class IncidentDAOImpl implements IncidentDAO {
 			stmt = conn.prepareStatement(SQL_CHECK_INCIDENT_EXIST);
 			stmt.setString(1, dynatraceIncidentKey.getName());
 			stmt.setTimestamp(2, dynatraceIncidentKey.getStartEvent());
+			stmt.setString(3, dynatraceIncidentKey.getDashboarName());
+			
 			rslt=stmt.executeQuery();
 			
 			int total=0;
@@ -229,6 +251,9 @@ public class IncidentDAOImpl implements IncidentDAO {
 			if(log.isDebugEnabled())
 				log.debug("Updated " + total + " rows");
 					
+			if(total==0)
+				throw new DaoException("the DynatraceIncident "+dynatraceIncidentKey+" not updated into table for DATAUPDATE");
+			
 		}catch (Exception e) {
 			throw new DaoException("Exception updateDynatraceIncidentDateUpdate. dynatraceIncidentKey:["+dynatraceIncidentKey+"] and dateupdate:["+now+"]", e);
 		} finally {
@@ -258,6 +283,7 @@ public class IncidentDAOImpl implements IncidentDAO {
 				DynatraceIncidentKey dynatraceIncidentKey = new DynatraceIncidentKey();
 				dynatraceIncidentKey.setName(rslt.getString("name"));
 				dynatraceIncidentKey.setStartEvent(rslt.getTimestamp("startEvent"));
+				dynatraceIncidentKey.setDashboarName(rslt.getString("dashboardName"));
 				
 				dynatraceIncident.setDynatraceIncidentKey(dynatraceIncidentKey);
 				dynatraceIncident.setActions(rslt.getString("actions"));
@@ -316,11 +342,82 @@ public class IncidentDAOImpl implements IncidentDAO {
 			if(log.isDebugEnabled())
 				log.debug("Updated " + total + " rows");
 					
+			if(total==0)
+				throw new DaoException("the DynatraceIncident "+dynatraceIncident+" not updated into table for DataInsert Remedyticket");
+			
 		}catch (Exception e) {
 			throw new DaoException("Exception updateDynatraceIncidentAfterRemedyCall. dynatraceIncident:["+dynatraceIncident+"]", e);
 		} finally {
 			closeResource(null, stmt, rslt);
 		}
+	}
+
+	@Override
+	public List<DynatraceIncidentKey> getAllDynatraceIncidentNotMoreExist(Timestamp now) {
+		PreparedStatement stmt=null;
+		Connection conn = null;
+		ResultSet rslt=null;
+		
+		List<DynatraceIncidentKey> dynatraceIncidentKeyList = new ArrayList<DynatraceIncidentKey>();
+		
+		try{
+		    
+			conn = ds.getConnection();
+			stmt = conn.prepareStatement(SQL_SELECT_INCIDENT_NO_MORE_EXIST);
+			
+			stmt.setTimestamp(1, now);
+			
+			rslt=stmt.executeQuery();
+			
+			while (rslt.next()){
+				
+				DynatraceIncidentKey dynatraceIncidentKey = new DynatraceIncidentKey();
+				dynatraceIncidentKey.setName(rslt.getString("name"));
+				dynatraceIncidentKey.setStartEvent(rslt.getTimestamp("startEvent"));
+				dynatraceIncidentKey.setDashboarName(rslt.getString("dashboardName"));
+				
+				dynatraceIncidentKeyList.add(dynatraceIncidentKey);
+				
+			}
+				
+			return dynatraceIncidentKeyList;
+					
+		}catch (Exception e) {
+			throw new DaoException("Exception getAllDynatraceIncidentNotMoreExist with sysdate:["+now+"]", e);
+		} finally {
+			closeResource(null, stmt, rslt);
+		}
+	}
+
+	@Override
+	public void deleteDynaraceIncident(DynatraceIncidentKey dynatraceIncidentKey) {
+		
+		//SQL_UPDATE_INCIDENT_WITH_REMEDY_DATA
+				PreparedStatement stmt=null;
+				Connection conn = null;
+				ResultSet rslt=null;
+				
+				try{
+				    
+					conn = ds.getConnection();
+					
+					stmt = conn.prepareStatement(SQL_DELETE_INCIDENT_BY_KEY);
+					stmt.setString(1, dynatraceIncidentKey.getName());
+					stmt.setTimestamp(2,dynatraceIncidentKey.getStartEvent());
+					
+					int total=stmt.executeUpdate();
+					
+					if(log.isDebugEnabled())
+						log.debug("delete " + total + " rows");
+							
+					if(total==0)
+						throw new DaoException("the DynatraceIncident "+dynatraceIncidentKey+" not delete into table");
+					
+				}catch (Exception e) {
+					throw new DaoException("Exception deleteDynaraceIncident. dynatraceIncidentKey:["+dynatraceIncidentKey+"]", e);
+				} finally {
+					closeResource(null, stmt, rslt);
+				}
 	}
 
 }

@@ -47,7 +47,7 @@ public class GetDynatraceIncident extends AbstractService {
 					log.debug("the PWD for app:["+appName+"] is ["+((AppProperty)dashboardAppPropertyMap.get(appName)).getAppPwd()+"]");
 				}
 				
-				Map<DynatraceIncidentKey, DynatraceIncident> map= dynatraceClient.getDynatraceIncidents(((AppProperty)dashboardAppPropertyMap.get(appName)).getAppUrl(), ((AppProperty)dashboardAppPropertyMap.get(appName)).getAppUsr(), ((AppProperty)dashboardAppPropertyMap.get(appName)).getAppPwd());
+				Map<DynatraceIncidentKey, DynatraceIncident> map= dynatraceClient.getDynatraceIncidents(appName,((AppProperty)dashboardAppPropertyMap.get(appName)).getAppUrl(), ((AppProperty)dashboardAppPropertyMap.get(appName)).getAppUsr(), ((AppProperty)dashboardAppPropertyMap.get(appName)).getAppPwd());
 				
 				Set<DynatraceIncidentKey> dynatraceIncidentKeys = map.keySet();
 				
@@ -66,7 +66,7 @@ public class GetDynatraceIncident extends AbstractService {
 					}
 				}
 			}
-			
+			env.put(ADRConstants.SYSDATE, now);
 			return env;
 		
 		} catch (Exception e) {

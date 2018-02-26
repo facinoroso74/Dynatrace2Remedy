@@ -55,6 +55,8 @@ public class SharedHTTPSClient implements HTTPClient, InitializingBean, Disposab
      * GateSender <i>application logger</i>.
      */
     private Logger log   = Logger.getLogger(getClass());
+    private String protocolHandShake;
+    
     /**
      * Accessor setter method for field contentType
      */
@@ -95,7 +97,8 @@ public class SharedHTTPSClient implements HTTPClient, InitializingBean, Disposab
                                                                  httpsClientProperties.getKeystorePwd(),
                                                                  httpsClientProperties.getKeyPwd(),
                                                                  urlTrustStore,
-                                                                 httpsClientProperties.getTrustPwd());
+                                                                 httpsClientProperties.getTrustPwd(),
+                                                                 protocolHandShake);
 
         SSLSocketFactory socketFactory = new SSLSocketFactory(sslContext,
                                                               new IgnoreX509HostnameVerifier());
@@ -313,7 +316,8 @@ public class SharedHTTPSClient implements HTTPClient, InitializingBean, Disposab
 
 	@Override
 	public InputStream invokeGet(String user, String pwd, String urlToConnect) throws HttpClientException {
-HttpGet httpPost = null;
+
+		HttpGet httpPost = null;
     	
         try {
             httpPost = new HttpGet(urlToConnect);
@@ -372,6 +376,16 @@ HttpGet httpPost = null;
                                            httpsClientProperties.getUrlToConnect() + "]",
                                            exc);
         }
+	}
+
+
+	public String getProtocolHandShake() {
+		return protocolHandShake;
+	}
+
+
+	public void setProtocolHandShake(String protocolHandShake) {
+		this.protocolHandShake = protocolHandShake;
 	}
 	
   

@@ -14,9 +14,6 @@
 package it.reply.sytel.adr.common.ws;
 
 
-import it.reply.sytel.adr.common.log.EtlLogger;
-import it.reply.sytel.adr.common.ws.exc.HttpClientException;
-
 import java.io.InputStream;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -28,6 +25,7 @@ import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpRequestRetryHandler;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.protocol.ClientContext;
 import org.apache.http.conn.ConnectionKeepAliveStrategy;
@@ -42,8 +40,12 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.log4j.Logger;
+import org.jboss.security.Base64Encoder;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+
+import it.reply.sytel.adr.common.log.EtlLogger;
+import it.reply.sytel.adr.common.ws.exc.HttpClientException;
 
 /**
  * @author m.pantaleone
@@ -55,6 +57,8 @@ public class SharedHTTPClient implements HTTPClient, InitializingBean, Disposabl
      * GateSender <i>application logger</i>.
      */
     private Logger appLogger   = EtlLogger.getLogger(SharedHTTPClient.class);
+    
+    private String protocolHandShake;
     
     /**
      * Accessor setter method for field contentType
@@ -93,7 +97,8 @@ public class SharedHTTPClient implements HTTPClient, InitializingBean, Disposabl
                                                                  httpClientProperties.getKeystorePwd(),
                                                                  httpClientProperties.getKeyPwd(),
                                                                  urlTrustStore,
-                                                                 httpClientProperties.getTrustPwd());
+                                                                 httpClientProperties.getTrustPwd(),
+                                                                 protocolHandShake);
 
         SSLSocketFactory socketFactory = new SSLSocketFactory(sslContext,
                                                               new IgnoreX509HostnameVerifier());
@@ -257,8 +262,74 @@ public class SharedHTTPClient implements HTTPClient, InitializingBean, Disposabl
 
 	@Override
 	public InputStream invokeGet(String user, String pwd, String urlToConnect) throws HttpClientException {
-		// TODO Auto-generated method stub
-		return null;
+
+		HttpGet httpPost = null;
+    	
+        try {
+            httpPost = new HttpGet(urlToConnect);
+
+            appLogger.debug("Executing POST with basic authentication");
+            if(user!=null && pwd!=null) {
+            	String encoding = Base64Encoder.encode (user+":"+pwd);
+            	httpPost.setHeader("Authorization", "Basic " + encoding);
+            }
+           
+            if(appLogger.isDebugEnabled()) {
+            	appLogger.debug("SOAP HTTP request headers:");
+	            Header[] headers1 = httpPost.getAllHeaders();
+	            for(Header header : headers1) {
+	            	appLogger.info("\tname=" + header.getName() + ", value=" + header.getValue());
+	            }
+            }
+            
+            // Create a new HttpContext and bind it to the passed user token
+            HttpContext localContext = null;
+          
+
+            HttpResponse response = httpClient.execute(httpPost, localContext);          
+            int statusCode = response.getStatusLine().getStatusCode();
+            
+            if(appLogger.isInfoEnabled()) {
+                Header[] headers = response.getAllHeaders();
+                appLogger.info("SOAP HTTP response headers:");
+                for(Header header : headers) {
+                	appLogger.info("\tname=" + header.getName() + ", value=" + header.getValue());
+                }
+            }
+            
+            if(statusCode == HTTP_RETCODE_OK  || statusCode == HTTP_RETCODE_500) {
+            	appLogger.info("HTTP response code received: " + statusCode);
+                HttpEntity entity = response.getEntity();
+                return entity.getContent();
+                
+            } else {
+                throw new HttpClientException("Returned HTTP error code " + statusCode);
+            }
+            
+        } catch(Exception exc) {
+        	appLogger.error("Error while invoking URL:[" +
+                             httpClientProperties.getUrlToConnect() + "]",
+                             exc);
+            
+            // If possibile, abort the POST request
+            // and mark the connection as NOT-reusable
+            if(httpPost != null) {
+            	appLogger.debug("Marking associated HTTP connection as NOT-reusable");
+                httpPost.abort();
+            }
+            
+            throw new HttpClientException("Error while invoking URL:[" +
+                                           httpClientProperties.getUrlToConnect() + "]",
+                                           exc);
+        }
+	}
+
+	public String getProtocolHandShake() {
+		return protocolHandShake;
+	}
+
+	public void setProtocolHandShake(String protocolHandShake) {
+		this.protocolHandShake = protocolHandShake;
 	}
     
 }

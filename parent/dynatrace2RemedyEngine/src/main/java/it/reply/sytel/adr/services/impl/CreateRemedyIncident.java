@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.xmlbeans.impl.common.SystemCache;
 
@@ -13,8 +14,10 @@ import it.reply.sytel.adr.core.services.enviromnent.Enviromnent;
 import it.reply.sytel.adr.core.services.service.AbstractService;
 import it.reply.sytel.adr.dao.IncidentDAO;
 import it.reply.sytel.adr.remedyAdapter.RemedyClient;
+import it.reply.sytel.adr.remedyAdapter.exc.RemedyBadValueFieldException;
 import it.reply.sytel.adr.remedyAdapter.impl.RemedyWSClientImpl;
 import it.reply.sytel.adr.services.exc.CreateRemedyIncidentException;
+import it.reply.sytel.adr.vo.AppProperty;
 import it.reply.sytel.adr.vo.DynatraceIncident;
 import it.reply.sytel.adr.vo.RemedyAutenticationInfo;
 
@@ -34,48 +37,35 @@ public class CreateRemedyIncident extends AbstractService {
 
 		try {
 			
+			Map<String , Object> configMap = (Map<String , Object>)getContext().getConfigMap();
+			Map<String,Map<String,AppProperty>> dashboardAppPropertyMap= (Map<String,Map<String,AppProperty>>)configMap.get(ADRConstants.DASHBOARD_NAMES);
 			Map<String, Object> map = (Map<String , Object>)getContext().getConfigMap();
 			
 			RemedyAutenticationInfo remedyAutenticationInfo = (RemedyAutenticationInfo)map.get(ADRConstants.REMEDY_AUTHENTICATION_INFO);
 			
-			//probabilmente vanno presi da condigurazione in base all'APP
-			String firstName=null;       //andrebbe preso da DynatraceIncident o da configurazione
-			String impact="prova";          //1-Extensive/Widespread,2-Significant/Large,3-Moderate/Limited,4-Minor/Localized
-			String lastName=null;        //andrebbe preso da DynatraceIncident o da configurazione
-			String reported_source=null; //Direct Input,Email,External Escalation,Fax,Self Service,Systems Management,Phone,Voice Mail,Walk In,Web,Other,BMC Impact Manager Event
-			String serviceType="Prova";     //User Service Restoration,User Service Request,Infrastructure Restoration,Infrastructure Event
-			String ticketStatus="NEW";          //Assigned,In Progress,Pending,Resolved,Closed,Cancelled
-			String urgency="prova";         //1-Critical,2-High,3-Medium,4-Low
-			String summary="summary prova";         //andrebbe preso da DynatraceIncident 
-			
-			//prendere dalla tabella tutti gli inc che non hanno RemedyInNcidentID
-			//creare incident su Remedy ed aggiornare la tabella chiamando il WS
 			List<DynatraceIncident> dynatraceIncidentList = incidentDAO.getDynatraceIncidentWithoutRemedyTicketID();
 			
 			log.info("Number of incident to create on Remedy:["+dynatraceIncidentList.size()+"]");
 			
 			for (Iterator<DynatraceIncident> iterator = dynatraceIncidentList.iterator(); iterator.hasNext();) {
+				
 				DynatraceIncident dynatraceIncident = (DynatraceIncident) iterator.next();
+				AppProperty appProperty=((AppProperty)dashboardAppPropertyMap.get(dynatraceIncident.getDynatraceIncidentKey().getDashboarName()));
+				
 				//create incident
-				String remedyIncidentId = remedyClient.createIncident(dynatraceIncident,remedyAutenticationInfo,
-						firstName,
-						impact,
-						lastName,
-						reported_source,
-						serviceType,
-						ticketStatus,
-						urgency
-						);
+				createTicketRemedy(dynatraceIncident, remedyAutenticationInfo, appProperty);
 				
-
-				Timestamp now = new Timestamp(System.currentTimeMillis());
-				dynatraceIncident.setRemedyTicketCreateDate(now);
-				dynatraceIncident.setRemedyTicketID(remedyIncidentId);
-				dynatraceIncident.setRemedyTicketIDStatus(ticketStatus);
-				
-				log.debug("Response from Remedy ----> remedyIncidentId:["+remedyIncidentId+"]");
-				
-				incidentDAO.updateDynatraceIncidentAfterRemedyCall(dynatraceIncident);
+//				String remedyIncidentId = remedyClient.createIncident(dynatraceIncident,remedyAutenticationInfo,appProperty);
+//				
+//
+//				Timestamp now = new Timestamp(System.currentTimeMillis());
+//				dynatraceIncident.setRemedyTicketCreateDate(now);
+//				dynatraceIncident.setRemedyTicketID(remedyIncidentId);
+//				dynatraceIncident.setRemedyTicketIDStatus(appProperty.getTicketStatus());
+//				
+//				log.debug("Response from Remedy ----> remedyIncidentId:["+remedyIncidentId+"]");
+//				
+//				incidentDAO.updateDynatraceIncidentAfterRemedyCall(dynatraceIncident);
 			}
 			
 			return env;
@@ -86,7 +76,30 @@ public class CreateRemedyIncident extends AbstractService {
 					"Exception on CreateRemedyIncident", e);
 		}
 	}
+	
+	
 
+	private void createTicketRemedy(DynatraceIncident dynatraceIncident,RemedyAutenticationInfo remedyAutenticationInfo,AppProperty appProperty) {
+		//create incident
+		try {
+			String remedyIncidentId = remedyClient.createIncident(dynatraceIncident,remedyAutenticationInfo,appProperty);
+	
+			Timestamp now = new Timestamp(System.currentTimeMillis());
+			dynatraceIncident.setRemedyTicketCreateDate(now);
+			dynatraceIncident.setRemedyTicketID(remedyIncidentId);
+			dynatraceIncident.setRemedyTicketIDStatus(appProperty.getTicketStatus());
+			
+			if(log.isDebugEnabled())
+				log.debug("Response from Remedy ----> remedyIncidentId:["+remedyIncidentId+"]");
+			
+			incidentDAO.updateDynatraceIncidentAfterRemedyCall(dynatraceIncident);
+		
+		}catch (RemedyBadValueFieldException e) {
+			log.error("exception on create the ticket remedy for DynatraceIncident:["+dynatraceIncident+"]",e);
+		}
+	}
+	
+	
 	public IncidentDAO getIncidentDAO() {
 		return incidentDAO;
 	}

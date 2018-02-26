@@ -12,6 +12,7 @@ public class DynatraceIncidentKey implements Serializable{
 
 	private String name;
 	private Timestamp startEvent;
+	private String dashboarName;
 	
 	public String getName() {
 		return name;
@@ -25,14 +26,19 @@ public class DynatraceIncidentKey implements Serializable{
 	public void setStartEvent(Timestamp startEvent) {
 		this.startEvent = startEvent;
 	}
-	@Override
-	public String toString() {
-		return "DynatraceIncidentKey [name=" + name + ", startEvent=" + startEvent + "]";
+	
+	
+	public String getDashboarName() {
+		return dashboarName;
+	}
+	public void setDashboarName(String dashboarName) {
+		this.dashboarName = dashboarName;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((dashboarName == null) ? 0 : dashboarName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((startEvent == null) ? 0 : startEvent.hashCode());
 		return result;
@@ -46,6 +52,11 @@ public class DynatraceIncidentKey implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		DynatraceIncidentKey other = (DynatraceIncidentKey) obj;
+		if (dashboarName == null) {
+			if (other.dashboarName != null)
+				return false;
+		} else if (!dashboarName.equals(other.dashboarName))
+			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -58,5 +69,11 @@ public class DynatraceIncidentKey implements Serializable{
 			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "DynatraceIncidentKey [name=" + name + ", startEvent=" + startEvent + ", dashboarName=" + dashboarName
+				+ "]";
+	}
+	
 	
 }

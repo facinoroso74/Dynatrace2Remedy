@@ -56,7 +56,8 @@ public class AuthSSLProtocolSocketFactory {
                                        String keystorePassword,
                                        String keyPassword,
                                        URL    truststoreUrl,
-                                       String truststorePassword)
+                                       String truststorePassword,
+                                       String protocolHandShake)
                                        throws SSLConfigurationException {
         try {
             KeyManager[] keymanagers = null;
@@ -75,7 +76,7 @@ public class AuthSSLProtocolSocketFactory {
             //String protocolHandShake="TLSv1";
             //TLSv1,TLSv1.1,TLSv1.2,SSLv2Hello"
             //String protocolHandShake="TLSv1.2";
-            String protocolHandShake="TLSv1.2";
+            //String protocolHandShake="TLSv1.2";
             logger.debug("--------- protocolHandShake:["+protocolHandShake+"]--------");
             
             SSLContext sslcontext = SSLContext.getInstance(protocolHandShake);

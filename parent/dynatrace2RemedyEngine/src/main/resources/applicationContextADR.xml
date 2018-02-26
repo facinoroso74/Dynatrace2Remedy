@@ -43,6 +43,7 @@
 	
 	<bean id="sharedHttpClientRemedy" class="it.reply.sytel.adr.common.ws.SharedHTTPClient" lazy-init="true">
 		<property name="contentType" value="text/xml"/> 
+		<property name="protocolHandShake" value="TLSv1.2"/>
 		<property name="httpClientProperties">
         	<bean class="it.reply.sytel.adr.common.ws.HttpClientProperties">
             	<property name="superMap">
@@ -83,6 +84,7 @@
 
 	<bean id="sharedHttpClientDynatrace" class="it.reply.sytel.adr.common.ws.SharedHTTPSClient" lazy-init="true">
 		<property name="contentType" value="text/xml"/> 
+		<property name="protocolHandShake" value="TLSv1.2"/>
 		<property name="httpsClientProperties">
         	<bean class="it.reply.sytel.adr.common.ws.HttpsClientProperties">
             	<property name="superMap">
@@ -247,9 +249,12 @@
 	</bean>
 	
 	<bean id="closeRemedyIncident" class="it.reply.sytel.adr.services.impl.CloseRemedyIncident" lazy-init="true">
-<!-- 		<property name="context"> -->
-<!-- 			<ref bean="serviceContext" /> -->
-<!-- 		</property> -->
+		<property name="context">
+			<ref bean="serviceContext" />
+		</property>
+		<property name="incidentDAO">
+			<ref bean="incidentDAO" />
+		</property>
 	</bean>
 	
 	<!-- engine -->

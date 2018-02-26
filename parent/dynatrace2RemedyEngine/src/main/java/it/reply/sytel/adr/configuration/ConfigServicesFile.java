@@ -52,6 +52,14 @@ public class ConfigServicesFile implements ConfigurationService {
 			appProperty.setAppUsr(getPropertyFromFile(appNameArray[i]+"_USER", prop));
 			appProperty.setAppPwd(getPropertyFromFile(appNameArray[i]+"_PWD", prop));
 			
+			appProperty.setFirstName(getPropertyFromFile(appNameArray[i]+"_FIRSTNAME", prop));
+			appProperty.setImpact(getPropertyFromFile(appNameArray[i]+"_IMPACT", prop));
+			appProperty.setLastName(getPropertyFromFile(appNameArray[i]+"_LASTNAME", prop));
+			appProperty.setReportedSource(getPropertyFromFile(appNameArray[i]+"_REPORTED_SOURCE", prop));
+			appProperty.setServiceType(getPropertyFromFile(appNameArray[i]+"_SERVICE_TYPE", prop));
+			appProperty.setTicketStatus(getPropertyFromFile(appNameArray[i]+"_TICKET_STATUS", prop));
+			appProperty.setUrgency(getPropertyFromFile(appNameArray[i]+"_URGENCY", prop));
+		
 			coupleDashBoardWithUrlMap.put(appNameArray[i], appProperty);
 		}
 		return coupleDashBoardWithUrlMap;

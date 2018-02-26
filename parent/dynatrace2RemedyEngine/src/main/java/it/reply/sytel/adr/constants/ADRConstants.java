@@ -20,5 +20,8 @@ public interface ADRConstants {
 	public static final String REMEDY_AUTH_INFO_USER = "REMEDY_AUTH_INFO_USER";
 
 	public static final String REMEDY_AUTH_INFO_PWD = "REMEDY_AUTH_INFO_PWD";
+
+
+	public static final Integer SYSDATE = new Integer(1);
 	
 }

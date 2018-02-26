@@ -21,4 +21,8 @@ public interface IncidentDAO {
 	public void updateDynatraceIncidentDateUpdate(DynatraceIncidentKey dynatraceIncidentKey,Timestamp now);
 	
 	public void updateDynatraceIncidentAfterRemedyCall(DynatraceIncident dynatraceIncident);
+
+	public List<DynatraceIncidentKey> getAllDynatraceIncidentNotMoreExist(Timestamp now);
+
+	public void deleteDynaraceIncident(DynatraceIncidentKey dynatraceIncidentKey);
 }

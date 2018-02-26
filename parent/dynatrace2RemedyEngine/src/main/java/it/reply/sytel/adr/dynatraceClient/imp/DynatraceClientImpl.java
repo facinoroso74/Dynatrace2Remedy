@@ -25,9 +25,9 @@ public class DynatraceClientImpl implements DynatraceClient{
 	private Logger log = EtlLogger.getLogger(getClass());
 	
 	@Override
-	public Map<DynatraceIncidentKey, DynatraceIncident> getDynatraceIncidents(String appUrl,String user,String pwd) {
+	public Map<DynatraceIncidentKey, DynatraceIncident> getDynatraceIncidents(String dashboardName,String appUrl,String user,String pwd) {
 		String dashboardreportBuffer = restClient.invokeRestService(appUrl, user, pwd);
-		return buildMapDynatraceIncidentFromDashboardreport(dashboardreportBuffer);
+		return buildMapDynatraceIncidentFromDashboardreport(dashboardName,dashboardreportBuffer);
 	}
 	
 	private boolean checkIncidentoverviewrecordToWork(noNamespace.IncidentoverviewrecordDocument.Incidentoverviewrecord incidentoverviewrecord) {
@@ -36,7 +36,7 @@ public class DynatraceClientImpl implements DynatraceClient{
 		return false;
 	}
 	
-	private void loopOverIncidentoverviewrecordArray(Map<DynatraceIncidentKey, DynatraceIncident> dynatraceIncidentMap,noNamespace.IncidentoverviewrecordDocument.Incidentoverviewrecord[] incidentoverviewrecordArray) {
+	private void loopOverIncidentoverviewrecordArray(String dashboardName,Map<DynatraceIncidentKey, DynatraceIncident> dynatraceIncidentMap,noNamespace.IncidentoverviewrecordDocument.Incidentoverviewrecord[] incidentoverviewrecordArray) {
 		
 		//log.debug("loopOverIncidentoverviewrecordArray calling...");
 		
@@ -45,24 +45,25 @@ public class DynatraceClientImpl implements DynatraceClient{
 			if(checkIncidentoverviewrecordToWork(incidentoverviewrecordArray[i])) {
 				if(log.isDebugEnabled())
 					log.debug("------ALLARME-----:["+incidentoverviewrecordArray[i].xmlText()+"]");
-				DynatraceIncident dynatraceIncident = buildDynatraceIncident(incidentoverviewrecordArray[i]);
+				DynatraceIncident dynatraceIncident = buildDynatraceIncident(dashboardName,incidentoverviewrecordArray[i]);
 				dynatraceIncidentMap.put(dynatraceIncident.getDynatraceIncidentKey(), dynatraceIncident);
 			}
 			
 			noNamespace.IncidentoverviewrecordDocument.Incidentoverviewrecord[] incidentoverviewrecordArrayChildren = incidentoverviewrecordArray[i].getIncidentoverviewrecordArray();
 
 		if(incidentoverviewrecordArrayChildren!=null);
-			loopOverIncidentoverviewrecordArray(dynatraceIncidentMap,incidentoverviewrecordArrayChildren);
+			loopOverIncidentoverviewrecordArray(dashboardName,dynatraceIncidentMap,incidentoverviewrecordArrayChildren);
 		}
 		
 		//log.debug("loopOverIncidentoverviewrecordArray calling... DONE");
 	}
 
 	
-	private DynatraceIncident buildDynatraceIncident(noNamespace.IncidentoverviewrecordDocument.Incidentoverviewrecord incidentoverviewrecord) {
+	private DynatraceIncident buildDynatraceIncident(String dashboardName, noNamespace.IncidentoverviewrecordDocument.Incidentoverviewrecord incidentoverviewrecord) {
 		DynatraceIncidentKey dynatraceIncidentKey = new DynatraceIncidentKey();
 		dynatraceIncidentKey.setName(incidentoverviewrecord.getName());
 		dynatraceIncidentKey.setStartEvent(new Timestamp(incidentoverviewrecord.getStart().getTimeInMillis()));
+		dynatraceIncidentKey.setDashboarName(dashboardName);
 		
 		DynatraceIncident dynatraceIncident = new DynatraceIncident();
 		dynatraceIncident.setDynatraceIncidentKey(dynatraceIncidentKey);
@@ -85,7 +86,7 @@ public class DynatraceClientImpl implements DynatraceClient{
 		return dynatraceIncident;
 	}
 	
-	private Map<DynatraceIncidentKey, DynatraceIncident> buildMapDynatraceIncidentFromDashboardreport(String dashboardreportBuffer) {
+	private Map<DynatraceIncidentKey, DynatraceIncident> buildMapDynatraceIncidentFromDashboardreport(String dashboardName,String dashboardreportBuffer) {
 		try {
 			
 			Map<DynatraceIncidentKey, DynatraceIncident> dynatraceIncidentMap = new HashMap<DynatraceIncidentKey, DynatraceIncident>();
@@ -96,7 +97,7 @@ public class DynatraceClientImpl implements DynatraceClient{
 				//devo ciclare opportunamente l'array incidentoverviewrecordArray
 				//e prendere tutti i nodi che presentano gli attributi name e start
 				//quando li trovo devo popolare la mappa
-				loopOverIncidentoverviewrecordArray(dynatraceIncidentMap,incidentoverviewrecordArray[0].getIncidentoverviewrecordArray());
+				loopOverIncidentoverviewrecordArray(dashboardName,dynatraceIncidentMap,incidentoverviewrecordArray[0].getIncidentoverviewrecordArray());
 			}
 
 			return dynatraceIncidentMap;
@@ -131,15 +132,15 @@ public class DynatraceClientImpl implements DynatraceClient{
 //		}
 //	}
 	
-	public static void main(String[] args) {
-		DynatraceClient dynatraceClient = new DynatraceClientImpl();
-		RestClientImpl restClientImpl = new RestClientImpl();
-		dynatraceClient.setRestClient(restClientImpl);
-		Map<DynatraceIncidentKey, DynatraceIncident> map = dynatraceClient.getDynatraceIncidents("https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION", "admin", "adradmin01");
-		Set<DynatraceIncidentKey> keys = map.keySet();
-		for (Iterator<DynatraceIncidentKey> iterator = keys.iterator(); iterator.hasNext();) {
-			DynatraceIncidentKey dynatraceIncidentKey = (DynatraceIncidentKey) iterator.next();
-			System.out.println("dynatraceIncident-->"+ map.get(dynatraceIncidentKey));
-		}
-	}
+//	public static void main(String[] args) {
+//		DynatraceClient dynatraceClient = new DynatraceClientImpl();
+//		RestClientImpl restClientImpl = new RestClientImpl();
+//		dynatraceClient.setRestClient(restClientImpl);
+//		Map<DynatraceIncidentKey, DynatraceIncident> map = dynatraceClient.getDynatraceIncidents("https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION", "admin", "adradmin01");
+//		Set<DynatraceIncidentKey> keys = map.keySet();
+//		for (Iterator<DynatraceIncidentKey> iterator = keys.iterator(); iterator.hasNext();) {
+//			DynatraceIncidentKey dynatraceIncidentKey = (DynatraceIncidentKey) iterator.next();
+//			System.out.println("dynatraceIncident-->"+ map.get(dynatraceIncidentKey));
+//		}
+//	}
 }
