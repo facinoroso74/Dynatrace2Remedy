@@ -23,5 +23,17 @@ public interface ADRConstants {
 
 
 	public static final Integer SYSDATE = new Integer(1);
+
+
+	public static final String JOB_NAME_GROUP_CONNECTOR = "JOB_NAME_GROUP_CONNECTOR";
+
+
+	public static final String JOB_NAME_CONNECTOR = "JOB_NAME_CONNECTOR";
+
+
+	public static final String TRIGGER_NAME_GROUP_CONNECTOR = "TRIGGER_NAME_GROUP_CONNECTOR";
+
+
+	public static final String TRIGGER_NAME_CONNECTOR = "TRIGGER_NAME_CONNECTOR";
 	
 }

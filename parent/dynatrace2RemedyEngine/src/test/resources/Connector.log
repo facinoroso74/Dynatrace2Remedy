@@ -1,158 +1,200 @@
-[26 feb 2018 18:35:13,460][INFO ][][] Using a custom ConnectionKeepAliveStrategy with default duration = 'infinite' 
-[26 feb 2018 18:35:13,466][INFO ][][] Using a custom ConnectionReuseStrategy based on peer HTTP headers/version 
-[26 feb 2018 18:35:13,469][INFO ][][] Using a custom HttpRequestRetryHandler to delegate retry logic to JMS redelivery mechanism 
-[26 feb 2018 18:35:13,470][DEBUG][][] Creating shared HTTP client 
-[26 feb 2018 18:35:13,470][DEBUG][][] httpsClientProperties.getTrustURLString():[file:///D:/MyGitRepo/Dynatrace2RemedyLocalRepo/parent/dynatrace2RemedyEngine/src/main/resources/truststore.jks] 
-[26 feb 2018 18:35:13,517][DEBUG][][] createTrustManagers - Initializing trust manager: dynatracetest 
-[26 feb 2018 18:35:13,517][DEBUG][][] Initializing trust manager 
-[26 feb 2018 18:35:13,586][DEBUG][][] --------- protocolHandShake:[TLSv1.2]-------- 
-[26 feb 2018 18:35:14,203][DEBUG][][] Shared HTTP client created successfully! 
-[26 feb 2018 18:35:14,203][INFO ][][] Starting IdleHTTPConnectionEvictor task (evictionPeriod=5000) 
-[26 feb 2018 18:35:14,255][INFO ][][] Using a custom ConnectionKeepAliveStrategy with default duration = 'infinite' 
-[26 feb 2018 18:35:14,256][INFO ][][] Using a custom ConnectionReuseStrategy based on peer HTTP headers/version 
-[26 feb 2018 18:35:14,257][INFO ][][] Using a custom HttpRequestRetryHandler to delegate retry logic to JMS redelivery mechanism 
-[26 feb 2018 18:35:14,258][DEBUG][][] Creating shared HTTP client 
-[26 feb 2018 18:35:14,258][DEBUG][][] --------- protocolHandShake:[TLSv1.2]-------- 
-[26 feb 2018 18:35:14,296][DEBUG][][] Shared HTTP client created successfully! 
-[26 feb 2018 18:35:14,296][INFO ][][] Starting IdleHTTPConnectionEvictor task (evictionPeriod=5000) 
-[26 feb 2018 18:35:14,373][DEBUG][][] getting the inputStream from fileName:[ADR.properties] 
-[26 feb 2018 18:35:14,376][DEBUG][][] propertyValue:[ADBM] for propertyName:[DASHBOARD_NAMES] 
-[26 feb 2018 18:35:14,378][DEBUG][][] propertyValue:[RemedyUsr] for propertyName:[REMEDY_AUTH_INFO_USER] 
-[26 feb 2018 18:35:14,378][DEBUG][][] propertyValue:[RemedyPwd         ] for propertyName:[REMEDY_AUTH_INFO_PWD] 
-[26 feb 2018 18:35:14,379][DEBUG][][] propertyValue:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] for propertyName:[ADBM_URL] 
-[26 feb 2018 18:35:14,379][DEBUG][][] propertyValue:[admin] for propertyName:[ADBM_USER] 
-[26 feb 2018 18:35:14,379][DEBUG][][] propertyValue:[adradmin01] for propertyName:[ADBM_PWD] 
-[26 feb 2018 18:35:14,380][DEBUG][][] propertyValue:[Dynatrace] for propertyName:[ADBM_FIRSTNAME] 
-[26 feb 2018 18:35:14,380][DEBUG][][] propertyValue:[2-Significant/Large] for propertyName:[ADBM_IMPACT] 
-[26 feb 2018 18:35:14,380][DEBUG][][] propertyValue:[Dynatrace] for propertyName:[ADBM_LASTNAME] 
-[26 feb 2018 18:35:14,380][DEBUG][][] propertyValue:[Systems Management] for propertyName:[ADBM_REPORTED_SOURCE] 
-[26 feb 2018 18:35:14,381][DEBUG][][] propertyValue:[Infrastructure Event] for propertyName:[ADBM_SERVICE_TYPE] 
-[26 feb 2018 18:35:14,381][DEBUG][][] propertyValue:[New] for propertyName:[ADBM_TICKET_STATUS] 
-[26 feb 2018 18:35:14,381][DEBUG][][] propertyValue:[2-High] for propertyName:[ADBM_URGENCY] 
-[26 feb 2018 18:35:14,381][DEBUG][][] Configuration DONE 
-[26 feb 2018 18:35:14,449][INFO ][AC1F07675A944552000170B7][1] Flow RemedyIncidentdBuilder Engine Called... 
-[26 feb 2018 18:35:14,449][INFO ][AC1F07675A944552000170B7][1] service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ...  
-[26 feb 2018 18:35:14,451][DEBUG][AC1F07675A944552000170B7][1] the Name for app:[ADBM] is [ADBM] 
-[26 feb 2018 18:35:14,451][DEBUG][AC1F07675A944552000170B7][1] the URL for app:[ADBM] is [https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] 
-[26 feb 2018 18:35:14,451][DEBUG][AC1F07675A944552000170B7][1] the USR for app:[ADBM] is [admin] 
-[26 feb 2018 18:35:14,452][DEBUG][AC1F07675A944552000170B7][1] the PWD for app:[ADBM] is [adradmin01] 
-[26 feb 2018 18:35:14,452][DEBUG][AC1F07675A944552000170B7][1] calling the console:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] with user[admin] pwd=adradmin01... 
-[26 feb 2018 18:35:14,457][DEBUG][AC1F07675A944552000170B7][1] Executing POST with basic authentication 
-[26 feb 2018 18:35:14,484][DEBUG][AC1F07675A944552000170B7][1] SOAP HTTP request headers: 
-[26 feb 2018 18:35:14,484][INFO ][AC1F07675A944552000170B7][1] 	name=Authorization, value=Basic YWRtaW46YWRyYWRtaW4wMQ== 
-[26 feb 2018 18:35:15,098][INFO ][AC1F07675A944552000170B7][1]  Server certificate 1: 
-[26 feb 2018 18:35:15,099][INFO ][AC1F07675A944552000170B7][1]   Subject DN: CN=Insecure AppMon Demo, OU=Development, O=Dynatrace LLC, L=Waltham, ST=MA, C=US 
-[26 feb 2018 18:35:15,099][INFO ][AC1F07675A944552000170B7][1]   Signature Algorithm: SHA256withRSA 
-[26 feb 2018 18:35:15,100][INFO ][AC1F07675A944552000170B7][1]   Valid from: Tue Mar 07 11:37:35 CET 2017 
-[26 feb 2018 18:35:15,100][INFO ][AC1F07675A944552000170B7][1]   Valid until: Thu Mar 07 11:37:35 CET 2019 
-[26 feb 2018 18:35:15,101][INFO ][AC1F07675A944552000170B7][1]   Issuer: CN=dynatrace-sub-CA, DC=dynatrace, DC=org 
-[26 feb 2018 18:35:15,101][INFO ][AC1F07675A944552000170B7][1]  Server certificate 2: 
-[26 feb 2018 18:35:15,102][INFO ][AC1F07675A944552000170B7][1]   Subject DN: CN=dynatrace-sub-CA, DC=dynatrace, DC=org 
-[26 feb 2018 18:35:15,102][INFO ][AC1F07675A944552000170B7][1]   Signature Algorithm: SHA256withRSA 
-[26 feb 2018 18:35:15,102][INFO ][AC1F07675A944552000170B7][1]   Valid from: Fri Jan 09 15:41:43 CET 2015 
-[26 feb 2018 18:35:15,103][INFO ][AC1F07675A944552000170B7][1]   Valid until: Sat Jan 09 15:51:43 CET 2021 
-[26 feb 2018 18:35:15,103][INFO ][AC1F07675A944552000170B7][1]   Issuer: CN=DYNATRACE-ROOT 
-[26 feb 2018 18:35:15,103][INFO ][AC1F07675A944552000170B7][1]  Server certificate 3: 
-[26 feb 2018 18:35:15,104][INFO ][AC1F07675A944552000170B7][1]   Subject DN: CN=DYNATRACE-ROOT 
-[26 feb 2018 18:35:15,104][INFO ][AC1F07675A944552000170B7][1]   Signature Algorithm: SHA256withRSA 
-[26 feb 2018 18:35:15,104][INFO ][AC1F07675A944552000170B7][1]   Valid from: Thu Jan 08 15:18:45 CET 2015 
-[26 feb 2018 18:35:15,106][INFO ][AC1F07675A944552000170B7][1]   Valid until: Fri Jan 08 15:28:40 CET 2027 
-[26 feb 2018 18:35:15,106][INFO ][AC1F07675A944552000170B7][1]   Issuer: CN=DYNATRACE-ROOT 
-[26 feb 2018 18:35:15,572][INFO ][AC1F07675A944552000170B7][1] Remote peer HTTP version > 1.0 --> keep-alive=true 
-[26 feb 2018 18:35:15,574][INFO ][AC1F07675A944552000170B7][1] Current connection will be kept alive 'indefinitely' 
-[26 feb 2018 18:35:15,577][INFO ][AC1F07675A944552000170B7][1] SOAP HTTP response headers: 
-[26 feb 2018 18:35:15,578][INFO ][AC1F07675A944552000170B7][1] 	name=Date, value=Mon, 26 Feb 2018 17:35:15 GMT 
-[26 feb 2018 18:35:15,578][INFO ][AC1F07675A944552000170B7][1] 	name=Set-Cookie, value=JSESSIONID=7vfepwq4odidofomhy1zs8vu;Path=/;Secure;HttpOnly 
-[26 feb 2018 18:35:15,579][INFO ][AC1F07675A944552000170B7][1] 	name=Expires, value=Thu, 01 Jan 1970 00:00:00 GMT 
-[26 feb 2018 18:35:15,579][INFO ][AC1F07675A944552000170B7][1] 	name=Content-Disposition, value=inline; filename="ADBM_TEST_REMEDY_INTEGRATION.xml" 
-[26 feb 2018 18:35:15,579][INFO ][AC1F07675A944552000170B7][1] 	name=Content-Type, value=text/xml 
-[26 feb 2018 18:35:15,579][INFO ][AC1F07675A944552000170B7][1] 	name=Cache-Control, value=no-cache 
-[26 feb 2018 18:35:15,579][INFO ][AC1F07675A944552000170B7][1] 	name=Cache-Control, value=must-revalidate 
-[26 feb 2018 18:35:15,579][INFO ][AC1F07675A944552000170B7][1] 	name=Cache-Control, value=max-age=0 
-[26 feb 2018 18:35:15,579][INFO ][AC1F07675A944552000170B7][1] 	name=Pragma, value=no-cache 
-[26 feb 2018 18:35:15,580][INFO ][AC1F07675A944552000170B7][1] 	name=Vary, value=Accept-Encoding, User-Agent 
-[26 feb 2018 18:35:15,580][INFO ][AC1F07675A944552000170B7][1] 	name=Content-Length, value=5427 
-[26 feb 2018 18:35:15,580][INFO ][AC1F07675A944552000170B7][1] HTTP response code received: 200 
-[26 feb 2018 18:35:15,581][DEBUG][AC1F07675A944552000170B7][1] calling the console:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] with user[admin] pwd=adradmin01... DONE elapsed:[1129] 
-[26 feb 2018 18:35:15,583][DEBUG][AC1F07675A944552000170B7][1] content:[<?xml version="1.0" encoding="utf-8"?>
-<dashboardreport name="ADBM_TEST_REMEDY_INTEGRATION" version="7.0.10.1010" reportdate="2018-02-26T18:35:15.887+01:00" description="">
-  <source name="ADBM_TEST">
-    <filters summary="last 24 hours">
-      <filter>tf:Last24h</filter>
-    </filters>
-  </source>
-  <data>
-    <incidentsoverviewdashlet name="Incidents" description="" displaysource="Base">
-      <source>
-        <filters summary="Incident Rules, last 24 hours">
-          <filter>if:RULE?Agent Instrumentation Disabledif:RULE?Application Process Out-of-Memoryif:RULE?Application Process Unavailable (unexpected)if:RULE?Application Process Unhealthyif:RULE?Average response time degradedif:RULE?CURRENT_Q_DEPTHif:RULE?Database connection issueif:RULE?Failure rate too highif:RULE?Host Availabilityif:RULE?Host CPU Unhealthyif:RULE?Host Disk Unhealthyif:RULE?Host Memory Unhealthyif:RULE?Host Network Unhealthyif:RULE?JDBC Connection Pool Percent Usedif:RULE?JDBC Connection Pool Waiting Thread Countif:RULE?Potentially stuck Java VM detectedif:RULE?Response time degraded for slow requestsif:RULE?Status of the QMif:RULE?Thread Declared Hungif:RULE?Total GC Collection Time</filter>
-          <filter>tf:Last24h</filter>
-        </filters>
-      </source>
-      <incidentoverviewrecords structuretype="tree">
-        <incidentoverviewrecord name="ADBM_TEST (7)">
-          <incidentoverviewrecord name="Agent Instrumentation Disabled"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Application Process Out-of-Memory"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Application Process Unavailable (unexpected)"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Application Process Unhealthy"></incidentoverviewrecord>
-          <incidentoverviewrecord name="CURRENT_Q_DEPTH (5)">
-            <incidentoverviewrecord name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name-&gt;ADBM_QU_ANAGRAFICA] (ARAPPX02_QM_THRESHOULD_10@192.168.175.144) ARAPPX02_QM_THRESHOULD_10 upper bound exceeded" start="2018-02-12T19:44:10.000+01:00" source="ARAPPX02_QM_THRESHOULD_10@192.168.175.144"></incidentoverviewrecord>
-            <incidentoverviewrecord name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name-&gt;ADBM_QU_NAS] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T19:53:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"></incidentoverviewrecord>
-            <incidentoverviewrecord name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name-&gt;ADBM_QU_UFIS_ADR] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T17:30:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"></incidentoverviewrecord>
-            <incidentoverviewrecord name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name-&gt;ADBM_QU_UFIS_TEST] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T17:30:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"></incidentoverviewrecord>
-            <incidentoverviewrecord name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name-&gt;TELEX_QU_ADBM] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T14:08:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"></incidentoverviewrecord>
-          </incidentoverviewrecord>
-          <incidentoverviewrecord name="Database Agent Connection Issue"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Failure rate too high"></incidentoverviewrecord>
-          <incidentoverviewrecord name="JDBC Connection Pool Percent Used"></incidentoverviewrecord>
-          <incidentoverviewrecord name="JDBC Connection Pool Waiting Thread Count"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Potentially stuck Java VM detected"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Response time degraded"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Response time degraded for slow requests"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Status of the QM"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Thread Declared Hung"></incidentoverviewrecord>
-          <incidentoverviewrecord name="Total GC Collection Time (2)">
-            <incidentoverviewrecord name="Java Virtual Machine/Total GC Collection Time: Total GC Collection Time &lt;all-applications&gt; (WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio) upper bound exceeded" start="2018-02-26T03:00:10.000+01:00" duration="10000" end="2018-02-26T03:00:20.000+01:00" source="WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio &lt;all-applications&gt;"></incidentoverviewrecord>
-            <incidentoverviewrecord name="Java Virtual Machine/Total GC Collection Time: Total GC Collection Time &lt;all-applications&gt; (WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio) upper bound exceeded" start="2018-02-26T16:34:50.000+01:00" duration="10000" end="2018-02-26T16:35:00.000+01:00" source="WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio &lt;all-applications&gt;"></incidentoverviewrecord>
-          </incidentoverviewrecord>
-        </incidentoverviewrecord>
-      </incidentoverviewrecords>
-    </incidentsoverviewdashlet>
-  </data>
-</dashboardreport>
-] 
-[26 feb 2018 18:35:15,932][DEBUG][AC1F07675A944552000170B7][1] ------ALLARME-----:[<xml-fragment name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_ANAGRAFICA] (ARAPPX02_QM_THRESHOULD_10@192.168.175.144) ARAPPX02_QM_THRESHOULD_10 upper bound exceeded" start="2018-02-12T19:44:10.000+01:00" source="ARAPPX02_QM_THRESHOULD_10@192.168.175.144"/>] 
-[26 feb 2018 18:35:15,933][DEBUG][AC1F07675A944552000170B7][1] ------ALLARME-----:[<xml-fragment name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_NAS] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T19:53:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"/>] 
-[26 feb 2018 18:35:15,934][DEBUG][AC1F07675A944552000170B7][1] ------ALLARME-----:[<xml-fragment name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_UFIS_ADR] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T17:30:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"/>] 
-[26 feb 2018 18:35:15,934][DEBUG][AC1F07675A944552000170B7][1] ------ALLARME-----:[<xml-fragment name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_UFIS_TEST] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T17:30:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"/>] 
-[26 feb 2018 18:35:15,935][DEBUG][AC1F07675A944552000170B7][1] ------ALLARME-----:[<xml-fragment name="Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->TELEX_QU_ADBM] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded" start="2018-02-23T14:08:10.000+01:00" source="ARAPPX02_QM - Test1@192.168.175.144"/>] 
-[26 feb 2018 18:35:15,936][DEBUG][AC1F07675A944552000170B7][1] ------ALLARME-----:[<xml-fragment name="Java Virtual Machine/Total GC Collection Time: Total GC Collection Time &lt;all-applications> (WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio) upper bound exceeded" start="2018-02-26T03:00:10.000+01:00" duration="10000" end="2018-02-26T03:00:20.000+01:00" source="WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio &lt;all-applications>"/>] 
-[26 feb 2018 18:35:15,937][DEBUG][AC1F07675A944552000170B7][1] ------ALLARME-----:[<xml-fragment name="Java Virtual Machine/Total GC Collection Time: Total GC Collection Time &lt;all-applications> (WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio) upper bound exceeded" start="2018-02-26T16:34:50.000+01:00" duration="10000" end="2018-02-26T16:35:00.000+01:00" source="WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio &lt;all-applications>"/>] 
-[26 feb 2018 18:35:16,072][DEBUG][AC1F07675A944552000170B7][1] name:[Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_NAS] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded startEvent:[2018-02-23 19:53:10.0] 
-[26 feb 2018 18:35:16,075][DEBUG][AC1F07675A944552000170B7][1] Incident alreay Exists:[DynatraceIncidentKey [name=Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_NAS] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded, startEvent=2018-02-23 19:53:10.0, dashboarName=ADBM]] update the DateUpdate 
-[26 feb 2018 18:35:16,082][DEBUG][AC1F07675A944552000170B7][1] Updated 1 rows 
-[26 feb 2018 18:35:16,089][DEBUG][AC1F07675A944552000170B7][1] name:[Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_UFIS_ADR] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded startEvent:[2018-02-23 17:30:10.0] 
-[26 feb 2018 18:35:16,090][DEBUG][AC1F07675A944552000170B7][1] Incident alreay Exists:[DynatraceIncidentKey [name=Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_UFIS_ADR] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded, startEvent=2018-02-23 17:30:10.0, dashboarName=ADBM]] update the DateUpdate 
-[26 feb 2018 18:35:16,096][DEBUG][AC1F07675A944552000170B7][1] Updated 1 rows 
-[26 feb 2018 18:35:16,103][DEBUG][AC1F07675A944552000170B7][1] name:[Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->TELEX_QU_ADBM] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded startEvent:[2018-02-23 14:08:10.0] 
-[26 feb 2018 18:35:16,104][DEBUG][AC1F07675A944552000170B7][1] Incident alreay Exists:[DynatraceIncidentKey [name=Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->TELEX_QU_ADBM] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded, startEvent=2018-02-23 14:08:10.0, dashboarName=ADBM]] update the DateUpdate 
-[26 feb 2018 18:35:16,110][DEBUG][AC1F07675A944552000170B7][1] Updated 1 rows 
-[26 feb 2018 18:35:16,116][DEBUG][AC1F07675A944552000170B7][1] name:[Java Virtual Machine/Total GC Collection Time: Total GC Collection Time <all-applications> (WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio) upper bound exceeded startEvent:[2018-02-26 16:34:50.0] 
-[26 feb 2018 18:35:16,117][DEBUG][AC1F07675A944552000170B7][1] Incident alreay Exists:[DynatraceIncidentKey [name=Java Virtual Machine/Total GC Collection Time: Total GC Collection Time <all-applications> (WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio) upper bound exceeded, startEvent=2018-02-26 16:34:50.0, dashboarName=ADBM]] update the DateUpdate 
-[26 feb 2018 18:35:16,124][DEBUG][AC1F07675A944552000170B7][1] Updated 1 rows 
-[26 feb 2018 18:35:16,134][DEBUG][AC1F07675A944552000170B7][1] name:[Java Virtual Machine/Total GC Collection Time: Total GC Collection Time <all-applications> (WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio) upper bound exceeded startEvent:[2018-02-26 03:00:10.0] 
-[26 feb 2018 18:35:16,136][DEBUG][AC1F07675A944552000170B7][1] Incident alreay Exists:[DynatraceIncidentKey [name=Java Virtual Machine/Total GC Collection Time: Total GC Collection Time <all-applications> (WebSphere_ADBM_TEST[arappx03Cell01-app_adbm_mercuriox2]@mercurio) upper bound exceeded, startEvent=2018-02-26 03:00:10.0, dashboarName=ADBM]] update the DateUpdate 
-[26 feb 2018 18:35:16,143][DEBUG][AC1F07675A944552000170B7][1] Updated 1 rows 
-[26 feb 2018 18:35:16,149][DEBUG][AC1F07675A944552000170B7][1] name:[Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_ANAGRAFICA] (ARAPPX02_QM_THRESHOULD_10@192.168.175.144) ARAPPX02_QM_THRESHOULD_10 upper bound exceeded startEvent:[2018-02-12 19:44:10.0] 
-[26 feb 2018 18:35:16,150][DEBUG][AC1F07675A944552000170B7][1] Incident alreay Exists:[DynatraceIncidentKey [name=Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_ANAGRAFICA] (ARAPPX02_QM_THRESHOULD_10@192.168.175.144) ARAPPX02_QM_THRESHOULD_10 upper bound exceeded, startEvent=2018-02-12 19:44:10.0, dashboarName=ADBM]] update the DateUpdate 
-[26 feb 2018 18:35:16,159][DEBUG][AC1F07675A944552000170B7][1] Updated 1 rows 
-[26 feb 2018 18:35:16,167][DEBUG][AC1F07675A944552000170B7][1] name:[Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_UFIS_TEST] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded startEvent:[2018-02-23 17:30:10.0] 
-[26 feb 2018 18:35:16,167][DEBUG][AC1F07675A944552000170B7][1] Incident alreay Exists:[DynatraceIncidentKey [name=Queue Group/CURRENT_Q_DEPTH: CURRENT_Q_DEPTH [Queue Name->ADBM_QU_UFIS_TEST] (ARAPPX02_QM - Test1@192.168.175.144) ARAPPX02_QM - Test1 upper bound exceeded, startEvent=2018-02-23 17:30:10.0, dashboarName=ADBM]] update the DateUpdate 
-[26 feb 2018 18:35:16,172][DEBUG][AC1F07675A944552000170B7][1] Updated 1 rows 
-[26 feb 2018 18:35:16,173][INFO ][AC1F07675A944552000170B7][1] Service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ... DONE with ServiceExecutionTime:[1724] 
-[26 feb 2018 18:35:16,173][INFO ][AC1F07675A944552000170B7][1] service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ...  
-[26 feb 2018 18:35:16,180][INFO ][AC1F07675A944552000170B7][1] Number of incident to create on Remedy:[0] 
-[26 feb 2018 18:35:16,180][INFO ][AC1F07675A944552000170B7][1] Service:[it.reply.sytel.adr.services.impl.CreateRemedyIncident] called ... DONE with ServiceExecutionTime:[7] 
-[26 feb 2018 18:35:16,180][INFO ][AC1F07675A944552000170B7][1] service:[it.reply.sytel.adr.services.impl.CloseRemedyIncident] called ...  
-[26 feb 2018 18:35:16,186][INFO ][AC1F07675A944552000170B7][1] Service:[it.reply.sytel.adr.services.impl.CloseRemedyIncident] called ... DONE with ServiceExecutionTime:[6] 
-[26 feb 2018 18:35:16,187][INFO ][AC1F07675A944552000170B7][1] Flow RemedyIncidentdBuilder Engine executed with ExecutionTime (1738) 
+[27 feb 2018 19:26:20,452][INFO ][][] Using a custom ConnectionKeepAliveStrategy with default duration = 'infinite' 
+[27 feb 2018 19:26:20,452][INFO ][][] Using a custom ConnectionReuseStrategy based on peer HTTP headers/version 
+[27 feb 2018 19:26:20,452][INFO ][][] Using a custom HttpRequestRetryHandler to delegate retry logic to JMS redelivery mechanism 
+[27 feb 2018 19:26:20,452][DEBUG][][] Creating shared HTTP client 
+[27 feb 2018 19:26:20,452][DEBUG][][] httpsClientProperties.getTrustURLString():[file:///D:/MyGitRepo/Dynatrace2RemedyLocalRepo/parent/dynatrace2RemedyEngine/src/main/resources/truststore.jks] 
+[27 feb 2018 19:26:20,499][DEBUG][][] createTrustManagers - Initializing trust manager: dynatracetest 
+[27 feb 2018 19:26:20,499][DEBUG][][] Initializing trust manager 
+[27 feb 2018 19:26:20,592][DEBUG][][] --------- protocolHandShake:[TLSv1.2]-------- 
+[27 feb 2018 19:26:21,201][DEBUG][][] Shared HTTP client created successfully! 
+[27 feb 2018 19:26:21,201][INFO ][][] Starting IdleHTTPConnectionEvictor task (evictionPeriod=5000) 
+[27 feb 2018 19:26:21,233][INFO ][][] Using a custom ConnectionKeepAliveStrategy with default duration = 'infinite' 
+[27 feb 2018 19:26:21,233][INFO ][][] Using a custom ConnectionReuseStrategy based on peer HTTP headers/version 
+[27 feb 2018 19:26:21,233][INFO ][][] Using a custom HttpRequestRetryHandler to delegate retry logic to JMS redelivery mechanism 
+[27 feb 2018 19:26:21,233][DEBUG][][] Creating shared HTTP client 
+[27 feb 2018 19:26:21,233][DEBUG][][] --------- protocolHandShake:[TLSv1.2]-------- 
+[27 feb 2018 19:26:21,264][DEBUG][][] Shared HTTP client created successfully! 
+[27 feb 2018 19:26:21,264][INFO ][][] Starting IdleHTTPConnectionEvictor task (evictionPeriod=5000) 
+[27 feb 2018 19:26:21,327][DEBUG][][] getting the inputStream from fileName:[ADR.properties] 
+[27 feb 2018 19:26:21,327][DEBUG][][] propertyValue:[ADBM] for propertyName:[DASHBOARD_NAMES] 
+[27 feb 2018 19:26:21,327][DEBUG][][] propertyValue:[RemedyUsr] for propertyName:[REMEDY_AUTH_INFO_USER] 
+[27 feb 2018 19:26:21,327][DEBUG][][] propertyValue:[RemedyPwd         ] for propertyName:[REMEDY_AUTH_INFO_PWD] 
+[27 feb 2018 19:26:21,327][DEBUG][][] propertyValue:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] for propertyName:[ADBM_URL] 
+[27 feb 2018 19:26:21,327][DEBUG][][] propertyValue:[admin] for propertyName:[ADBM_USER] 
+[27 feb 2018 19:26:21,343][DEBUG][][] propertyValue:[adradmin01] for propertyName:[ADBM_PWD] 
+[27 feb 2018 19:26:21,343][DEBUG][][] propertyValue:[Dynatrace] for propertyName:[ADBM_FIRSTNAME] 
+[27 feb 2018 19:26:21,343][DEBUG][][] propertyValue:[2-Significant/Large] for propertyName:[ADBM_IMPACT] 
+[27 feb 2018 19:26:21,343][DEBUG][][] propertyValue:[Dynatrace] for propertyName:[ADBM_LASTNAME] 
+[27 feb 2018 19:26:21,343][DEBUG][][] propertyValue:[Systems Management] for propertyName:[ADBM_REPORTED_SOURCE] 
+[27 feb 2018 19:26:21,343][DEBUG][][] propertyValue:[Infrastructure Event] for propertyName:[ADBM_SERVICE_TYPE] 
+[27 feb 2018 19:26:21,343][DEBUG][][] propertyValue:[New] for propertyName:[ADBM_TICKET_STATUS] 
+[27 feb 2018 19:26:21,343][DEBUG][][] propertyValue:[2-High] for propertyName:[ADBM_URGENCY] 
+[27 feb 2018 19:26:21,343][DEBUG][][] Configuration DONE 
+[27 feb 2018 19:26:21,374][INFO ][C0A838015A95A2CD0001DC3B][1] Flow RemedyIncidentdBuilder Engine Called... 
+[27 feb 2018 19:26:21,374][INFO ][C0A838015A95A2CD0001DC3B][1] service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ...  
+[27 feb 2018 19:26:21,374][DEBUG][C0A838015A95A2CD0001DC3B][1] the Name for app:[ADBM] is [ADBM] 
+[27 feb 2018 19:26:21,374][DEBUG][C0A838015A95A2CD0001DC3B][1] the URL for app:[ADBM] is [https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] 
+[27 feb 2018 19:26:21,374][DEBUG][C0A838015A95A2CD0001DC3B][1] the USR for app:[ADBM] is [admin] 
+[27 feb 2018 19:26:21,374][DEBUG][C0A838015A95A2CD0001DC3B][1] the PWD for app:[ADBM] is [adradmin01] 
+[27 feb 2018 19:26:21,374][DEBUG][C0A838015A95A2CD0001DC3B][1] calling the console:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] with user[admin] pwd=adradmin01... 
+[27 feb 2018 19:26:21,390][DEBUG][C0A838015A95A2CD0001DC3B][1] Executing POST with basic authentication 
+[27 feb 2018 19:26:21,421][DEBUG][C0A838015A95A2CD0001DC3B][1] SOAP HTTP request headers: 
+[27 feb 2018 19:26:21,421][INFO ][C0A838015A95A2CD0001DC3B][1] 	name=Authorization, value=Basic YWRtaW46YWRyYWRtaW4wMQ== 
+[27 feb 2018 19:26:22,577][ERROR][C0A838015A95A2CD0001DC3B][1] Error while invoking URL:[] 
+org.apache.http.conn.HttpHostConnectException: Connection to https://dynatrace-sub-CA:8021 refused
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:158)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:149)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:121)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:562)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:415)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:820)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:754)
+	at it.reply.sytel.adr.common.ws.SharedHTTPSClient.invokeGet(SharedHTTPSClient.java:343)
+	at it.reply.sytel.adr.dynatraceClient.imp.RestClientImpl.invokeRestService(RestClientImpl.java:36)
+	at it.reply.sytel.adr.dynatraceClient.imp.DynatraceClientImpl.getDynatraceIncidents(DynatraceClientImpl.java:29)
+	at it.reply.sytel.adr.services.impl.GetDynatraceIncident.perform(GetDynatraceIncident.java:50)
+	at it.reply.sytel.adr.core.services.service.AbstractService.execute(AbstractService.java:67)
+	at it.reply.sytel.adr.engine.RemedyIncidetBuilderEngine.executeFlow(RemedyIncidetBuilderEngine.java:57)
+	at it.reply.sytel.adr.main.ConnectorExecutor.execute(ConnectorExecutor.java:27)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.ssl.SSLSocketFactory.connectSocket(SSLSocketFactory.java:374)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:148)
+	... 15 more
+[27 feb 2018 19:26:22,577][DEBUG][C0A838015A95A2CD0001DC3B][1] Marking associated HTTP connection as NOT-reusable 
+[27 feb 2018 19:26:22,577][ERROR][C0A838015A95A2CD0001DC3B][1] Exception on Flow Flow TestBuilder Engine 
+it.reply.sytel.adr.services.exc.GetDynatraceIncidentException: Exception on GetDynatraceIncident; nested exception is: 
+	it.reply.sytel.adr.dynatraceClient.exc.RestClientException: Exception on invoking the http:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION]; nested exception is: 
+	it.reply.sytel.adr.common.ws.exc.HttpClientException: Error while invoking URL:[]
+it.reply.sytel.adr.dynatraceClient.exc.RestClientException: Exception on invoking the http:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION]; nested exception is: 
+	it.reply.sytel.adr.common.ws.exc.HttpClientException: Error while invoking URL:[]
+it.reply.sytel.adr.common.ws.exc.HttpClientException: Error while invoking URL:[]
+	at it.reply.sytel.adr.common.ws.SharedHTTPSClient.invokeGet(SharedHTTPSClient.java:376)
+	at it.reply.sytel.adr.dynatraceClient.imp.RestClientImpl.invokeRestService(RestClientImpl.java:36)
+	at it.reply.sytel.adr.dynatraceClient.imp.DynatraceClientImpl.getDynatraceIncidents(DynatraceClientImpl.java:29)
+	at it.reply.sytel.adr.services.impl.GetDynatraceIncident.perform(GetDynatraceIncident.java:50)
+	at it.reply.sytel.adr.core.services.service.AbstractService.execute(AbstractService.java:67)
+	at it.reply.sytel.adr.engine.RemedyIncidetBuilderEngine.executeFlow(RemedyIncidetBuilderEngine.java:57)
+	at it.reply.sytel.adr.main.ConnectorExecutor.execute(ConnectorExecutor.java:27)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connection to https://dynatrace-sub-CA:8021 refused
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:158)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:149)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:121)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:562)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:415)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:820)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:754)
+	at it.reply.sytel.adr.common.ws.SharedHTTPSClient.invokeGet(SharedHTTPSClient.java:343)
+	... 8 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.ssl.SSLSocketFactory.connectSocket(SSLSocketFactory.java:374)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:148)
+	... 15 more
+[27 feb 2018 19:26:30,011][INFO ][C0A838015A95A2D600028731][2] Flow RemedyIncidentdBuilder Engine Called... 
+[27 feb 2018 19:26:30,011][INFO ][C0A838015A95A2D600028731][2] service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ...  
+[27 feb 2018 19:26:30,011][DEBUG][C0A838015A95A2D600028731][2] the Name for app:[ADBM] is [ADBM] 
+[27 feb 2018 19:26:30,011][DEBUG][C0A838015A95A2D600028731][2] the URL for app:[ADBM] is [https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] 
+[27 feb 2018 19:26:30,011][DEBUG][C0A838015A95A2D600028731][2] the USR for app:[ADBM] is [admin] 
+[27 feb 2018 19:26:30,011][DEBUG][C0A838015A95A2D600028731][2] the PWD for app:[ADBM] is [adradmin01] 
+[27 feb 2018 19:26:30,011][DEBUG][C0A838015A95A2D600028731][2] calling the console:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] with user[admin] pwd=adradmin01... 
+[27 feb 2018 19:26:30,011][DEBUG][C0A838015A95A2D600028731][2] Executing POST with basic authentication 
+[27 feb 2018 19:26:30,011][DEBUG][C0A838015A95A2D600028731][2] SOAP HTTP request headers: 
+[27 feb 2018 19:26:30,011][INFO ][C0A838015A95A2D600028731][2] 	name=Authorization, value=Basic YWRtaW46YWRyYWRtaW4wMQ== 
+[27 feb 2018 19:26:31,060][ERROR][C0A838015A95A2D600028731][2] Error while invoking URL:[] 
+org.apache.http.conn.HttpHostConnectException: Connection to https://dynatrace-sub-CA:8021 refused
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:158)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:149)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:121)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:562)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:415)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:820)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:754)
+	at it.reply.sytel.adr.common.ws.SharedHTTPSClient.invokeGet(SharedHTTPSClient.java:343)
+	at it.reply.sytel.adr.dynatraceClient.imp.RestClientImpl.invokeRestService(RestClientImpl.java:36)
+	at it.reply.sytel.adr.dynatraceClient.imp.DynatraceClientImpl.getDynatraceIncidents(DynatraceClientImpl.java:29)
+	at it.reply.sytel.adr.services.impl.GetDynatraceIncident.perform(GetDynatraceIncident.java:50)
+	at it.reply.sytel.adr.core.services.service.AbstractService.execute(AbstractService.java:67)
+	at it.reply.sytel.adr.engine.RemedyIncidetBuilderEngine.executeFlow(RemedyIncidetBuilderEngine.java:57)
+	at it.reply.sytel.adr.main.ConnectorExecutor.execute(ConnectorExecutor.java:27)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.ssl.SSLSocketFactory.connectSocket(SSLSocketFactory.java:374)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:148)
+	... 15 more
+[27 feb 2018 19:26:31,075][DEBUG][C0A838015A95A2D600028731][2] Marking associated HTTP connection as NOT-reusable 
+[27 feb 2018 19:26:31,075][ERROR][C0A838015A95A2D600028731][2] Exception on Flow Flow TestBuilder Engine 
+it.reply.sytel.adr.services.exc.GetDynatraceIncidentException: Exception on GetDynatraceIncident; nested exception is: 
+	it.reply.sytel.adr.dynatraceClient.exc.RestClientException: Exception on invoking the http:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION]; nested exception is: 
+	it.reply.sytel.adr.common.ws.exc.HttpClientException: Error while invoking URL:[]
+it.reply.sytel.adr.dynatraceClient.exc.RestClientException: Exception on invoking the http:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION]; nested exception is: 
+	it.reply.sytel.adr.common.ws.exc.HttpClientException: Error while invoking URL:[]
+it.reply.sytel.adr.common.ws.exc.HttpClientException: Error while invoking URL:[]
+	at it.reply.sytel.adr.common.ws.SharedHTTPSClient.invokeGet(SharedHTTPSClient.java:376)
+	at it.reply.sytel.adr.dynatraceClient.imp.RestClientImpl.invokeRestService(RestClientImpl.java:36)
+	at it.reply.sytel.adr.dynatraceClient.imp.DynatraceClientImpl.getDynatraceIncidents(DynatraceClientImpl.java:29)
+	at it.reply.sytel.adr.services.impl.GetDynatraceIncident.perform(GetDynatraceIncident.java:50)
+	at it.reply.sytel.adr.core.services.service.AbstractService.execute(AbstractService.java:67)
+	at it.reply.sytel.adr.engine.RemedyIncidetBuilderEngine.executeFlow(RemedyIncidetBuilderEngine.java:57)
+	at it.reply.sytel.adr.main.ConnectorExecutor.execute(ConnectorExecutor.java:27)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connection to https://dynatrace-sub-CA:8021 refused
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:158)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:149)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:121)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:562)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:415)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:820)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:754)
+	at it.reply.sytel.adr.common.ws.SharedHTTPSClient.invokeGet(SharedHTTPSClient.java:343)
+	... 8 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.ssl.SSLSocketFactory.connectSocket(SSLSocketFactory.java:374)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:148)
+	... 15 more
+[27 feb 2018 19:26:40,010][INFO ][C0A838015A95A2E000031869][3] Flow RemedyIncidentdBuilder Engine Called... 
+[27 feb 2018 19:26:40,010][INFO ][C0A838015A95A2E000031869][3] service:[it.reply.sytel.adr.services.impl.GetDynatraceIncident] called ...  
+[27 feb 2018 19:26:40,010][DEBUG][C0A838015A95A2E000031869][3] the Name for app:[ADBM] is [ADBM] 
+[27 feb 2018 19:26:40,010][DEBUG][C0A838015A95A2E000031869][3] the URL for app:[ADBM] is [https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] 
+[27 feb 2018 19:26:40,010][DEBUG][C0A838015A95A2E000031869][3] the USR for app:[ADBM] is [admin] 
+[27 feb 2018 19:26:40,010][DEBUG][C0A838015A95A2E000031869][3] the PWD for app:[ADBM] is [adradmin01] 
+[27 feb 2018 19:26:40,010][DEBUG][C0A838015A95A2E000031869][3] calling the console:[https://dynatrace-sub-CA:8021/rest/management/dashboard/ADBM_TEST_REMEDY_INTEGRATION] with user[admin] pwd=adradmin01... 
+[27 feb 2018 19:26:40,010][DEBUG][C0A838015A95A2E000031869][3] Executing POST with basic authentication 
+[27 feb 2018 19:26:40,010][DEBUG][C0A838015A95A2E000031869][3] SOAP HTTP request headers: 
+[27 feb 2018 19:26:40,010][INFO ][C0A838015A95A2E000031869][3] 	name=Authorization, value=Basic YWRtaW46YWRyYWRtaW4wMQ== 
